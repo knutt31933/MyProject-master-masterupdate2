@@ -2564,15 +2564,33 @@ public class SummaryActivity extends AppCompatActivity {
 
                                    }
 
+                                   ArrayList<String> nameCount = new ArrayList<>();
+                                   ArrayList<Integer> numberCount = new ArrayList<>();
+                                   nameCount.clear();
+                                   numberCount.clear();
 
-                                   Toast.makeText(SummaryActivity.this, "บวก" + String.valueOf(countgrappos) + "ลบ" + String.valueOf(countgrapnege), Toast.LENGTH_SHORT).show();
-                                   int countAttitude[] = {countgrappos, countgrapnege, countgraphneural, countgraphnot};
-                                   String nameAttitude[] = {"ทัศนคติเชิงบวก", "ทัศนคติเชิงลบ", "ทัศนคติเป็นกลาง", "ไม่แสดงออกถึงทัศนคติเลย"};
+                                   if(countgrappos>0){
+                                       numberCount.add(countgrappos);
+                                       nameCount.add("ทัศนคติเชิงบวก");
+                                   }
+                                   if(countgrapnege>0){
+                                       numberCount.add(countgrapnege);
+                                       nameCount.add("ทัศนคติเชิงลบ");
+                                   }
+                                   if(countgraphneural>0){
+                                       numberCount.add(countgraphneural);
+                                       nameCount.add("ทัศนคติเป็นกลาง");
+                                   }
+                                   if(countgraphnot>0){
+                                       numberCount.add(countgraphnot);
+                                       nameCount.add("ไม่แสดงออกถึงทัศนคติเลย");
+                                   }
+
 
 
                                    List<PieEntry> pieEntries = new ArrayList<>();
-                                   for (int i = 0; i < countAttitude.length; i++) {
-                                       pieEntries.add(new PieEntry(countAttitude[i], nameAttitude[i]));
+                                   for (int i = 0; i < numberCount.size(); i++) {
+                                       pieEntries.add(new PieEntry(numberCount.get(i), nameCount.get(i)));
 
                                    }
                                    PieDataSet pieDataSet = new PieDataSet(pieEntries, " ");
@@ -2585,9 +2603,10 @@ public class SummaryActivity extends AppCompatActivity {
                                    PieData pieData = new PieData(pieDataSet);
 
 
+
+
+
                                    PieChart pieChart = (PieChart) findViewById(R.id.chart);
-
-
                                    pieChart.setData(pieData);
                                    pieChart.setHoleRadius(25f);
                                    pieChart.setTransparentCircleAlpha(0);
@@ -5061,24 +5080,33 @@ public class SummaryActivity extends AppCompatActivity {
 //                                for(int i = 0;i<allPostsMessages.size();i++){
 //
 //                                }
-                                   Toast.makeText(SummaryActivity.this, String.valueOf(countgrappos), Toast.LENGTH_SHORT).show();
-                                   SharedPreferences sp = getSharedPreferences("save1", Context.MODE_PRIVATE);
-                                   int save1 = sp.getInt("show1", countgrappos);
-                                   SharedPreferences sp2 = getSharedPreferences("save2", Context.MODE_PRIVATE);
-                                   int save2 = sp2.getInt("show2", countgrapnege);
-                                   SharedPreferences sp3 = getSharedPreferences("save3", Context.MODE_PRIVATE);
-                                   int save3 = sp3.getInt("show3", countgraphneural);
-                                   SharedPreferences sp4 = getSharedPreferences("save4", Context.MODE_PRIVATE);
-                                   int save4 = sp4.getInt("show4", countgraphnot);
+                                   ArrayList<String> nameCount = new ArrayList<>();
+                                   ArrayList<Integer> numberCount = new ArrayList<>();
+                                   nameCount.clear();
+                                   numberCount.clear();
 
+                                   if(countgrappos>0){
+                                       numberCount.add(countgrappos);
+                                       nameCount.add("ทัศนคติเชิงบวก");
+                                   }
+                                   if(countgrapnege>0){
+                                       numberCount.add(countgrapnege);
+                                       nameCount.add("ทัศนคติเชิงลบ");
+                                   }
+                                   if(countgraphneural>0){
+                                       numberCount.add(countgraphneural);
+                                       nameCount.add("ทัศนคติเป็นกลาง");
+                                   }
+                                   if(countgraphnot>0){
+                                       numberCount.add(countgraphnot);
+                                       nameCount.add("ไม่แสดงออกถึงทัศนคติเลย");
+                                   }
 
-                                   int countAttitude[] = {countgrappos, countgrapnege, countgraphneural, countgraphnot};
-                                   String nameAttitude[] = {"ทัศนคติเชิงบวก", "ทัศนคติเชิงลบ", "ทัศนคติเป็นกลาง", "ไม่แสดงออกถึงทัศนคติเลย"};
 
 
                                    List<PieEntry> pieEntries = new ArrayList<>();
-                                   for (int i = 0; i < countAttitude.length; i++) {
-                                       pieEntries.add(new PieEntry(countAttitude[i], nameAttitude[i]));
+                                   for (int i = 0; i < numberCount.size(); i++) {
+                                       pieEntries.add(new PieEntry(numberCount.get(i), nameCount.get(i)));
 
                                    }
                                    PieDataSet pieDataSet = new PieDataSet(pieEntries, " ");
@@ -5091,9 +5119,10 @@ public class SummaryActivity extends AppCompatActivity {
                                    PieData pieData = new PieData(pieDataSet);
 
 
+
+
+
                                    PieChart pieChart = (PieChart) findViewById(R.id.chart);
-
-
                                    pieChart.setData(pieData);
                                    pieChart.setHoleRadius(25f);
                                    pieChart.setTransparentCircleAlpha(0);
