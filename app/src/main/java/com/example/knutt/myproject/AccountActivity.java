@@ -6306,7 +6306,7 @@ public class AccountActivity extends AppCompatActivity
                     }
             );
             Bundle parameters = new Bundle();
-            parameters.putString("fields", "created_time,message");
+            parameters.putString("fields", "created_time,message,story");
             request.setParameters(parameters);
             request.executeAsync();
 
