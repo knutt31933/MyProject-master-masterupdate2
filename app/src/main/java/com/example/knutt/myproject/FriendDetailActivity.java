@@ -78,7 +78,7 @@ private TreeMap<String,String> add = new TreeMap<>();
                 SharedPreferences.Editor editor2 = sharedPref2.edit();
                 editor2.putString("id", id);
                 editor2.commit();
-                Toast.makeText(getApplicationContext(),name +" "+id,Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(FriendDetailActivity.this,FriendTimelineActivity.class);
                 startActivity(intent);
             }

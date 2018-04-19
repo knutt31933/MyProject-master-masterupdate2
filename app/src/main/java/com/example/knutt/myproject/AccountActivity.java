@@ -246,7 +246,7 @@ public class AccountActivity extends AppCompatActivity
         for(int i = 0;i<datetimeforcheck.size();i++){
             String key = datetimeforcheck.get(i).get("Date");
             if(key.contains(dateforfirst)){
-               forcheck++;
+                forcheck++;
             }
 
         }
@@ -1053,7 +1053,7 @@ public class AccountActivity extends AppCompatActivity
                 }
 
             }
-            });
+        });
 
         Bundle requestParameter = new Bundle();
         requestParameter.putString("fields", "id, name, picture");
@@ -1150,76 +1150,76 @@ public class AccountActivity extends AppCompatActivity
     public void getPostAndCheckWord(){
 
 
-            final ArrayList<HashMap<String, String>> attitude = db.getAttitudeList();
-            final ArrayList<HashMap<String, String>> emotion = db.getEmotionList();
-            final ArrayList<HashMap<String, String>> emoshortcut = db.getEmoticon();
-            final ArrayList<HashMap<String, String>> attitude2 = db2.getAttitudeList2();
-            final ArrayList<HashMap<String, String>> attitude3 = db3.getAttitudeList3();
-            final ArrayList<HashMap<String, String>> attitudeNotifi = databaseNotifiWord.getNotiword();
+        final ArrayList<HashMap<String, String>> attitude = db.getAttitudeList();
+        final ArrayList<HashMap<String, String>> emotion = db.getEmotionList();
+        final ArrayList<HashMap<String, String>> emoshortcut = db.getEmoticon();
+        final ArrayList<HashMap<String, String>> attitude2 = db2.getAttitudeList2();
+        final ArrayList<HashMap<String, String>> attitude3 = db3.getAttitudeList3();
+        final ArrayList<HashMap<String, String>> attitudeNotifi = databaseNotifiWord.getNotiword();
         final ArrayList<HashMap<String, String>> storyTimeline = databaseCheckin.getCheckinWord();
 
-            final String pattern2 = "([a-zA-Z0-9!@#$&()-`|.+',/\"]{2})";
-            final String pattern3 = "([a-zA-Z0-9!@#$&()-`|.+',/\"]{3})";
-            final String pattern4 = "([a-zA-Z0-9!@#$&()-`|.+',/\"]{4})";
-            final String pattern5 = "([0-8]{1})";
+        final String pattern2 = "([a-zA-Z0-9!@#$&()-`|.+',/\"]{2})";
+        final String pattern3 = "([a-zA-Z0-9!@#$&()-`|.+',/\"]{3})";
+        final String pattern4 = "([a-zA-Z0-9!@#$&()-`|.+',/\"]{4})";
+        final String pattern5 = "([0-8]{1})";
 
-           final Pattern regex2 = Pattern.compile(pattern2);
-           final Pattern regex3 = Pattern.compile(pattern3);
-           final Pattern regex4 = Pattern.compile(pattern4);
-           Pattern regex5 = Pattern.compile(pattern5);
-
-
-            final String message = editTextpost.getText().toString().trim();
+        final Pattern regex2 = Pattern.compile(pattern2);
+        final Pattern regex3 = Pattern.compile(pattern3);
+        final Pattern regex4 = Pattern.compile(pattern4);
+        Pattern regex5 = Pattern.compile(pattern5);
 
 
+        final String message = editTextpost.getText().toString().trim();
 
 
 
-            if (message.length() == 0) {
-                Toast.makeText(AccountActivity.this,"Please enter a message.", Toast.LENGTH_LONG).show();
-            } else {
-
-                SharedPreferences sp6 = getSharedPreferences("App save6", Context.MODE_PRIVATE);
-                int checkboxstate6 = sp6.getInt("checked6",1);
-
-                //clear all collection
-                strword.clear();
-                emo.clear();
-                listemo.clear();
-                listforword.clear();
-                listforemo.clear();
-                testword.clear();
-                testshortcut.clear();
-                mappingEmo.clear();
-                arrMapping.clear();
 
 
-                int countnumemo = 0;
-                int countchexkemo = 0;
-                int checkshortcut = 0;
+        if (message.length() == 0) {
+            Toast.makeText(AccountActivity.this,"Please enter a message.", Toast.LENGTH_LONG).show();
+        } else {
 
-                //emoticon check word
-                Matcher m2 = regex2.matcher(message);
-                Matcher m3 = regex3.matcher(message);
-                Matcher m4 = regex4.matcher(message);
-                Matcher m5 ;
+            SharedPreferences sp6 = getSharedPreferences("App save6", Context.MODE_PRIVATE);
+            int checkboxstate6 = sp6.getInt("checked6",0);
 
-                while (m2.find()){
-                    listemo.add(m2.group(0));
-                    countnumemo++;
-                }
-                while (m3.find()){
-                    listemo.add(m3.group(0));
-                    countnumemo++;
-                }
-                while (m4.find()){
-                    listemo.add(m4.group(0));
-                    countnumemo++;
-                }
+            //clear all collection
+            strword.clear();
+            emo.clear();
+            listemo.clear();
+            listforword.clear();
+            listforemo.clear();
+            testword.clear();
+            testshortcut.clear();
+            mappingEmo.clear();
+            arrMapping.clear();
 
-                //emoticon check word end!!
 
-                //check word by regular expression
+            int countnumemo = 0;
+            int countchexkemo = 0;
+            int checkshortcut = 0;
+
+            //emoticon check word
+            Matcher m2 = regex2.matcher(message);
+            Matcher m3 = regex3.matcher(message);
+            Matcher m4 = regex4.matcher(message);
+            Matcher m5 ;
+
+            while (m2.find()){
+                listemo.add(m2.group(0));
+                countnumemo++;
+            }
+            while (m3.find()){
+                listemo.add(m3.group(0));
+                countnumemo++;
+            }
+            while (m4.find()){
+                listemo.add(m4.group(0));
+                countnumemo++;
+            }
+
+            //emoticon check word end!!
+
+            //check word by regular expression
 
 //                for(int i = 0;i<attitude.size();i++){
 //                    String checkwordbyregular = attitude.get(i).get("AttitudeWord");
@@ -1252,520 +1252,520 @@ public class AccountActivity extends AppCompatActivity
 //                }
 
 
-                //check word by regular expression end!!
+            //check word by regular expression end!!
 
 
 
 
 
-                Locale thaiLocale = new Locale("th");
+            Locale thaiLocale = new Locale("th");
 
 
-                BreakIterator boundary = BreakIterator.getWordInstance(thaiLocale);
+            BreakIterator boundary = BreakIterator.getWordInstance(thaiLocale);
 
 
 //BreakIterator boundary = DictionaryBasedBreakIterator.getWordInstance(thaiLocale);
 
-                boundary.setText(message);
+            boundary.setText(message);
 
-                String keepword = "";
-                String keepemo = "";
-
-
-
-                int start = boundary.first();
-                for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
-
-                    strword.add(message.substring(start, end));
+            String keepword = "";
+            String keepemo = "";
 
 
-                    //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
 
+            int start = boundary.first();
+            for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
+
+                strword.add(message.substring(start, end));
+
+
+                //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+            }
+
+
+
+
+            int count = 0;
+            int countNotifi = 0;
+            int checkemo = 0;
+
+            //เช็คค่าทัศนคติ emoshortcut
+            for (String s : listemo) {
+                String keepingword = "";
+
+                for(int i=0;i<emoshortcut.size();i++){
+                    testshortcut.add(emoshortcut.get(i).get("EmoticonShortcut"));
+                }
+                if(testshortcut.contains(s)){
+                    keepemo = keepemo + s;
                 }
 
 
-
-
-                int count = 0;
-                int countNotifi = 0;
-                int checkemo = 0;
-
-                //เช็คค่าทัศนคติ emoshortcut
-                for (String s : listemo) {
-                    String keepingword = "";
-
-                    for(int i=0;i<emoshortcut.size();i++){
-                        testshortcut.add(emoshortcut.get(i).get("EmoticonShortcut"));
-                    }
-                    if(testshortcut.contains(s)){
-                        keepemo = keepemo + s;
-                    }
-
-
-                    for(int i=0;i<emoshortcut.size();i++){
-                        if(s.equals(emoshortcut.get(i).get("EmoticonShortcut"))){
-                            String rank = emoshortcut.get(i).get("EmoticonRank");
-                            int countrank = Integer.parseInt(rank);
-                            listforemo.add(emoshortcut.get(i).get("EmoticonShortcut"));
-                            //int shcemo = Integer.parseInt(emoshortcut.get(i).get("EmoticonEmoid"));
-                            m5 = regex5.matcher(emoshortcut.get(i).get("EmoticonEmoid"));
-                            while (m5.find()){
-                                int shcemo = Integer.parseInt(m5.group(0));
-                                String emotionword = emotion.get(shcemo).get("EmotionWord");
-                                keepingword = keepingword + emotionword + " ";
-                                if(mappingEmo.get(emotionword) == null){
-                                    mappingEmo.put(emotionword,1);
-                                }else{
-                                    int countmapping = mappingEmo.get(emotionword);
-                                    countmapping++;
-                                    mappingEmo.put(emotionword,countmapping);
-
-                                }
-                                emo.add(emotionword);
-                            }
-
-
-
-                            keepemo = " "+keepemo+ " ="+rank+","+keepingword+"|";//check
-
-                            countchexkemo = countchexkemo + countrank;
-                            checkshortcut++;
-
-
-                        }
-                    }
-
-                }
-                Toast.makeText(AccountActivity.this,String.valueOf(strword.size()),Toast.LENGTH_LONG).show();
-                for(String s:strword){
-                    Toast.makeText(AccountActivity.this,s,Toast.LENGTH_LONG).show();
-
-                }
-
-
-                final String checksc;
-
-                if(countchexkemo>0&& checkshortcut >0) {
-                    checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> " + String.valueOf(countchexkemo); //check
-                }else if(countchexkemo<0&& checkshortcut >0){
-                    checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> " + String.valueOf(countchexkemo); //check
-                }else if(countchexkemo == 0 && checkshortcut >0){
-                    checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> " + String.valueOf(countchexkemo); //check
-                }else{
-                    checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> null"; //check
-                }
-                //เช็คคำทัศนคติ word
-                for (int i = 0; i < strword.size(); i++) {
-                    int icount = i+1;
-                    String str2 = "";
-                    String str3 = "";
-
-                    if(icount <= strword.size()-1){
-                        str2 = strword.get(icount);
-                        for(int h = icount;h<=strword.size()-1;h++){
-                            if(str2.contains(" ")){
-                                str2 = strword.get(h);
+                for(int i=0;i<emoshortcut.size();i++){
+                    if(s.equals(emoshortcut.get(i).get("EmoticonShortcut"))){
+                        String rank = emoshortcut.get(i).get("EmoticonRank");
+                        int countrank = Integer.parseInt(rank);
+                        listforemo.add(emoshortcut.get(i).get("EmoticonShortcut"));
+                        //int shcemo = Integer.parseInt(emoshortcut.get(i).get("EmoticonEmoid"));
+                        m5 = regex5.matcher(emoshortcut.get(i).get("EmoticonEmoid"));
+                        while (m5.find()){
+                            int shcemo = Integer.parseInt(m5.group(0));
+                            String emotionword = emotion.get(shcemo).get("EmotionWord");
+                            keepingword = keepingword + emotionword + " ";
+                            if(mappingEmo.get(emotionword) == null){
+                                mappingEmo.put(emotionword,1);
                             }else{
-                                break;
-                            }
-                        }
-
-
-                    }
-
-                    String str = strword.get(i);
-
-                    String keepingword = "";
-
-                    for (int j = 0; j < attitude.size(); j++) {
-
-                            testword.add(attitude.get(j).get("AttitudeWord"));
-
-                    }
-                    for (int j = 0; j < attitude2.size(); j++) {
-
-                        testword.add(attitude2.get(j).get("AttitudeWord"));
-
-                    }
-
-                    for (int j = 0; j < attitude3.size(); j++) {
-
-                        testword.add(attitude3.get(j).get("AttitudeWord"));
-
-                    }
-
-
-                    if(testword.contains(str)){
-                        keepword = keepword + str;
-                    }else{
-                        keepword = keepword + str+"|";
-                    }
-                    int counttarget = 0;
-
-                    if(str.contains("ๆ")){
-                       for(int a = 0;a<attitude.size();a++){
-                            String checkwordbyregular = attitude.get(a).get("AttitudeWord");
-                            Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                            Matcher mcheck = regexcheck.matcher(str);
-                            if(mcheck.find()){
-                                str = mcheck.group(0);
-                                if(str2.contains("ๆ")) {
-
-                                    for (int b = 0; b < attitude.size(); b++) {
-                                        String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    for (int b = 0; b < attitude2.size(); b++) {
-                                        String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    for (int b = 0; b < attitude3.size(); b++) {
-                                        String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    if(counttarget != 1){
-                                        str3 = str+"ๆ"+str2;
-
-                                    }else{
-                                        str3 = str+"ๆ";
-                                    }
-
-                                }
+                                int countmapping = mappingEmo.get(emotionword);
+                                countmapping++;
+                                mappingEmo.put(emotionword,countmapping);
 
                             }
-
-                        }
-
-                        for(int a = 0;a<attitude2.size();a++){
-                            String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
-                            Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                            Matcher mcheck = regexcheck.matcher(str);
-                            if(mcheck.find()){
-                                str = mcheck.group(0);
-                                if(str2.contains("ๆ")) {
-
-                                    for (int b = 0; b < attitude.size(); b++) {
-                                        String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    for (int b = 0; b < attitude2.size(); b++) {
-                                        String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    for (int b = 0; b < attitude3.size(); b++) {
-                                        String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    if((counttarget != 1)){
-                                        str3 = str+"ๆ"+str2;
-
-                                    }else{
-                                        str3 = str+"ๆ";
-                                    }
-                                }
-
-                            }
-                        }
-
-                        for(int a = 0;a<attitude3.size();a++){
-                            String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
-                            Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                            Matcher mcheck = regexcheck.matcher(str);
-                            if(mcheck.find()){
-                                str = mcheck.group(0);
-                                if(str2.contains("ๆ")) {
-
-                                    for (int b = 0; b < attitude.size(); b++) {
-                                        String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    for (int b = 0; b < attitude2.size(); b++) {
-                                        String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-                                    for (int b = 0; b < attitude3.size(); b++) {
-                                        String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
-                                        Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                        Matcher mcheck2 = regexcheck2.matcher(str2);
-                                        if (mcheck2.find()) {
-                                            counttarget++;
-                                        }
-                                    }
-
-                                    if(counttarget != 1){
-                                        str3 = str+"ๆ"+str2;
-
-                                    }else {
-                                        str3 = str + "ๆ";
-                                    }
-                                }
-
-
-                            }
+                            emo.add(emotionword);
                         }
 
 
 
-                    }else{
-                        if(str2.contains("ๆ")){
-                            str3 = str2;
+                        keepemo = " "+keepemo+ " ="+rank+","+keepingword+"|";//check
 
-                        }
-
+                        countchexkemo = countchexkemo + countrank;
+                        checkshortcut++;
 
 
                     }
+                }
+
+            }
+            Toast.makeText(AccountActivity.this,String.valueOf(strword.size()),Toast.LENGTH_LONG).show();
+            for(String s:strword){
+                Toast.makeText(AccountActivity.this,s,Toast.LENGTH_LONG).show();
+
+            }
 
 
+            final String checksc;
 
+            if(countchexkemo>0&& checkshortcut >0) {
+                checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> " + String.valueOf(countchexkemo); //check
+            }else if(countchexkemo<0&& checkshortcut >0){
+                checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> " + String.valueOf(countchexkemo); //check
+            }else if(countchexkemo == 0 && checkshortcut >0){
+                checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> " + String.valueOf(countchexkemo); //check
+            }else{
+                checksc = "ค่าทัศนคติemoticon : " + keepemo + " ==> null"; //check
+            }
+            //เช็คคำทัศนคติ word
+            for (int i = 0; i < strword.size(); i++) {
+                int icount = i+1;
+                String str2 = "";
+                String str3 = "";
 
-
-                    // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
-                    for (int j = 0; j < attitude.size(); j++) {
-                        if (str.equals(attitude.get(j).get("AttitudeWord"))) {
-
-                            String rank = attitude.get(j).get("AttitudeRank");
-                            int countrank = Integer.parseInt(rank);
-                            m5 = regex5.matcher(attitude.get(j).get("Emotion"));
-                            while (m5.find()){
-                                int attemo = Integer.parseInt(m5.group(0));
-                                String emotionword = emotion.get(attemo).get("EmotionWord");
-                                keepingword = keepingword + emotionword + " ";
-
-                                if(mappingEmo.get(emotionword) == null){
-                                    mappingEmo.put(emotionword,1);
-                                }else{
-                                    int countmapping = mappingEmo.get(emotionword);
-                                    countmapping++;
-                                    mappingEmo.put(emotionword,countmapping);
-
-                                }
-
-                            }
-
-
-                            keepword = " "+keepword+" ="+rank+","+keepingword+"|";//check
-                            count = count + countrank;
-                            checkemo++;
-
-                            String frequen ="([ๆ]{1})";
-                            Pattern regexfre = Pattern.compile(frequen);
-                            Matcher mfre = regexfre.matcher(str3);
-                            int countnumber = 0;
-                            while (mfre.find()){
-                                count = count + countrank;
-                                countnumber++;
-                            }
-
-                            for(int c = 0;c <countnumber;c++){
-                                while (m5.find()){
-                                    int attemo = Integer.parseInt(m5.group(0));
-                                    String emotionword = emotion.get(attemo).get("EmotionWord");
-                                    if(mappingEmo.get(emotionword) == null){
-                                        mappingEmo.put(emotionword,1);
-                                    }else{
-                                        int countmapping = mappingEmo.get(emotionword);
-                                        countmapping++;
-                                        mappingEmo.put(emotionword,countmapping);
-
-                                    }
-
-                                }
-                            }
-
-                            if(str.equals("ไม่") && !str2.contains("ๆ")){
-                                i++;
-                            }
-
-
-
+                if(icount <= strword.size()-1){
+                    str2 = strword.get(icount);
+                    for(int h = icount;h<=strword.size()-1;h++){
+                        if(str2.contains(" ")){
+                            str2 = strword.get(h);
+                        }else{
+                            break;
                         }
                     }
-
-
-                    for (int j = 0; j < attitude2.size(); j++) {
-                        if (str.equals(attitude2.get(j).get("AttitudeWord"))) {
-
-                            for(int notifi = 0 ;notifi<attitudeNotifi.size();notifi++){
-                                if(attitudeNotifi.get(notifi).get("Word").equals(str)){
-                                    countNotifi++;
-                                }
-                            }
-
-                            String rank = attitude2.get(j).get("AttitudeRank");
-                            int countrank = Integer.parseInt(rank);
-                            m5 = regex5.matcher(attitude2.get(j).get("Emotion"));
-                            while (m5.find()){
-                                int attemo = Integer.parseInt(m5.group(0));
-                                String emotionword = emotion.get(attemo).get("EmotionWord");
-                                keepingword = keepingword + emotionword + " ";
-                                if(mappingEmo.get(emotionword) == null){
-                                    mappingEmo.put(emotionword,1);
-                                }else{
-                                    int countmapping = mappingEmo.get(emotionword);
-                                    countmapping++;
-                                    mappingEmo.put(emotionword,countmapping);
-
-                                }
-
-                            }
-
-
-                            keepword = " "+keepword+" ="+rank+","+keepingword+"|";//check
-                            count = count + countrank;
-                            checkemo++;
-
-                            String frequen ="([ๆ]{1})";
-                            Pattern regexfre = Pattern.compile(frequen);
-                            Matcher mfre = regexfre.matcher(str3);
-                            int countnumber =0;
-                            while (mfre.find()){
-                                count = count + countrank;
-                                countnumber++;
-                            }
-
-                            for(int c = 0;c <countnumber;c++){
-                                while (m5.find()){
-                                    int attemo = Integer.parseInt(m5.group(0));
-                                    String emotionword = emotion.get(attemo).get("EmotionWord");
-                                    if(mappingEmo.get(emotionword) == null){
-                                        mappingEmo.put(emotionword,1);
-                                    }else{
-                                        int countmapping = mappingEmo.get(emotionword);
-                                        countmapping++;
-                                        mappingEmo.put(emotionword,countmapping);
-
-                                    }
-
-                                }
-                            }
-                            if(str.equals("ไม่") && !str2.contains("ๆ")){
-                                i++;
-                            }
-
-
-
-                        }
-                    }
-
-                    for (int j = 0; j < attitude3.size(); j++) {
-                        if (str.equals(attitude3.get(j).get("AttitudeWord"))) {
-
-                            for(int notifi = 0 ;notifi<attitudeNotifi.size();notifi++){
-                                if(attitudeNotifi.get(notifi).get("Word").equals(str)){
-                                    countNotifi++;
-                                }
-                            }
-
-                            String rank = attitude3.get(j).get("AttitudeRank");
-                            int countrank = Integer.parseInt(rank);
-
-                            m5 = regex5.matcher(attitude3.get(j).get("Emotion"));
-                            while (m5.find()){
-                                int attemo = Integer.parseInt(m5.group(0));
-                                String emotionword = emotion.get(attemo).get("EmotionWord");
-                                keepingword = keepingword + emotionword + " ";
-                                if(mappingEmo.get(emotionword) == null){
-                                    mappingEmo.put(emotionword,1);
-                                }else{
-                                    int countmapping = mappingEmo.get(emotionword);
-                                    countmapping++;
-                                    mappingEmo.put(emotionword,countmapping);
-
-                                }
-
-                            }
-
-
-
-                            keepword = " "+keepword+" ="+rank+","+keepingword+"|";//check
-
-                            count = count + countrank;
-                            checkemo++;
-
-                            String frequen ="([ๆ]{1})";
-                            Pattern regexfre = Pattern.compile(frequen);
-                            Matcher mfre = regexfre.matcher(str3);
-                            int countnumber = 0;
-                            while (mfre.find()){
-                                count = count + countrank;
-                                countnumber++;
-                            }
-                            for(int c = 0;c <countnumber;c++){
-                                while (m5.find()){
-                                    int attemo = Integer.parseInt(m5.group(0));
-                                    String emotionword = emotion.get(attemo).get("EmotionWord");
-                                    if(mappingEmo.get(emotionword) == null){
-                                        mappingEmo.put(emotionword,1);
-                                    }else{
-                                        int countmapping = mappingEmo.get(emotionword);
-                                        countmapping++;
-                                        mappingEmo.put(emotionword,countmapping);
-
-                                    }
-
-                                }
-                            }
-
-                            if(str.equals("ไม่") && !str2.contains("ๆ")){
-                                i++;
-                            }
-
-
-
-
-                            //Toast.makeText(AccountActivity.this,attitude2.get(j).get("AttitudeWord"),Toast.LENGTH_LONG).show();
-
-                        }
-                    }
-
-
-
 
 
                 }
-                final String checkwd;
-                if(count > 0&&checkemo >0) {
-                    checkwd = "ค่าทัศนคติword : " + keepword + " ==> " + String.valueOf(count);//check
-                }else if(count < 0&&checkemo >0){
-                    checkwd = "ค่าทัศนคติword : " + keepword + " ==> " + String.valueOf(count);//check
-                }else if(count == 0&&checkemo >0){
-                    checkwd = "ค่าทัศนคติword : " + keepword + " ==> " + String.valueOf(count);//check
+
+                String str = strword.get(i);
+
+                String keepingword = "";
+
+                for (int j = 0; j < attitude.size(); j++) {
+
+                    testword.add(attitude.get(j).get("AttitudeWord"));
+
+                }
+                for (int j = 0; j < attitude2.size(); j++) {
+
+                    testword.add(attitude2.get(j).get("AttitudeWord"));
+
+                }
+
+                for (int j = 0; j < attitude3.size(); j++) {
+
+                    testword.add(attitude3.get(j).get("AttitudeWord"));
+
+                }
+
+
+                if(testword.contains(str)){
+                    keepword = keepword + str;
                 }else{
-                    checkwd = "ค่าทัศนคติword  : " + keepword + " ==> null";//check
+                    keepword = keepword + str+"|";
                 }
+                int counttarget = 0;
+
+                if(str.contains("ๆ")){
+                    for(int a = 0;a<attitude.size();a++){
+                        String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                        Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                        Matcher mcheck = regexcheck.matcher(str);
+                        if(mcheck.find()){
+                            str = mcheck.group(0);
+                            if(str2.contains("ๆ")) {
+
+                                for (int b = 0; b < attitude.size(); b++) {
+                                    String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                for (int b = 0; b < attitude2.size(); b++) {
+                                    String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                for (int b = 0; b < attitude3.size(); b++) {
+                                    String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                if(counttarget != 1){
+                                    str3 = str+"ๆ"+str2;
+
+                                }else{
+                                    str3 = str+"ๆ";
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    for(int a = 0;a<attitude2.size();a++){
+                        String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                        Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                        Matcher mcheck = regexcheck.matcher(str);
+                        if(mcheck.find()){
+                            str = mcheck.group(0);
+                            if(str2.contains("ๆ")) {
+
+                                for (int b = 0; b < attitude.size(); b++) {
+                                    String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                for (int b = 0; b < attitude2.size(); b++) {
+                                    String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                for (int b = 0; b < attitude3.size(); b++) {
+                                    String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                if((counttarget != 1)){
+                                    str3 = str+"ๆ"+str2;
+
+                                }else{
+                                    str3 = str+"ๆ";
+                                }
+                            }
+
+                        }
+                    }
+
+                    for(int a = 0;a<attitude3.size();a++){
+                        String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                        Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                        Matcher mcheck = regexcheck.matcher(str);
+                        if(mcheck.find()){
+                            str = mcheck.group(0);
+                            if(str2.contains("ๆ")) {
+
+                                for (int b = 0; b < attitude.size(); b++) {
+                                    String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                for (int b = 0; b < attitude2.size(); b++) {
+                                    String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+                                for (int b = 0; b < attitude3.size(); b++) {
+                                    String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                    Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                    Matcher mcheck2 = regexcheck2.matcher(str2);
+                                    if (mcheck2.find()) {
+                                        counttarget++;
+                                    }
+                                }
+
+                                if(counttarget != 1){
+                                    str3 = str+"ๆ"+str2;
+
+                                }else {
+                                    str3 = str + "ๆ";
+                                }
+                            }
+
+
+                        }
+                    }
+
+
+
+                }else{
+                    if(str2.contains("ๆ")){
+                        str3 = str2;
+
+                    }
+
+
+
+                }
+
+
+
+
+
+                // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
+                for (int j = 0; j < attitude.size(); j++) {
+                    if (str.equals(attitude.get(j).get("AttitudeWord"))) {
+
+                        String rank = attitude.get(j).get("AttitudeRank");
+                        int countrank = Integer.parseInt(rank);
+                        m5 = regex5.matcher(attitude.get(j).get("Emotion"));
+                        while (m5.find()){
+                            int attemo = Integer.parseInt(m5.group(0));
+                            String emotionword = emotion.get(attemo).get("EmotionWord");
+                            keepingword = keepingword + emotionword + " ";
+
+                            if(mappingEmo.get(emotionword) == null){
+                                mappingEmo.put(emotionword,1);
+                            }else{
+                                int countmapping = mappingEmo.get(emotionword);
+                                countmapping++;
+                                mappingEmo.put(emotionword,countmapping);
+
+                            }
+
+                        }
+
+
+                        keepword = " "+keepword+" ="+rank+","+keepingword+"|";//check
+                        count = count + countrank;
+                        checkemo++;
+
+                        String frequen ="([ๆ]{1})";
+                        Pattern regexfre = Pattern.compile(frequen);
+                        Matcher mfre = regexfre.matcher(str3);
+                        int countnumber = 0;
+                        while (mfre.find()){
+                            count = count + countrank;
+                            countnumber++;
+                        }
+
+                        for(int c = 0;c <countnumber;c++){
+                            while (m5.find()){
+                                int attemo = Integer.parseInt(m5.group(0));
+                                String emotionword = emotion.get(attemo).get("EmotionWord");
+                                if(mappingEmo.get(emotionword) == null){
+                                    mappingEmo.put(emotionword,1);
+                                }else{
+                                    int countmapping = mappingEmo.get(emotionword);
+                                    countmapping++;
+                                    mappingEmo.put(emotionword,countmapping);
+
+                                }
+
+                            }
+                        }
+
+                        if(str.equals("ไม่") && !str2.contains("ๆ")){
+                            i++;
+                        }
+
+
+
+                    }
+                }
+
+
+                for (int j = 0; j < attitude2.size(); j++) {
+                    if (str.equals(attitude2.get(j).get("AttitudeWord"))) {
+
+                        for(int notifi = 0 ;notifi<attitudeNotifi.size();notifi++){
+                            if(attitudeNotifi.get(notifi).get("Word").equals(str)){
+                                countNotifi++;
+                            }
+                        }
+
+                        String rank = attitude2.get(j).get("AttitudeRank");
+                        int countrank = Integer.parseInt(rank);
+                        m5 = regex5.matcher(attitude2.get(j).get("Emotion"));
+                        while (m5.find()){
+                            int attemo = Integer.parseInt(m5.group(0));
+                            String emotionword = emotion.get(attemo).get("EmotionWord");
+                            keepingword = keepingword + emotionword + " ";
+                            if(mappingEmo.get(emotionword) == null){
+                                mappingEmo.put(emotionword,1);
+                            }else{
+                                int countmapping = mappingEmo.get(emotionword);
+                                countmapping++;
+                                mappingEmo.put(emotionword,countmapping);
+
+                            }
+
+                        }
+
+
+                        keepword = " "+keepword+" ="+rank+","+keepingword+"|";//check
+                        count = count + countrank;
+                        checkemo++;
+
+                        String frequen ="([ๆ]{1})";
+                        Pattern regexfre = Pattern.compile(frequen);
+                        Matcher mfre = regexfre.matcher(str3);
+                        int countnumber =0;
+                        while (mfre.find()){
+                            count = count + countrank;
+                            countnumber++;
+                        }
+
+                        for(int c = 0;c <countnumber;c++){
+                            while (m5.find()){
+                                int attemo = Integer.parseInt(m5.group(0));
+                                String emotionword = emotion.get(attemo).get("EmotionWord");
+                                if(mappingEmo.get(emotionword) == null){
+                                    mappingEmo.put(emotionword,1);
+                                }else{
+                                    int countmapping = mappingEmo.get(emotionword);
+                                    countmapping++;
+                                    mappingEmo.put(emotionword,countmapping);
+
+                                }
+
+                            }
+                        }
+                        if(str.equals("ไม่") && !str2.contains("ๆ")){
+                            i++;
+                        }
+
+
+
+                    }
+                }
+
+                for (int j = 0; j < attitude3.size(); j++) {
+                    if (str.equals(attitude3.get(j).get("AttitudeWord"))) {
+
+                        for(int notifi = 0 ;notifi<attitudeNotifi.size();notifi++){
+                            if(attitudeNotifi.get(notifi).get("Word").equals(str)){
+                                countNotifi++;
+                            }
+                        }
+
+                        String rank = attitude3.get(j).get("AttitudeRank");
+                        int countrank = Integer.parseInt(rank);
+
+                        m5 = regex5.matcher(attitude3.get(j).get("Emotion"));
+                        while (m5.find()){
+                            int attemo = Integer.parseInt(m5.group(0));
+                            String emotionword = emotion.get(attemo).get("EmotionWord");
+                            keepingword = keepingword + emotionword + " ";
+                            if(mappingEmo.get(emotionword) == null){
+                                mappingEmo.put(emotionword,1);
+                            }else{
+                                int countmapping = mappingEmo.get(emotionword);
+                                countmapping++;
+                                mappingEmo.put(emotionword,countmapping);
+
+                            }
+
+                        }
+
+
+
+                        keepword = " "+keepword+" ="+rank+","+keepingword+"|";//check
+
+                        count = count + countrank;
+                        checkemo++;
+
+                        String frequen ="([ๆ]{1})";
+                        Pattern regexfre = Pattern.compile(frequen);
+                        Matcher mfre = regexfre.matcher(str3);
+                        int countnumber = 0;
+                        while (mfre.find()){
+                            count = count + countrank;
+                            countnumber++;
+                        }
+                        for(int c = 0;c <countnumber;c++){
+                            while (m5.find()){
+                                int attemo = Integer.parseInt(m5.group(0));
+                                String emotionword = emotion.get(attemo).get("EmotionWord");
+                                if(mappingEmo.get(emotionword) == null){
+                                    mappingEmo.put(emotionword,1);
+                                }else{
+                                    int countmapping = mappingEmo.get(emotionword);
+                                    countmapping++;
+                                    mappingEmo.put(emotionword,countmapping);
+
+                                }
+
+                            }
+                        }
+
+                        if(str.equals("ไม่") && !str2.contains("ๆ")){
+                            i++;
+                        }
+
+
+
+
+                        //Toast.makeText(AccountActivity.this,attitude2.get(j).get("AttitudeWord"),Toast.LENGTH_LONG).show();
+
+                    }
+                }
+
+
+
+
+
+            }
+            final String checkwd;
+            if(count > 0&&checkemo >0) {
+                checkwd = "ค่าทัศนคติword : " + keepword + " ==> " + String.valueOf(count);//check
+            }else if(count < 0&&checkemo >0){
+                checkwd = "ค่าทัศนคติword : " + keepword + " ==> " + String.valueOf(count);//check
+            }else if(count == 0&&checkemo >0){
+                checkwd = "ค่าทัศนคติword : " + keepword + " ==> " + String.valueOf(count);//check
+            }else{
+                checkwd = "ค่าทัศนคติword  : " + keepword + " ==> null";//check
+            }
 
 
 //                if(emo.contains("ไม่แสดงอารมณ์")){
@@ -1775,12 +1775,118 @@ public class AccountActivity extends AppCompatActivity
 
 
 
-                if(countchexkemo >0 && checkshortcut >0){
+            if(countchexkemo >0 && checkshortcut >0){
 //                    if(emo.contains("กลัว(Fear)")) {
 //                        emo.remove("กลัว(Fear)");
 //                    }
+                if(mappingEmo.containsKey("กลัว(Fear))")) {
+                    mappingEmo.remove("กลัว(Fear)");
+                }
+
+//                    if(emo.contains("รังเกียจ(Disgust)")){
+//                        emo.remove("รังเกียจ(Disgust)");
+//
+//                    }
+                if(mappingEmo.containsKey("รังเกียจ(Disgust))")) {
+                    mappingEmo.remove("รังเกียจ(Disgust)");
+                }
+//                    if(emo.contains("โกรธ(Anger)")){
+//                        emo.remove("โกรธ(Anger)");
+//                    }
+                if(mappingEmo.containsKey("โกรธ(Anger)")) {
+                    mappingEmo.remove("โกรธ(Anger)");
+                }
+//                    if(emo.contains("เศร้าเสียใจ(Sadness)")){
+//                        emo.remove("เศร้าเสียใจ(Sadness)");
+//                    }
+                if(mappingEmo.containsKey("เศร้าเสียใจ(Sadness)")) {
+                    mappingEmo.remove("เศร้าเสียใจ(Sadness)");
+                }
+//                    if(emo.contains("ประหลาดใจ(Surprise)")){
+//                        emo.remove("ประหลาดใจ(Surprise)");
+//                    }
+                if(mappingEmo.containsKey("ประหลาดใจ(Surprise)")) {
+                    mappingEmo.remove("ประหลาดใจ(Surprise)");
+                }
+//                    if(emo.contains("คาดหวัง(Anticipation)")){
+//                        emo.remove("คาดหวัง(Anticipation)");
+//                    }
+                if(mappingEmo.containsKey("คาดหวัง(Anticipation)")) {
+                    mappingEmo.remove("คาดหวัง(Anticipation)");
+                }
+
+            }else if(countchexkemo == 0 && checkshortcut >0){
+//                    if(emo.contains("กลัว(Fear)")) {
+//                        emo.remove("กลัว(Fear)");
+//                    }
+                if(mappingEmo.containsKey("กลัว(Fear)")) {
+                    mappingEmo.remove("กลัว(Fear)");
+                }
+//                    if(emo.contains("รังเกียจ(Disgust)")){
+//                        emo.remove("รังเกียจ(Disgust)");
+//
+//                    }
+                if(mappingEmo.containsKey("รังเกียจ(Disgust)")) {
+                    mappingEmo.remove("รังเกียจ(Disgust)");
+                }
+//                    if(emo.contains("โกรธ(Anger)")){
+//                        emo.remove("โกรธ(Anger)");
+//                    }
+                if(mappingEmo.containsKey("โกรธ(Anger)")) {
+                    mappingEmo.remove("โกรธ(Anger)");
+                }
+//                    if(emo.contains("เศร้าเสียใจ(Sadness)")){
+//                        emo.remove("เศร้าเสียใจ(Sadness)");
+//                    }
+                if(mappingEmo.containsKey("เศร้าเสียใจ(Sadness)")) {
+                    mappingEmo.remove("เศร้าเสียใจ(Sadness)");
+                }
+//                    if(emo.contains("ยอมรับ(Acceptance)")){
+//                        emo.remove("ยอมรับ(Acceptance)");
+//                    }
+                if(mappingEmo.containsKey("ยอมรับ(Acceptance)")) {
+                    mappingEmo.remove("ยอมรับ(Acceptance)");
+                }
+//                    if(emo.contains("รื่นเริง(Joy)")){
+//                        emo.remove("รื่นเริง(Joy)");
+//                    }
+                if(mappingEmo.containsKey("รื่นเริง(Joy)")) {
+                    mappingEmo.remove("รื่นเริง(Joy)");
+                }
+
+            }else if(countchexkemo <0&&checkshortcut>0){
+//                    if(emo.contains("ยอมรับ(Acceptance)")){
+//                        emo.remove("ยอมรับ(Acceptance)");
+//                    }
+                if(mappingEmo.containsKey("ยอมรับ(Acceptance)")) {
+                    mappingEmo.remove("รยอมรับ(Acceptance)");
+                }
+//                    if(emo.contains("รื่นเริง(Joy)")){
+//                        emo.remove("รื่นเริง(Joy)");
+//                    }
+                if(mappingEmo.containsKey("รื่นเริง(Joy)")) {
+                    mappingEmo.remove("รื่นเริง(Joy)");
+                }
+//                    if(emo.contains("ประหลาดใจ(Surprise)")){
+//                        emo.remove("ประหลาดใจ(Surprise)");
+//                    }
+                if(mappingEmo.containsKey("ประหลาดใจ(Surprise)")) {
+                    mappingEmo.remove("ประหลาดใจ(Surprise)");
+                }
+//                    if(emo.contains("คาดหวัง(Anticipation)")){
+//                        emo.remove("คาดหวัง(Anticipation)");
+//                    }
+                if(mappingEmo.containsKey("คาดหวัง(Anticipation)")) {
+                    mappingEmo.remove("คาดหวัง(Anticipation)");
+                }
+            }else {
+
+                if(count > 0&&checkemo >0){
+                    //                    if(emo.contains("กลัว(Fear)")) {
+//                        emo.remove("กลัว(Fear)");
+//                    }
                     if(mappingEmo.containsKey("กลัว(Fear))")) {
-                       mappingEmo.remove("กลัว(Fear)");
+                        mappingEmo.remove("กลัว(Fear)");
                     }
 
 //                    if(emo.contains("รังเกียจ(Disgust)")){
@@ -1815,8 +1921,9 @@ public class AccountActivity extends AppCompatActivity
                         mappingEmo.remove("คาดหวัง(Anticipation)");
                     }
 
-                }else if(countchexkemo == 0 && checkshortcut >0){
-//                    if(emo.contains("กลัว(Fear)")) {
+
+                }else if(count == 0&&checkemo >0){
+                    //                    if(emo.contains("กลัว(Fear)")) {
 //                        emo.remove("กลัว(Fear)");
 //                    }
                     if(mappingEmo.containsKey("กลัว(Fear)")) {
@@ -1854,8 +1961,8 @@ public class AccountActivity extends AppCompatActivity
                         mappingEmo.remove("รื่นเริง(Joy)");
                     }
 
-                }else if(countchexkemo <0&&checkshortcut>0){
-//                    if(emo.contains("ยอมรับ(Acceptance)")){
+                }else if(count < 0&&checkemo >0){
+                    //                    if(emo.contains("ยอมรับ(Acceptance)")){
 //                        emo.remove("ยอมรับ(Acceptance)");
 //                    }
                     if(mappingEmo.containsKey("ยอมรับ(Acceptance)")) {
@@ -1879,152 +1986,45 @@ public class AccountActivity extends AppCompatActivity
                     if(mappingEmo.containsKey("คาดหวัง(Anticipation)")) {
                         mappingEmo.remove("คาดหวัง(Anticipation)");
                     }
-                }else {
-
-                    if(count > 0&&checkemo >0){
-                        //                    if(emo.contains("กลัว(Fear)")) {
-//                        emo.remove("กลัว(Fear)");
-//                    }
-                        if(mappingEmo.containsKey("กลัว(Fear))")) {
-                            mappingEmo.remove("กลัว(Fear)");
-                        }
-
-//                    if(emo.contains("รังเกียจ(Disgust)")){
-//                        emo.remove("รังเกียจ(Disgust)");
-//
-//                    }
-                        if(mappingEmo.containsKey("รังเกียจ(Disgust))")) {
-                            mappingEmo.remove("รังเกียจ(Disgust)");
-                        }
-//                    if(emo.contains("โกรธ(Anger)")){
-//                        emo.remove("โกรธ(Anger)");
-//                    }
-                        if(mappingEmo.containsKey("โกรธ(Anger)")) {
-                            mappingEmo.remove("โกรธ(Anger)");
-                        }
-//                    if(emo.contains("เศร้าเสียใจ(Sadness)")){
-//                        emo.remove("เศร้าเสียใจ(Sadness)");
-//                    }
-                        if(mappingEmo.containsKey("เศร้าเสียใจ(Sadness)")) {
-                            mappingEmo.remove("เศร้าเสียใจ(Sadness)");
-                        }
-//                    if(emo.contains("ประหลาดใจ(Surprise)")){
-//                        emo.remove("ประหลาดใจ(Surprise)");
-//                    }
-                        if(mappingEmo.containsKey("ประหลาดใจ(Surprise)")) {
-                            mappingEmo.remove("ประหลาดใจ(Surprise)");
-                        }
-//                    if(emo.contains("คาดหวัง(Anticipation)")){
-//                        emo.remove("คาดหวัง(Anticipation)");
-//                    }
-                        if(mappingEmo.containsKey("คาดหวัง(Anticipation)")) {
-                            mappingEmo.remove("คาดหวัง(Anticipation)");
-                        }
-
-
-                    }else if(count == 0&&checkemo >0){
-                        //                    if(emo.contains("กลัว(Fear)")) {
-//                        emo.remove("กลัว(Fear)");
-//                    }
-                        if(mappingEmo.containsKey("กลัว(Fear)")) {
-                            mappingEmo.remove("กลัว(Fear)");
-                        }
-//                    if(emo.contains("รังเกียจ(Disgust)")){
-//                        emo.remove("รังเกียจ(Disgust)");
-//
-//                    }
-                        if(mappingEmo.containsKey("รังเกียจ(Disgust)")) {
-                            mappingEmo.remove("รังเกียจ(Disgust)");
-                        }
-//                    if(emo.contains("โกรธ(Anger)")){
-//                        emo.remove("โกรธ(Anger)");
-//                    }
-                        if(mappingEmo.containsKey("โกรธ(Anger)")) {
-                            mappingEmo.remove("โกรธ(Anger)");
-                        }
-//                    if(emo.contains("เศร้าเสียใจ(Sadness)")){
-//                        emo.remove("เศร้าเสียใจ(Sadness)");
-//                    }
-                        if(mappingEmo.containsKey("เศร้าเสียใจ(Sadness)")) {
-                            mappingEmo.remove("เศร้าเสียใจ(Sadness)");
-                        }
-//                    if(emo.contains("ยอมรับ(Acceptance)")){
-//                        emo.remove("ยอมรับ(Acceptance)");
-//                    }
-                        if(mappingEmo.containsKey("ยอมรับ(Acceptance)")) {
-                            mappingEmo.remove("ยอมรับ(Acceptance)");
-                        }
-//                    if(emo.contains("รื่นเริง(Joy)")){
-//                        emo.remove("รื่นเริง(Joy)");
-//                    }
-                        if(mappingEmo.containsKey("รื่นเริง(Joy)")) {
-                            mappingEmo.remove("รื่นเริง(Joy)");
-                        }
-
-                    }else if(count < 0&&checkemo >0){
-                        //                    if(emo.contains("ยอมรับ(Acceptance)")){
-//                        emo.remove("ยอมรับ(Acceptance)");
-//                    }
-                        if(mappingEmo.containsKey("ยอมรับ(Acceptance)")) {
-                            mappingEmo.remove("รยอมรับ(Acceptance)");
-                        }
-//                    if(emo.contains("รื่นเริง(Joy)")){
-//                        emo.remove("รื่นเริง(Joy)");
-//                    }
-                        if(mappingEmo.containsKey("รื่นเริง(Joy)")) {
-                            mappingEmo.remove("รื่นเริง(Joy)");
-                        }
-//                    if(emo.contains("ประหลาดใจ(Surprise)")){
-//                        emo.remove("ประหลาดใจ(Surprise)");
-//                    }
-                        if(mappingEmo.containsKey("ประหลาดใจ(Surprise)")) {
-                            mappingEmo.remove("ประหลาดใจ(Surprise)");
-                        }
-//                    if(emo.contains("คาดหวัง(Anticipation)")){
-//                        emo.remove("คาดหวัง(Anticipation)");
-//                    }
-                        if(mappingEmo.containsKey("คาดหวัง(Anticipation)")) {
-                            mappingEmo.remove("คาดหวัง(Anticipation)");
-                        }
-
-                    }
 
                 }
 
-                int max = -9999999;
-                for(Map.Entry m : mappingEmo.entrySet()){
-                    Integer num = (Integer) m.getValue();
-                    if(num > max){
-                        max = num;
-                    }
+            }
 
+            int max = -9999999;
+            for(Map.Entry m : mappingEmo.entrySet()){
+                Integer num = (Integer) m.getValue();
+                if(num > max){
+                    max = num;
                 }
 
-                for(Map.Entry m : mappingEmo.entrySet()){
-                    Integer num = (Integer) m.getValue();
-                    if(num == max){
-                     arrMapping.add((String)m.getKey());
-                    }
+            }
+
+            for(Map.Entry m : mappingEmo.entrySet()){
+                Integer num = (Integer) m.getValue();
+                if(num == max){
+                    arrMapping.add((String)m.getKey());
                 }
+            }
 
 
 
 
 
-               // Iterator<String> itremo = emo.iterator();
+            // Iterator<String> itremo = emo.iterator();
 
 
-       /* make the API call */
-                final StringBuffer emoneutral = new StringBuffer();
-                StringBuffer emopositive = new StringBuffer();
-                StringBuffer emonegetive = new StringBuffer();
+            /* make the API call */
+            final StringBuffer emoneutral = new StringBuffer();
+            StringBuffer emopositive = new StringBuffer();
+            StringBuffer emonegetive = new StringBuffer();
 
-                int countnum = 0;
-                int countnum2 = 0;
-                int countnum3 = 0;
+            int countnum = 0;
+            int countnum2 = 0;
+            int countnum3 = 0;
 
-                if(checkboxstate6 == 1) {
-                    if (countchexkemo == 0 && checkshortcut > 0) {
+            if(checkboxstate6 == 1) {
+                if (countchexkemo == 0 && checkshortcut > 0) {
 //                        while (itremo.hasNext()) {
 //
 //
@@ -2033,31 +2033,393 @@ public class AccountActivity extends AppCompatActivity
 //
 //
 //                        }
-                      if(arrMapping.size() == 0){
-                          emoneutral.append("-");
-                      }else if(arrMapping.size() == 1){
-                          if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                              emoneutral.append("-");
-                          }else{
-                              for(String s : arrMapping) {
-                                  emoneutral.append(s);
-                              }
-                          }
-                      }else{
-                          if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                              arrMapping.remove("ไม่แสดงอารมณ์");
-                          }
-                          for(String s : arrMapping) {
-                              emoneutral.append(s + " ");
-                          }
+                    if(arrMapping.size() == 0){
+                        emoneutral.append("-");
+                    }else if(arrMapping.size() == 1){
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            emoneutral.append("-");
+                        }else{
+                            for(String s : arrMapping) {
+                                emoneutral.append(s);
+                            }
+                        }
+                    }else{
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            arrMapping.remove("ไม่แสดงอารมณ์");
+                        }
+                        for(String s : arrMapping) {
+                            emoneutral.append(s + " ");
+                        }
 
-                      }
+                    }
 
 
 //                        if (countnum == 0) {
 //
 //                            emoneutral.append("-");
 //                        }
+                    final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
+                    dialog.setContentView(R.layout.neural_layout);
+                    //dialog.setTitle("");
+
+
+                    TextView textatti = (TextView) dialog.findViewById(R.id.textneuralatti);
+                    TextView textemo = (TextView) dialog.findViewById(R.id.textneuralemo);
+                    Button dialogButton3 = (Button) dialog.findViewById(R.id.btncheckneural);
+
+                    textatti.setText("ทัศนคติ(Attitude)  : เป็นกลาง(Unexpressed)");
+                    textemo.setText("อารมณ์(Emotion) : " + emoneutral);
+                    ImageView image = (ImageView) dialog.findViewById(R.id.imageviewneural);
+                    image.setImageResource(R.drawable.yellow);
+
+                    Button dialogButton = (Button) dialog.findViewById(R.id.postneural_btn);
+                    Button dialogButton2 = (Button) dialog.findViewById(R.id.noneural_btn);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            Bundle params = new Bundle();
+                            params.putString("message", message);
+                            new GraphRequest(
+                                    AccessToken.getCurrentAccessToken(),
+                                    "/me/feed",
+                                    params,
+                                    HttpMethod.POST,
+                                    new GraphRequest.Callback() {
+                                        public void onCompleted(GraphResponse response) {
+                                            Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                            GraphRequest request = new GraphRequest(
+                                                    AccessToken.getCurrentAccessToken(),
+                                                    "/me/feed",
+                                                    null,
+                                                    HttpMethod.GET,
+                                                    new GraphRequest.Callback() {
+                                                        public void onCompleted(GraphResponse response) {
+
+                                                            // JSON GETS THE DATA
+                                                            JSONObject jsonData = response.getJSONObject();
+
+                                                            try {
+
+                                                                JSONArray postsData = jsonData.getJSONArray("data");
+                                                                if (postsData != null) {
+
+                                                                    for (int i = 0; i < postsData.length(); i++) {
+                                                                        JSONObject story = postsData.getJSONObject(i);
+
+                                                                        if (story.has("id")) {
+                                                                            String timeMessage = story.getString("id");
+                                                                            String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                            Uri uri = Uri.parse(facebook);
+                                                                            Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                            startActivity(intentfb);
+                                                                        }
+
+                                                                    }
+
+
+                                                                }
+
+                                                            } catch (Exception e) {
+                                                                Log.d("JSON", "error" + e.toString());
+                                                            }
+
+                                                        }
+                                                    }
+                                            );
+                                            Bundle parameters = new Bundle();
+                                            parameters.putString("fields", "id");
+                                            parameters.putString("limit", "1");
+                                            request.setParameters(parameters);
+                                            request.executeAsync();
+                                        }
+                                    }
+                            ).executeAsync();
+                            editTextpost.setText("");
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.cancel();
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                        }
+                    });
+
+
+                    dialog.show();
+
+
+
+                } else if (countchexkemo < 0 && checkshortcut > 0) {
+
+                    Bundle params = new Bundle();
+                    params.putString("message", message);
+
+
+//                        while (itremo.hasNext()) {
+//
+//
+//                            emonegetive.append(itremo.next().toString() + " ");
+//                            countnum2++;
+//
+//
+//                        }
+                    if(arrMapping.size() == 0){
+                        emonegetive.append("-");
+                    }else if(arrMapping.size() == 1){
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            emonegetive.append("-");
+                        }else{
+                            for(String s : arrMapping) {
+                                emonegetive.append(s);
+                            }
+                        }
+                    }else{
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            arrMapping.remove("ไม่แสดงอารมณ์");
+                        }
+                        for(String s : arrMapping) {
+                            emonegetive.append(s + " ");
+                        }
+
+                    }
+
+//                        if (countnum2 == 0) {
+//                            emonegetive.append("-");
+//                        }
+                    final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
+                    dialog.setContentView(R.layout.negetive_layout);
+                    //dialog.setTitle("");
+
+
+                    TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
+                    TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
+                    Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
+
+                    textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
+                    textemo.setText("อารมณ์(Emotion) : " + emonegetive);
+                    ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
+                    image.setImageResource(R.drawable.red);
+
+                    Button dialogButton = (Button) dialog.findViewById(R.id.postnegetive_btn);
+                    Button dialogButton2 = (Button) dialog.findViewById(R.id.nonegetive_btn);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bundle params = new Bundle();
+                            params.putString("message", message);
+                            new GraphRequest(
+                                    AccessToken.getCurrentAccessToken(),
+                                    "/me/feed",
+                                    params,
+                                    HttpMethod.POST,
+                                    new GraphRequest.Callback() {
+                                        public void onCompleted(GraphResponse response) {
+                                            Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                            GraphRequest request = new GraphRequest(
+                                                    AccessToken.getCurrentAccessToken(),
+                                                    "/me/feed",
+                                                    null,
+                                                    HttpMethod.GET,
+                                                    new GraphRequest.Callback() {
+                                                        public void onCompleted(GraphResponse response) {
+
+                                                            // JSON GETS THE DATA
+                                                            JSONObject jsonData = response.getJSONObject();
+
+                                                            try {
+
+                                                                JSONArray postsData = jsonData.getJSONArray("data");
+                                                                if (postsData != null) {
+
+                                                                    for (int i = 0; i < postsData.length(); i++) {
+                                                                        JSONObject story = postsData.getJSONObject(i);
+
+                                                                        if (story.has("id")) {
+                                                                            String timeMessage = story.getString("id");
+                                                                            String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                            Uri uri = Uri.parse(facebook);
+                                                                            Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                            startActivity(intentfb);
+                                                                        }
+
+                                                                    }
+
+
+                                                                }
+
+                                                            } catch (Exception e) {
+                                                                Log.d("JSON", "error" + e.toString());
+                                                            }
+
+                                                        }
+                                                    }
+                                            );
+                                            Bundle parameters = new Bundle();
+                                            parameters.putString("fields", "id");
+                                            parameters.putString("limit", "1");
+                                            request.setParameters(parameters);
+                                            request.executeAsync();
+                                        }
+                                    }
+                            ).executeAsync();
+                            editTextpost.setText("");
+                            if(countneg >=6)
+                                showNotification(v);
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.cancel();
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                        }
+                    });
+
+                    dialog.show();
+
+
+                } else if (countchexkemo > 0 && checkshortcut > 0) {
+
+                    Bundle params = new Bundle();
+                    params.putString("message", message);
+                    new GraphRequest(
+                            AccessToken.getCurrentAccessToken(),
+                            "/me/feed",
+                            params,
+                            HttpMethod.POST,
+                            new GraphRequest.Callback() {
+                                public void onCompleted(GraphResponse response) {
+                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                    GraphRequest request = new GraphRequest(
+                                            AccessToken.getCurrentAccessToken(),
+                                            "/me/feed",
+                                            null,
+                                            HttpMethod.GET,
+                                            new GraphRequest.Callback() {
+                                                public void onCompleted(GraphResponse response) {
+
+                                                    // JSON GETS THE DATA
+                                                    JSONObject jsonData = response.getJSONObject();
+
+                                                    try {
+
+                                                        JSONArray postsData = jsonData.getJSONArray("data");
+                                                        if (postsData != null) {
+
+                                                            for (int i = 0; i < postsData.length(); i++) {
+                                                                JSONObject story = postsData.getJSONObject(i);
+
+                                                                if (story.has("id")) {
+                                                                    String timeMessage = story.getString("id");
+                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                    Uri uri = Uri.parse(facebook);
+                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                    startActivity(intentfb);
+                                                                }
+
+                                                            }
+
+
+                                                        }
+
+                                                    } catch (Exception e) {
+                                                        Log.d("JSON", "error" + e.toString());
+                                                    }
+
+                                                }
+                                            }
+                                    );
+                                    Bundle parameters = new Bundle();
+                                    parameters.putString("fields", "id");
+                                    parameters.putString("limit", "1");
+                                    request.setParameters(parameters);
+                                    request.executeAsync();
+                                }
+                            }
+                    ).executeAsync();
+                    editTextpost.setText("");
+
+
+                } else {
+
+
+                    if (count == 0 && checkemo > 0) {
+
+
+                        Bundle params = new Bundle();
+                        params.putString("message", message);
+
+//                            while (itremo.hasNext()) {
+//
+//
+//                                emoneutral.append(itremo.next() + " ");
+//                                countnum++;
+//
+//
+//                            }
+                        if(arrMapping.size() == 0){
+                            emoneutral.append("-");
+                        }else if(arrMapping.size() == 1){
+                            if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                                emoneutral.append("-");
+                            }else{
+                                for(String s : arrMapping) {
+                                    emoneutral.append(s);
+                                }
+                            }
+                        }else{
+                            if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                                arrMapping.remove("ไม่แสดงอารมณ์");
+                            }
+                            for(String s : arrMapping) {
+                                emoneutral.append(s + " ");
+                            }
+
+                        }
+//                            if (countnum == 0) {
+//
+//                                emoneutral.append("-");
+//                            }
                         final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
                         dialog.setContentView(R.layout.neural_layout);
                         //dialog.setTitle("");
@@ -2077,6 +2439,254 @@ public class AccountActivity extends AppCompatActivity
                         dialogButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                Bundle params = new Bundle();
+                                params.putString("message", message);
+                                new GraphRequest(
+                                        AccessToken.getCurrentAccessToken(),
+                                        "/me/feed",
+                                        params,
+                                        HttpMethod.POST,
+                                        new GraphRequest.Callback() {
+                                            public void onCompleted(GraphResponse response) {
+                                                Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                                GraphRequest request = new GraphRequest(
+                                                        AccessToken.getCurrentAccessToken(),
+                                                        "/me/feed",
+                                                        null,
+                                                        HttpMethod.GET,
+                                                        new GraphRequest.Callback() {
+                                                            public void onCompleted(GraphResponse response) {
+
+                                                                // JSON GETS THE DATA
+                                                                JSONObject jsonData = response.getJSONObject();
+
+                                                                try {
+
+                                                                    JSONArray postsData = jsonData.getJSONArray("data");
+                                                                    if (postsData != null) {
+
+                                                                        for (int i = 0; i < postsData.length(); i++) {
+                                                                            JSONObject story = postsData.getJSONObject(i);
+
+                                                                            if (story.has("id")) {
+                                                                                String timeMessage = story.getString("id");
+                                                                                String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                                Uri uri = Uri.parse(facebook);
+                                                                                Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                                startActivity(intentfb);
+                                                                            }
+
+                                                                        }
+
+
+                                                                    }
+
+                                                                } catch (Exception e) {
+                                                                    Log.d("JSON", "error" + e.toString());
+                                                                }
+
+                                                            }
+                                                        }
+                                                );
+                                                Bundle parameters = new Bundle();
+                                                parameters.putString("fields", "id");
+                                                parameters.putString("limit", "1");
+                                                request.setParameters(parameters);
+                                                request.executeAsync();
+                                            }
+                                        }
+                                ).executeAsync();
+                                editTextpost.setText("");
+
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialogButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialogButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                                builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                        .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.cancel();
+                                            }
+                                        });
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+
+                            }
+                        });
+
+                        dialog.show();
+
+
+                    } else if (count < 0 && checkemo > 0) {
+
+                        Bundle params = new Bundle();
+                        params.putString("message", message);
+
+
+//                            while (itremo.hasNext()) {
+//
+//
+//                                emonegetive.append(itremo.next() + " ");
+//                                countnum2++;
+//
+//
+//                            }
+                        if(arrMapping.size() == 0){
+                            emonegetive.append("-");
+                        }else if(arrMapping.size() == 1){
+                            if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                                emonegetive.append("-");
+                            }else{
+                                for(String s : arrMapping) {
+                                    emonegetive.append(s);
+                                }
+                            }
+                        }else{
+                            if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                                arrMapping.remove("ไม่แสดงอารมณ์");
+                            }
+                            for(String s : arrMapping) {
+                                emonegetive.append(s + " ");
+                            }
+
+                        }
+
+//                            if (countnum2 == 0) {
+//                                emonegetive.append("-");
+//                            }
+                        final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
+                        dialog.setContentView(R.layout.negetive_layout);
+                        //dialog.setTitle("");
+
+
+                        TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
+                        TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
+                        TextView textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
+                        Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
+
+                        textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
+                        textemo.setText("อารมณ์(Emotion) : " + emonegetive);
+
+                        if(count==-3 && countNotifi > 0){
+                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบนะจ๊ะ");
+                        }else if(count<-3 && countNotifi > 0){
+                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบอย่างมากนะจ๊ะ");
+                        }else if(countNotifi > 0){
+                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบนะจ๊ะ");
+                        }
+
+                        ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
+                        image.setImageResource(R.drawable.red);
+
+                        Button dialogButton = (Button) dialog.findViewById(R.id.postnegetive_btn);
+                        Button dialogButton2 = (Button) dialog.findViewById(R.id.nonegetive_btn);
+                        dialogButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Bundle params = new Bundle();
+                                params.putString("message", message);
+                                new GraphRequest(
+                                        AccessToken.getCurrentAccessToken(),
+                                        "/me/feed",
+                                        params,
+                                        HttpMethod.POST,
+                                        new GraphRequest.Callback() {
+                                            public void onCompleted(GraphResponse response) {
+                                                Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                                GraphRequest request = new GraphRequest(
+                                                        AccessToken.getCurrentAccessToken(),
+                                                        "/me/feed",
+                                                        null,
+                                                        HttpMethod.GET,
+                                                        new GraphRequest.Callback() {
+                                                            public void onCompleted(GraphResponse response) {
+
+                                                                // JSON GETS THE DATA
+                                                                JSONObject jsonData = response.getJSONObject();
+
+                                                                try {
+
+                                                                    JSONArray postsData = jsonData.getJSONArray("data");
+                                                                    if (postsData != null) {
+
+                                                                        for (int i = 0; i < postsData.length(); i++) {
+                                                                            JSONObject story = postsData.getJSONObject(i);
+
+                                                                            if (story.has("id")) {
+                                                                                String timeMessage = story.getString("id");
+                                                                                String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                                Uri uri = Uri.parse(facebook);
+                                                                                Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                                startActivity(intentfb);
+                                                                            }
+
+                                                                        }
+
+
+                                                                    }
+
+                                                                } catch (Exception e) {
+                                                                    Log.d("JSON", "error" + e.toString());
+                                                                }
+
+                                                            }
+                                                        }
+                                                );
+                                                Bundle parameters = new Bundle();
+                                                parameters.putString("fields", "id");
+                                                parameters.putString("limit", "1");
+                                                request.setParameters(parameters);
+                                                request.executeAsync();
+                                            }
+                                        }
+                                ).executeAsync();
+                                editTextpost.setText("");
+                                if(countneg >=6)
+                                    showNotification(v);
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialogButton2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        dialogButton3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                                builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                        .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.cancel();
+                                            }
+                                        });
+                                AlertDialog dialog = builder.create();
+                                dialog.show();
+
+                            }
+                        });
+
+                        dialog.show();
+
+
+                    } else if (count > 0 && checkemo > 0) {
 
                         Bundle params = new Bundle();
                         params.putString("message", message);
@@ -2135,634 +2745,144 @@ public class AccountActivity extends AppCompatActivity
                                     }
                                 }
                         ).executeAsync();
+
                         editTextpost.setText("");
 
-                                dialog.dismiss();
-                            }
-                        });
-
-                        dialogButton2.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                dialog.dismiss();
-                            }
-                        });
-
-                        dialogButton3.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                        .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                dialogInterface.cancel();
-                                            }
-                                        });
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
-
-                            }
-                        });
-
-
-                        dialog.show();
-
-
-
-                    } else if (countchexkemo < 0 && checkshortcut > 0) {
-
-                        Bundle params = new Bundle();
-                        params.putString("message", message);
-
-
-//                        while (itremo.hasNext()) {
-//
-//
-//                            emonegetive.append(itremo.next().toString() + " ");
-//                            countnum2++;
-//
-//
-//                        }
-                        if(arrMapping.size() == 0){
-                            emonegetive.append("-");
-                        }else if(arrMapping.size() == 1){
-                            if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                emonegetive.append("-");
-                            }else{
-                                for(String s : arrMapping) {
-                                    emonegetive.append(s);
-                                }
-                            }
-                        }else{
-                            if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                arrMapping.remove("ไม่แสดงอารมณ์");
-                            }
-                            for(String s : arrMapping) {
-                                emonegetive.append(s + " ");
-                            }
-
-                        }
-
-//                        if (countnum2 == 0) {
-//                            emonegetive.append("-");
-//                        }
-                        final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
-                        dialog.setContentView(R.layout.negetive_layout);
-                        //dialog.setTitle("");
-
-
-                        TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
-                        TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
-                        Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
-
-                        textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
-                        textemo.setText("อารมณ์(Emotion) : " + emonegetive);
-                        ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
-                        image.setImageResource(R.drawable.red);
-
-                        Button dialogButton = (Button) dialog.findViewById(R.id.postnegetive_btn);
-                        Button dialogButton2 = (Button) dialog.findViewById(R.id.nonegetive_btn);
-                        dialogButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Bundle params = new Bundle();
-                                params.putString("message", message);
-                                new GraphRequest(
-                                        AccessToken.getCurrentAccessToken(),
-                                        "/me/feed",
-                                        params,
-                                        HttpMethod.POST,
-                                        new GraphRequest.Callback() {
-                                            public void onCompleted(GraphResponse response) {
-                                                Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                GraphRequest request = new GraphRequest(
-                                                        AccessToken.getCurrentAccessToken(),
-                                                        "/me/feed",
-                                                        null,
-                                                        HttpMethod.GET,
-                                                        new GraphRequest.Callback() {
-                                                            public void onCompleted(GraphResponse response) {
-
-                                                                // JSON GETS THE DATA
-                                                                JSONObject jsonData = response.getJSONObject();
-
-                                                                try {
-
-                                                                    JSONArray postsData = jsonData.getJSONArray("data");
-                                                                    if (postsData != null) {
-
-                                                                        for (int i = 0; i < postsData.length(); i++) {
-                                                                            JSONObject story = postsData.getJSONObject(i);
-
-                                                                            if (story.has("id")) {
-                                                                                String timeMessage = story.getString("id");
-                                                                                String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                Uri uri = Uri.parse(facebook);
-                                                                                Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                startActivity(intentfb);
-                                                                            }
-
-                                                                        }
-
-
-                                                                    }
-
-                                                                } catch (Exception e) {
-                                                                    Log.d("JSON", "error" + e.toString());
-                                                                }
-
-                                                            }
-                                                        }
-                                                );
-                                                Bundle parameters = new Bundle();
-                                                parameters.putString("fields", "id");
-                                                parameters.putString("limit", "1");
-                                                request.setParameters(parameters);
-                                                request.executeAsync();
-                                            }
-                                        }
-                                ).executeAsync();
-                                editTextpost.setText("");
-                                if(countneg >=7)
-                                    showNotification(v);
-                                dialog.dismiss();
-                            }
-                        });
-
-                        dialogButton2.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-
-                                dialog.dismiss();
-                            }
-                        });
-
-                        dialogButton3.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                        .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialogInterface, int i) {
-                                                dialogInterface.cancel();
-                                            }
-                                        });
-                                AlertDialog dialog = builder.create();
-                                dialog.show();
-
-                            }
-                        });
-
-                        dialog.show();
-
-
-                    } else if (countchexkemo > 0 && checkshortcut > 0) {
-
-                                Bundle params = new Bundle();
-                                params.putString("message", message);
-                                new GraphRequest(
-                                        AccessToken.getCurrentAccessToken(),
-                                        "/me/feed",
-                                        params,
-                                        HttpMethod.POST,
-                                        new GraphRequest.Callback() {
-                                            public void onCompleted(GraphResponse response) {
-                                                Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                GraphRequest request = new GraphRequest(
-                                                        AccessToken.getCurrentAccessToken(),
-                                                        "/me/feed",
-                                                        null,
-                                                        HttpMethod.GET,
-                                                        new GraphRequest.Callback() {
-                                                            public void onCompleted(GraphResponse response) {
-
-                                                                // JSON GETS THE DATA
-                                                                JSONObject jsonData = response.getJSONObject();
-
-                                                                try {
-
-                                                                    JSONArray postsData = jsonData.getJSONArray("data");
-                                                                    if (postsData != null) {
-
-                                                                        for (int i = 0; i < postsData.length(); i++) {
-                                                                            JSONObject story = postsData.getJSONObject(i);
-
-                                                                            if (story.has("id")) {
-                                                                                String timeMessage = story.getString("id");
-                                                                                String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                Uri uri = Uri.parse(facebook);
-                                                                                Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                startActivity(intentfb);
-                                                                            }
-
-                                                                        }
-
-
-                                                                    }
-
-                                                                } catch (Exception e) {
-                                                                    Log.d("JSON", "error" + e.toString());
-                                                                }
-
-                                                            }
-                                                        }
-                                                );
-                                                Bundle parameters = new Bundle();
-                                                parameters.putString("fields", "id");
-                                                parameters.putString("limit", "1");
-                                                request.setParameters(parameters);
-                                                request.executeAsync();
-                                            }
-                                        }
-                                ).executeAsync();
-                                editTextpost.setText("");
 
 
                     } else {
 
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                        builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.cancel();
+                                    }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
 
-                        if (count == 0 && checkemo > 0) {
+                        Bundle params = new Bundle();
+                        params.putString("message", message);
+                        new GraphRequest(
+                                AccessToken.getCurrentAccessToken(),
+                                "/me/feed",
+                                params,
+                                HttpMethod.POST,
+                                new GraphRequest.Callback() {
+                                    public void onCompleted(GraphResponse response) {
+                                        Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                        GraphRequest request = new GraphRequest(
+                                                AccessToken.getCurrentAccessToken(),
+                                                "/me/feed",
+                                                null,
+                                                HttpMethod.GET,
+                                                new GraphRequest.Callback() {
+                                                    public void onCompleted(GraphResponse response) {
+
+                                                        // JSON GETS THE DATA
+                                                        JSONObject jsonData = response.getJSONObject();
+
+                                                        try {
+
+                                                            JSONArray postsData = jsonData.getJSONArray("data");
+                                                            if (postsData != null) {
+
+                                                                for (int i = 0; i < postsData.length(); i++) {
+                                                                    JSONObject story = postsData.getJSONObject(i);
+
+                                                                    if (story.has("id")) {
+                                                                        String timeMessage = story.getString("id");
+                                                                        String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                        Uri uri = Uri.parse(facebook);
+                                                                        Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                        startActivity(intentfb);
+                                                                    }
+
+                                                                }
 
 
-                            Bundle params = new Bundle();
-                            params.putString("message", message);
+                                                            }
 
-//                            while (itremo.hasNext()) {
-//
-//
-//                                emoneutral.append(itremo.next() + " ");
-//                                countnum++;
-//
-//
-//                            }
-                            if(arrMapping.size() == 0){
-                                emoneutral.append("-");
-                            }else if(arrMapping.size() == 1){
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    emoneutral.append("-");
-                                }else{
-                                    for(String s : arrMapping) {
-                                        emoneutral.append(s);
+                                                        } catch (Exception e) {
+                                                            Log.d("JSON", "error" + e.toString());
+                                                        }
+
+                                                    }
+                                                }
+                                        );
+                                        Bundle parameters = new Bundle();
+                                        parameters.putString("fields", "id");
+                                        parameters.putString("limit", "1");
+                                        request.setParameters(parameters);
+                                        request.executeAsync();
                                     }
                                 }
-                            }else{
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    arrMapping.remove("ไม่แสดงอารมณ์");
-                                }
-                                for(String s : arrMapping) {
-                                    emoneutral.append(s + " ");
-                                }
+                        ).executeAsync();
 
+                    }
+
+                }
+            }else if(checkboxstate6 == 0) {
+
+                if (countchexkemo == 0 && checkshortcut > 0) {
+
+
+                    Bundle params = new Bundle();
+                    params.putString("message", message);
+
+//                        while (itremo.hasNext()) {
+//
+//
+//                            emoneutral.append(itremo.next().toString() + " ");
+//                            countnum++;
+//
+//
+//                        }
+                    if(arrMapping.size() == 0){
+                        emoneutral.append("-");
+                    }else if(arrMapping.size() == 1){
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            emoneutral.append("-");
+                        }else{
+                            for(String s : arrMapping) {
+                                emoneutral.append(s);
                             }
-//                            if (countnum == 0) {
+                        }
+                    }else{
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            arrMapping.remove("ไม่แสดงอารมณ์");
+                        }
+                        for(String s : arrMapping) {
+                            emoneutral.append(s + " ");
+                        }
+
+                    }
+
+//                        if (countnum == 0) {
 //
-//                                emoneutral.append("-");
-//                            }
-                            final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
-                            dialog.setContentView(R.layout.neural_layout);
-                            //dialog.setTitle("");
-
-
-                            TextView textatti = (TextView) dialog.findViewById(R.id.textneuralatti);
-                            TextView textemo = (TextView) dialog.findViewById(R.id.textneuralemo);
-                            Button dialogButton3 = (Button) dialog.findViewById(R.id.btncheckneural);
-
-                            textatti.setText("ทัศนคติ(Attitude)  : เป็นกลาง(Unexpressed)");
-                            textemo.setText("อารมณ์(Emotion) : " + emoneutral);
-                            ImageView image = (ImageView) dialog.findViewById(R.id.imageviewneural);
-                            image.setImageResource(R.drawable.yellow);
-
-                            Button dialogButton = (Button) dialog.findViewById(R.id.postneural_btn);
-                            Button dialogButton2 = (Button) dialog.findViewById(R.id.noneural_btn);
-                            dialogButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Bundle params = new Bundle();
-                                    params.putString("message", message);
-                                    new GraphRequest(
-                                            AccessToken.getCurrentAccessToken(),
-                                            "/me/feed",
-                                            params,
-                                            HttpMethod.POST,
-                                            new GraphRequest.Callback() {
-                                                public void onCompleted(GraphResponse response) {
-                                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                    GraphRequest request = new GraphRequest(
-                                                            AccessToken.getCurrentAccessToken(),
-                                                            "/me/feed",
-                                                            null,
-                                                            HttpMethod.GET,
-                                                            new GraphRequest.Callback() {
-                                                                public void onCompleted(GraphResponse response) {
-
-                                                                    // JSON GETS THE DATA
-                                                                    JSONObject jsonData = response.getJSONObject();
-
-                                                                    try {
-
-                                                                        JSONArray postsData = jsonData.getJSONArray("data");
-                                                                        if (postsData != null) {
-
-                                                                            for (int i = 0; i < postsData.length(); i++) {
-                                                                                JSONObject story = postsData.getJSONObject(i);
-
-                                                                                if (story.has("id")) {
-                                                                                    String timeMessage = story.getString("id");
-                                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                    Uri uri = Uri.parse(facebook);
-                                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                    startActivity(intentfb);
-                                                                                }
-
-                                                                            }
-
-
-                                                                        }
-
-                                                                    } catch (Exception e) {
-                                                                        Log.d("JSON", "error" + e.toString());
-                                                                    }
-
-                                                                }
-                                                            }
-                                                    );
-                                                    Bundle parameters = new Bundle();
-                                                    parameters.putString("fields", "id");
-                                                    parameters.putString("limit", "1");
-                                                    request.setParameters(parameters);
-                                                    request.executeAsync();
-                                                }
-                                            }
-                                    ).executeAsync();
-                                    editTextpost.setText("");
-
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                    builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                            .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    dialogInterface.cancel();
-                                                }
-                                            });
-                                    AlertDialog dialog = builder.create();
-                                    dialog.show();
-
-                                }
-                            });
-
-                            dialog.show();
-
-
-                        } else if (count < 0 && checkemo > 0) {
-
-                            Bundle params = new Bundle();
-                            params.putString("message", message);
-
-
-//                            while (itremo.hasNext()) {
-//
-//
-//                                emonegetive.append(itremo.next() + " ");
-//                                countnum2++;
-//
-//
-//                            }
-                            if(arrMapping.size() == 0){
-                                emonegetive.append("-");
-                            }else if(arrMapping.size() == 1){
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    emonegetive.append("-");
-                                }else{
-                                    for(String s : arrMapping) {
-                                        emonegetive.append(s);
-                                    }
-                                }
-                            }else{
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    arrMapping.remove("ไม่แสดงอารมณ์");
-                                }
-                                for(String s : arrMapping) {
-                                    emonegetive.append(s + " ");
-                                }
-
-                            }
-
-//                            if (countnum2 == 0) {
-//                                emonegetive.append("-");
-//                            }
-                            final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
-                            dialog.setContentView(R.layout.negetive_layout);
-                            //dialog.setTitle("");
-
-
-                            TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
-                            TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
-                            TextView textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
-                            Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
-
-                            textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
-                            textemo.setText("อารมณ์(Emotion) : " + emonegetive);
-
-                            if(count==-3 && countNotifi > 0){
-                                textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบนะจ๊ะ");
-                            }else if(count<-3 && countNotifi > 0){
-                                textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบอย่างมากนะจ๊ะ");
-                            }else if(countNotifi > 0){
-                                textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบนะจ๊ะ");
-                            }
-
-                            ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
-                            image.setImageResource(R.drawable.red);
-
-                            Button dialogButton = (Button) dialog.findViewById(R.id.postnegetive_btn);
-                            Button dialogButton2 = (Button) dialog.findViewById(R.id.nonegetive_btn);
-                            dialogButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Bundle params = new Bundle();
-                                    params.putString("message", message);
-                                    new GraphRequest(
-                                            AccessToken.getCurrentAccessToken(),
-                                            "/me/feed",
-                                            params,
-                                            HttpMethod.POST,
-                                            new GraphRequest.Callback() {
-                                                public void onCompleted(GraphResponse response) {
-                                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                    GraphRequest request = new GraphRequest(
-                                                            AccessToken.getCurrentAccessToken(),
-                                                            "/me/feed",
-                                                            null,
-                                                            HttpMethod.GET,
-                                                            new GraphRequest.Callback() {
-                                                                public void onCompleted(GraphResponse response) {
-
-                                                                    // JSON GETS THE DATA
-                                                                    JSONObject jsonData = response.getJSONObject();
-
-                                                                    try {
-
-                                                                        JSONArray postsData = jsonData.getJSONArray("data");
-                                                                        if (postsData != null) {
-
-                                                                            for (int i = 0; i < postsData.length(); i++) {
-                                                                                JSONObject story = postsData.getJSONObject(i);
-
-                                                                                if (story.has("id")) {
-                                                                                    String timeMessage = story.getString("id");
-                                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                    Uri uri = Uri.parse(facebook);
-                                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                    startActivity(intentfb);
-                                                                                }
-
-                                                                            }
-
-
-                                                                        }
-
-                                                                    } catch (Exception e) {
-                                                                        Log.d("JSON", "error" + e.toString());
-                                                                    }
-
-                                                                }
-                                                            }
-                                                    );
-                                                    Bundle parameters = new Bundle();
-                                                    parameters.putString("fields", "id");
-                                                    parameters.putString("limit", "1");
-                                                    request.setParameters(parameters);
-                                                    request.executeAsync();
-                                                }
-                                            }
-                                    ).executeAsync();
-                                    editTextpost.setText("");
-                                    if(countneg >=7)
-                                        showNotification(v);
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                    builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                            .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    dialogInterface.cancel();
-                                                }
-                                            });
-                                    AlertDialog dialog = builder.create();
-                                    dialog.show();
-
-                                }
-                            });
-
-                            dialog.show();
-
-
-                        } else if (count > 0 && checkemo > 0) {
-
-                                    Bundle params = new Bundle();
-                                    params.putString("message", message);
-                                    new GraphRequest(
-                                            AccessToken.getCurrentAccessToken(),
-                                            "/me/feed",
-                                            params,
-                                            HttpMethod.POST,
-                                            new GraphRequest.Callback() {
-                                                public void onCompleted(GraphResponse response) {
-                                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                    GraphRequest request = new GraphRequest(
-                                                            AccessToken.getCurrentAccessToken(),
-                                                            "/me/feed",
-                                                            null,
-                                                            HttpMethod.GET,
-                                                            new GraphRequest.Callback() {
-                                                                public void onCompleted(GraphResponse response) {
-
-                                                                    // JSON GETS THE DATA
-                                                                    JSONObject jsonData = response.getJSONObject();
-
-                                                                    try {
-
-                                                                        JSONArray postsData = jsonData.getJSONArray("data");
-                                                                        if (postsData != null) {
-
-                                                                            for (int i = 0; i < postsData.length(); i++) {
-                                                                                JSONObject story = postsData.getJSONObject(i);
-
-                                                                                if (story.has("id")) {
-                                                                                    String timeMessage = story.getString("id");
-                                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                    Uri uri = Uri.parse(facebook);
-                                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                    startActivity(intentfb);
-                                                                                }
-
-                                                                            }
-
-
-                                                                        }
-
-                                                                    } catch (Exception e) {
-                                                                        Log.d("JSON", "error" + e.toString());
-                                                                    }
-
-                                                                }
-                                                            }
-                                                    );
-                                                    Bundle parameters = new Bundle();
-                                                    parameters.putString("fields", "id");
-                                                    parameters.putString("limit", "1");
-                                                    request.setParameters(parameters);
-                                                    request.executeAsync();
-                                                }
-                                            }
-                                    ).executeAsync();
-
-                                    editTextpost.setText("");
-
-
-
-                        } else {
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.cancel();
-                                        }
-                                    });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-
+//                            emoneutral.append("-");
+//                        }
+                    final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
+                    dialog.setContentView(R.layout.neural_layout);
+                    //dialog.setTitle("");
+
+
+                    TextView textatti = (TextView) dialog.findViewById(R.id.textneuralatti);
+                    TextView textemo = (TextView) dialog.findViewById(R.id.textneuralemo);
+                    Button dialogButton3 = (Button) dialog.findViewById(R.id.btncheckneural);
+
+                    textatti.setText("ทัศนคติ(Attitude)  : เป็นกลาง(Unexpressed)");
+                    textemo.setText("อารมณ์(Emotion) : " + emoneutral);
+                    ImageView image = (ImageView) dialog.findViewById(R.id.imageviewneural);
+                    image.setImageResource(R.drawable.yellow);
+
+                    Button dialogButton = (Button) dialog.findViewById(R.id.postneural_btn);
+                    Button dialogButton2 = (Button) dialog.findViewById(R.id.noneural_btn);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
                             Bundle params = new Bundle();
                             params.putString("message", message);
                             new GraphRequest(
@@ -2820,26 +2940,352 @@ public class AccountActivity extends AppCompatActivity
                                         }
                                     }
                             ).executeAsync();
+                            editTextpost.setText("");
 
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.cancel();
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                        }
+                    });
+
+
+                    dialog.show();
+
+
+                } else if (countchexkemo < 0 && checkshortcut > 0) {
+
+                    Bundle params = new Bundle();
+                    params.putString("message", message);
+
+
+//                        while (itremo.hasNext()) {
+//
+//
+//                            emonegetive.append(itremo.next().toString() + " ");
+//                            countnum2++;
+//
+//
+//                        }
+                    if(arrMapping.size() == 0){
+                        emonegetive.append("-");
+                    }else if(arrMapping.size() == 1){
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            emonegetive.append("-");
+                        }else{
+                            for(String s : arrMapping) {
+                                emonegetive.append(s);
+                            }
+                        }
+                    }else{
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            arrMapping.remove("ไม่แสดงอารมณ์");
+                        }
+                        for(String s : arrMapping) {
+                            emonegetive.append(s + " ");
                         }
 
                     }
-                }else if(checkboxstate6 == 0) {
 
-                    if (countchexkemo == 0 && checkshortcut > 0) {
+//                        if (countnum2 == 0) {
+//                            emonegetive.append("-");
+//                        }
+                    final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
+                    dialog.setContentView(R.layout.negetive_layout);
+                    //dialog.setTitle("");
+
+
+                    TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
+                    TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
+                    Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
+
+                    textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
+                    textemo.setText("อารมณ์(Emotion) : " + emonegetive);
+                    ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
+                    image.setImageResource(R.drawable.red);
+
+                    Button dialogButton = (Button) dialog.findViewById(R.id.postnegetive_btn);
+                    Button dialogButton2 = (Button) dialog.findViewById(R.id.nonegetive_btn);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bundle params = new Bundle();
+                            params.putString("message", message);
+                            new GraphRequest(
+                                    AccessToken.getCurrentAccessToken(),
+                                    "/me/feed",
+                                    params,
+                                    HttpMethod.POST,
+                                    new GraphRequest.Callback() {
+                                        public void onCompleted(GraphResponse response) {
+                                            Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                            GraphRequest request = new GraphRequest(
+                                                    AccessToken.getCurrentAccessToken(),
+                                                    "/me/feed",
+                                                    null,
+                                                    HttpMethod.GET,
+                                                    new GraphRequest.Callback() {
+                                                        public void onCompleted(GraphResponse response) {
+
+                                                            // JSON GETS THE DATA
+                                                            JSONObject jsonData = response.getJSONObject();
+
+                                                            try {
+
+                                                                JSONArray postsData = jsonData.getJSONArray("data");
+                                                                if (postsData != null) {
+
+                                                                    for (int i = 0; i < postsData.length(); i++) {
+                                                                        JSONObject story = postsData.getJSONObject(i);
+
+                                                                        if (story.has("id")) {
+                                                                            String timeMessage = story.getString("id");
+                                                                            String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                            Uri uri = Uri.parse(facebook);
+                                                                            Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                            startActivity(intentfb);
+                                                                        }
+
+                                                                    }
+
+
+                                                                }
+
+                                                            } catch (Exception e) {
+                                                                Log.d("JSON", "error" + e.toString());
+                                                            }
+
+                                                        }
+                                                    }
+                                            );
+                                            Bundle parameters = new Bundle();
+                                            parameters.putString("fields", "id");
+                                            parameters.putString("limit", "1");
+                                            request.setParameters(parameters);
+                                            request.executeAsync();
+                                        }
+                                    }
+                            ).executeAsync();
+                            editTextpost.setText("");
+                            if(countneg >=6)
+                                showNotification(v);
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.cancel();
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                        }
+                    });
+
+                    dialog.show();
+
+
+                } else if (countchexkemo > 0 && checkshortcut > 0) {
+
+                    Bundle params = new Bundle();
+                    params.putString("message", message);
+
+//                        while (itremo.hasNext()) {
+//
+//
+//                            emopositive.append(itremo.next().toString() + " ");
+//                            countnum3++;
+//
+//
+//                        }
+                    if(arrMapping.size() == 0){
+                        emopositive.append("-");
+                    }else if(arrMapping.size() == 1){
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            emopositive.append("-");
+                        }else{
+                            for(String s : arrMapping) {
+                                emopositive.append(s);
+                            }
+                        }
+                    }else{
+                        if(arrMapping.contains("ไม่แสดงอารมณ์")){
+                            arrMapping.remove("ไม่แสดงอารมณ์");
+                        }
+                        for(String s : arrMapping) {
+                            emopositive.append(s + " ");
+                        }
+
+                    }
+
+//                        if (countnum3 == 0) {
+//                            emopositive.append("-");
+//
+//                        }
+                    final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
+                    dialog.setContentView(R.layout.positive_layout);
+                    //dialog.setTitle("");
+
+
+                    TextView textatti = (TextView) dialog.findViewById(R.id.textpositiveatti);
+                    TextView textemo = (TextView) dialog.findViewById(R.id.textpositiveemo);
+
+                    Button dialogButton3 = (Button) dialog.findViewById(R.id.btnpostsitive);
+
+                    textatti.setText("ทัศนคติ(Attitude) : เชิงบวก(Positive)");
+                    textemo.setText("อารมณ์(Emotion) : " + emopositive);
+                    ImageView image = (ImageView) dialog.findViewById(R.id.imageviewpositive);
+                    image.setImageResource(R.drawable.green);
+
+                    Button dialogButton = (Button) dialog.findViewById(R.id.post_btn);
+                    Button dialogButton2 = (Button) dialog.findViewById(R.id.no_btn);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bundle params = new Bundle();
+                            params.putString("message", message);
+                            new GraphRequest(
+                                    AccessToken.getCurrentAccessToken(),
+                                    "/me/feed",
+                                    params,
+                                    HttpMethod.POST,
+                                    new GraphRequest.Callback() {
+                                        public void onCompleted(GraphResponse response) {
+                                            Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                            GraphRequest request = new GraphRequest(
+                                                    AccessToken.getCurrentAccessToken(),
+                                                    "/me/feed",
+                                                    null,
+                                                    HttpMethod.GET,
+                                                    new GraphRequest.Callback() {
+                                                        public void onCompleted(GraphResponse response) {
+
+                                                            // JSON GETS THE DATA
+                                                            JSONObject jsonData = response.getJSONObject();
+
+                                                            try {
+
+                                                                JSONArray postsData = jsonData.getJSONArray("data");
+                                                                if (postsData != null) {
+
+                                                                    for (int i = 0; i < postsData.length(); i++) {
+                                                                        JSONObject story = postsData.getJSONObject(i);
+
+                                                                        if (story.has("id")) {
+                                                                            String timeMessage = story.getString("id");
+                                                                            String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                            Uri uri = Uri.parse(facebook);
+                                                                            Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                            startActivity(intentfb);
+                                                                        }
+
+                                                                    }
+
+
+                                                                }
+
+                                                            } catch (Exception e) {
+                                                                Log.d("JSON", "error" + e.toString());
+                                                            }
+
+                                                        }
+                                                    }
+                                            );
+                                            Bundle parameters = new Bundle();
+                                            parameters.putString("fields", "id");
+                                            parameters.putString("limit", "1");
+                                            request.setParameters(parameters);
+                                            request.executeAsync();
+                                        }
+                                    }
+                            ).executeAsync();
+                            editTextpost.setText("");
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialogButton3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.cancel();
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+
+                        }
+                    });
+
+
+                    dialog.show();
+
+
+                } else {
+
+
+                    if (count == 0 && checkemo > 0) {
 
 
                         Bundle params = new Bundle();
                         params.putString("message", message);
 
-//                        while (itremo.hasNext()) {
+//                            while (itremo.hasNext()) {
 //
 //
-//                            emoneutral.append(itremo.next().toString() + " ");
-//                            countnum++;
+//                                emoneutral.append(itremo.next() + " ");
+//                                countnum++;
 //
 //
-//                        }
+//                            }
                         if(arrMapping.size() == 0){
                             emoneutral.append("-");
                         }else if(arrMapping.size() == 1){
@@ -2859,11 +3305,10 @@ public class AccountActivity extends AppCompatActivity
                             }
 
                         }
-
-//                        if (countnum == 0) {
+//                            if (countnum == 0) {
 //
-//                            emoneutral.append("-");
-//                        }
+//                                emoneutral.append("-");
+//                            }
                         final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
                         dialog.setContentView(R.layout.neural_layout);
                         //dialog.setTitle("");
@@ -2970,24 +3415,23 @@ public class AccountActivity extends AppCompatActivity
                             }
                         });
 
-
                         dialog.show();
 
 
-                    } else if (countchexkemo < 0 && checkshortcut > 0) {
+                    } else if (count < 0 && checkemo > 0) {
 
                         Bundle params = new Bundle();
                         params.putString("message", message);
 
 
-//                        while (itremo.hasNext()) {
+//                            while (itremo.hasNext()) {
 //
 //
-//                            emonegetive.append(itremo.next().toString() + " ");
-//                            countnum2++;
+//                                emonegetive.append(itremo.next() + " ");
+//                                countnum2++;
 //
 //
-//                        }
+//                            }
                         if(arrMapping.size() == 0){
                             emonegetive.append("-");
                         }else if(arrMapping.size() == 1){
@@ -3008,9 +3452,9 @@ public class AccountActivity extends AppCompatActivity
 
                         }
 
-//                        if (countnum2 == 0) {
-//                            emonegetive.append("-");
-//                        }
+//                            if (countnum2 == 0) {
+//                                emonegetive.append("-");
+//                            }
                         final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
                         dialog.setContentView(R.layout.negetive_layout);
                         //dialog.setTitle("");
@@ -3018,7 +3462,16 @@ public class AccountActivity extends AppCompatActivity
 
                         TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
                         TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
+                        TextView  textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
                         Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
+
+                        if(count==-3 && countNotifi > 0){
+                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบนะจ๊ะ");
+                        }else if(count<-3 && countNotifi > 0){
+                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบอย่างมากนะจ๊ะ");
+                        }else if(countNotifi > 0){
+                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบนะจ๊ะ");
+                        }
 
                         textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
                         textemo.setText("อารมณ์(Emotion) : " + emonegetive);
@@ -3088,7 +3541,7 @@ public class AccountActivity extends AppCompatActivity
                                         }
                                 ).executeAsync();
                                 editTextpost.setText("");
-                                if(countneg >=7)
+                                if(countneg >=6)
                                     showNotification(v);
                                 dialog.dismiss();
                             }
@@ -3121,19 +3574,20 @@ public class AccountActivity extends AppCompatActivity
                         dialog.show();
 
 
-                    } else if (countchexkemo > 0 && checkshortcut > 0) {
+                    } else if (count > 0 && checkemo > 0) {
 
                         Bundle params = new Bundle();
                         params.putString("message", message);
 
-//                        while (itremo.hasNext()) {
+
+//                            while (itremo.hasNext()) {
 //
 //
-//                            emopositive.append(itremo.next().toString() + " ");
-//                            countnum3++;
+//                                emopositive.append(itremo.next().toString() + " ");
+//                                countnum3++;
 //
 //
-//                        }
+//                            }
                         if(arrMapping.size() == 0){
                             emopositive.append("-");
                         }else if(arrMapping.size() == 1){
@@ -3154,20 +3608,16 @@ public class AccountActivity extends AppCompatActivity
 
                         }
 
-//                        if (countnum3 == 0) {
-//                            emopositive.append("-");
+//                            if (countnum3 == 0) {
+//                                emopositive.append("-");
 //
-//                        }
+//                            }
                         final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
                         dialog.setContentView(R.layout.positive_layout);
                         //dialog.setTitle("");
 
-
                         TextView textatti = (TextView) dialog.findViewById(R.id.textpositiveatti);
                         TextView textemo = (TextView) dialog.findViewById(R.id.textpositiveemo);
-
-                        Button dialogButton3 = (Button) dialog.findViewById(R.id.btnpostsitive);
-
                         textatti.setText("ทัศนคติ(Attitude) : เชิงบวก(Positive)");
                         textemo.setText("อารมณ์(Emotion) : " + emopositive);
                         ImageView image = (ImageView) dialog.findViewById(R.id.imageviewpositive);
@@ -3175,6 +3625,7 @@ public class AccountActivity extends AppCompatActivity
 
                         Button dialogButton = (Button) dialog.findViewById(R.id.post_btn);
                         Button dialogButton2 = (Button) dialog.findViewById(R.id.no_btn);
+                        Button dialogButton3 = (Button) dialog.findViewById(R.id.btnpostsitive);
                         dialogButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -3235,7 +3686,9 @@ public class AccountActivity extends AppCompatActivity
                                             }
                                         }
                                 ).executeAsync();
+
                                 editTextpost.setText("");
+
 
                                 dialog.dismiss();
                             }
@@ -3265,544 +3718,91 @@ public class AccountActivity extends AppCompatActivity
                             }
                         });
 
-
                         dialog.show();
 
 
                     } else {
 
-
-                        if (count == 0 && checkemo > 0) {
-
-
-                            Bundle params = new Bundle();
-                            params.putString("message", message);
-
-//                            while (itremo.hasNext()) {
-//
-//
-//                                emoneutral.append(itremo.next() + " ");
-//                                countnum++;
-//
-//
-//                            }
-                            if(arrMapping.size() == 0){
-                                emoneutral.append("-");
-                            }else if(arrMapping.size() == 1){
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    emoneutral.append("-");
-                                }else{
-                                    for(String s : arrMapping) {
-                                        emoneutral.append(s);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                        builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
+                                .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.cancel();
                                     }
-                                }
-                            }else{
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    arrMapping.remove("ไม่แสดงอารมณ์");
-                                }
-                                for(String s : arrMapping) {
-                                    emoneutral.append(s + " ");
-                                }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
 
-                            }
-//                            if (countnum == 0) {
-//
-//                                emoneutral.append("-");
-//                            }
-                            final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
-                            dialog.setContentView(R.layout.neural_layout);
-                            //dialog.setTitle("");
+                        Bundle params = new Bundle();
+                        params.putString("message", message);
+                        new GraphRequest(
+                                AccessToken.getCurrentAccessToken(),
+                                "/me/feed",
+                                params,
+                                HttpMethod.POST,
+                                new GraphRequest.Callback() {
+                                    public void onCompleted(GraphResponse response) {
+                                        Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
+                                        GraphRequest request = new GraphRequest(
+                                                AccessToken.getCurrentAccessToken(),
+                                                "/me/feed",
+                                                null,
+                                                HttpMethod.GET,
+                                                new GraphRequest.Callback() {
+                                                    public void onCompleted(GraphResponse response) {
 
+                                                        // JSON GETS THE DATA
+                                                        JSONObject jsonData = response.getJSONObject();
 
-                            TextView textatti = (TextView) dialog.findViewById(R.id.textneuralatti);
-                            TextView textemo = (TextView) dialog.findViewById(R.id.textneuralemo);
-                            Button dialogButton3 = (Button) dialog.findViewById(R.id.btncheckneural);
+                                                        try {
 
-                            textatti.setText("ทัศนคติ(Attitude)  : เป็นกลาง(Unexpressed)");
-                            textemo.setText("อารมณ์(Emotion) : " + emoneutral);
-                            ImageView image = (ImageView) dialog.findViewById(R.id.imageviewneural);
-                            image.setImageResource(R.drawable.yellow);
+                                                            JSONArray postsData = jsonData.getJSONArray("data");
+                                                            if (postsData != null) {
 
-                            Button dialogButton = (Button) dialog.findViewById(R.id.postneural_btn);
-                            Button dialogButton2 = (Button) dialog.findViewById(R.id.noneural_btn);
-                            dialogButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Bundle params = new Bundle();
-                                    params.putString("message", message);
-                                    new GraphRequest(
-                                            AccessToken.getCurrentAccessToken(),
-                                            "/me/feed",
-                                            params,
-                                            HttpMethod.POST,
-                                            new GraphRequest.Callback() {
-                                                public void onCompleted(GraphResponse response) {
-                                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                    GraphRequest request = new GraphRequest(
-                                                            AccessToken.getCurrentAccessToken(),
-                                                            "/me/feed",
-                                                            null,
-                                                            HttpMethod.GET,
-                                                            new GraphRequest.Callback() {
-                                                                public void onCompleted(GraphResponse response) {
+                                                                for (int i = 0; i < postsData.length(); i++) {
+                                                                    JSONObject story = postsData.getJSONObject(i);
 
-                                                                    // JSON GETS THE DATA
-                                                                    JSONObject jsonData = response.getJSONObject();
-
-                                                                    try {
-
-                                                                        JSONArray postsData = jsonData.getJSONArray("data");
-                                                                        if (postsData != null) {
-
-                                                                            for (int i = 0; i < postsData.length(); i++) {
-                                                                                JSONObject story = postsData.getJSONObject(i);
-
-                                                                                if (story.has("id")) {
-                                                                                    String timeMessage = story.getString("id");
-                                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                    Uri uri = Uri.parse(facebook);
-                                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                    startActivity(intentfb);
-                                                                                }
-
-                                                                            }
-
-
-                                                                        }
-
-                                                                    } catch (Exception e) {
-                                                                        Log.d("JSON", "error" + e.toString());
+                                                                    if (story.has("id")) {
+                                                                        String timeMessage = story.getString("id");
+                                                                        String facebook = "https://www.facebook.com/" + timeMessage;
+                                                                        Uri uri = Uri.parse(facebook);
+                                                                        Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
+                                                                        startActivity(intentfb);
                                                                     }
 
                                                                 }
-                                                            }
-                                                    );
-                                                    Bundle parameters = new Bundle();
-                                                    parameters.putString("fields", "id");
-                                                    parameters.putString("limit", "1");
-                                                    request.setParameters(parameters);
-                                                    request.executeAsync();
-                                                }
-                                            }
-                                    ).executeAsync();
-                                    editTextpost.setText("");
 
-                                    dialog.dismiss();
-                                }
-                            });
 
-                            dialogButton2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                    builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                            .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    dialogInterface.cancel();
-                                                }
-                                            });
-                                    AlertDialog dialog = builder.create();
-                                    dialog.show();
-
-                                }
-                            });
-
-                            dialog.show();
-
-
-                        } else if (count < 0 && checkemo > 0) {
-
-                            Bundle params = new Bundle();
-                            params.putString("message", message);
-
-
-//                            while (itremo.hasNext()) {
-//
-//
-//                                emonegetive.append(itremo.next() + " ");
-//                                countnum2++;
-//
-//
-//                            }
-                            if(arrMapping.size() == 0){
-                                emonegetive.append("-");
-                            }else if(arrMapping.size() == 1){
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    emonegetive.append("-");
-                                }else{
-                                    for(String s : arrMapping) {
-                                        emonegetive.append(s);
-                                    }
-                                }
-                            }else{
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    arrMapping.remove("ไม่แสดงอารมณ์");
-                                }
-                                for(String s : arrMapping) {
-                                    emonegetive.append(s + " ");
-                                }
-
-                            }
-
-//                            if (countnum2 == 0) {
-//                                emonegetive.append("-");
-//                            }
-                            final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
-                            dialog.setContentView(R.layout.negetive_layout);
-                            //dialog.setTitle("");
-
-
-                            TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
-                            TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
-                            TextView  textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
-                            Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
-
-                            if(count==-3 && countNotifi > 0){
-                                textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบนะจ๊ะ");
-                            }else if(count<-3 && countNotifi > 0){
-                                textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบอย่างมากนะจ๊ะ");
-                            }else if(countNotifi > 0){
-                                textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบนะจ๊ะ");
-                            }
-
-                            textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
-                            textemo.setText("อารมณ์(Emotion) : " + emonegetive);
-                            ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
-                            image.setImageResource(R.drawable.red);
-
-                            Button dialogButton = (Button) dialog.findViewById(R.id.postnegetive_btn);
-                            Button dialogButton2 = (Button) dialog.findViewById(R.id.nonegetive_btn);
-                            dialogButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Bundle params = new Bundle();
-                                    params.putString("message", message);
-                                    new GraphRequest(
-                                            AccessToken.getCurrentAccessToken(),
-                                            "/me/feed",
-                                            params,
-                                            HttpMethod.POST,
-                                            new GraphRequest.Callback() {
-                                                public void onCompleted(GraphResponse response) {
-                                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                    GraphRequest request = new GraphRequest(
-                                                            AccessToken.getCurrentAccessToken(),
-                                                            "/me/feed",
-                                                            null,
-                                                            HttpMethod.GET,
-                                                            new GraphRequest.Callback() {
-                                                                public void onCompleted(GraphResponse response) {
-
-                                                                    // JSON GETS THE DATA
-                                                                    JSONObject jsonData = response.getJSONObject();
-
-                                                                    try {
-
-                                                                        JSONArray postsData = jsonData.getJSONArray("data");
-                                                                        if (postsData != null) {
-
-                                                                            for (int i = 0; i < postsData.length(); i++) {
-                                                                                JSONObject story = postsData.getJSONObject(i);
-
-                                                                                if (story.has("id")) {
-                                                                                    String timeMessage = story.getString("id");
-                                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                    Uri uri = Uri.parse(facebook);
-                                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                    startActivity(intentfb);
-                                                                                }
-
-                                                                            }
-
-
-                                                                        }
-
-                                                                    } catch (Exception e) {
-                                                                        Log.d("JSON", "error" + e.toString());
-                                                                    }
-
-                                                                }
-                                                            }
-                                                    );
-                                                    Bundle parameters = new Bundle();
-                                                    parameters.putString("fields", "id");
-                                                    parameters.putString("limit", "1");
-                                                    request.setParameters(parameters);
-                                                    request.executeAsync();
-                                                }
-                                            }
-                                    ).executeAsync();
-                                    editTextpost.setText("");
-                                    if(countneg >=7)
-                                        showNotification(v);
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                    builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                            .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    dialogInterface.cancel();
-                                                }
-                                            });
-                                    AlertDialog dialog = builder.create();
-                                    dialog.show();
-
-                                }
-                            });
-
-                            dialog.show();
-
-
-                        } else if (count > 0 && checkemo > 0) {
-
-                            Bundle params = new Bundle();
-                            params.putString("message", message);
-
-
-//                            while (itremo.hasNext()) {
-//
-//
-//                                emopositive.append(itremo.next().toString() + " ");
-//                                countnum3++;
-//
-//
-//                            }
-                            if(arrMapping.size() == 0){
-                                emopositive.append("-");
-                            }else if(arrMapping.size() == 1){
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    emopositive.append("-");
-                                }else{
-                                    for(String s : arrMapping) {
-                                        emopositive.append(s);
-                                    }
-                                }
-                            }else{
-                                if(arrMapping.contains("ไม่แสดงอารมณ์")){
-                                    arrMapping.remove("ไม่แสดงอารมณ์");
-                                }
-                                for(String s : arrMapping) {
-                                    emopositive.append(s + " ");
-                                }
-
-                            }
-
-//                            if (countnum3 == 0) {
-//                                emopositive.append("-");
-//
-//                            }
-                            final Dialog dialog = new Dialog(AccountActivity.this,R.style.FullHeightDialog);
-                            dialog.setContentView(R.layout.positive_layout);
-                            //dialog.setTitle("");
-
-                            TextView textatti = (TextView) dialog.findViewById(R.id.textpositiveatti);
-                            TextView textemo = (TextView) dialog.findViewById(R.id.textpositiveemo);
-                            textatti.setText("ทัศนคติ(Attitude) : เชิงบวก(Positive)");
-                            textemo.setText("อารมณ์(Emotion) : " + emopositive);
-                            ImageView image = (ImageView) dialog.findViewById(R.id.imageviewpositive);
-                            image.setImageResource(R.drawable.green);
-
-                            Button dialogButton = (Button) dialog.findViewById(R.id.post_btn);
-                            Button dialogButton2 = (Button) dialog.findViewById(R.id.no_btn);
-                            Button dialogButton3 = (Button) dialog.findViewById(R.id.btnpostsitive);
-                            dialogButton.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Bundle params = new Bundle();
-                                    params.putString("message", message);
-                                    new GraphRequest(
-                                            AccessToken.getCurrentAccessToken(),
-                                            "/me/feed",
-                                            params,
-                                            HttpMethod.POST,
-                                            new GraphRequest.Callback() {
-                                                public void onCompleted(GraphResponse response) {
-                                                    Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                                    GraphRequest request = new GraphRequest(
-                                                            AccessToken.getCurrentAccessToken(),
-                                                            "/me/feed",
-                                                            null,
-                                                            HttpMethod.GET,
-                                                            new GraphRequest.Callback() {
-                                                                public void onCompleted(GraphResponse response) {
-
-                                                                    // JSON GETS THE DATA
-                                                                    JSONObject jsonData = response.getJSONObject();
-
-                                                                    try {
-
-                                                                        JSONArray postsData = jsonData.getJSONArray("data");
-                                                                        if (postsData != null) {
-
-                                                                            for (int i = 0; i < postsData.length(); i++) {
-                                                                                JSONObject story = postsData.getJSONObject(i);
-
-                                                                                if (story.has("id")) {
-                                                                                    String timeMessage = story.getString("id");
-                                                                                    String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                                    Uri uri = Uri.parse(facebook);
-                                                                                    Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                                    startActivity(intentfb);
-                                                                                }
-
-                                                                            }
-
-
-                                                                        }
-
-                                                                    } catch (Exception e) {
-                                                                        Log.d("JSON", "error" + e.toString());
-                                                                    }
-
-                                                                }
-                                                            }
-                                                    );
-                                                    Bundle parameters = new Bundle();
-                                                    parameters.putString("fields", "id");
-                                                    parameters.putString("limit", "1");
-                                                    request.setParameters(parameters);
-                                                    request.executeAsync();
-                                                }
-                                            }
-                                    ).executeAsync();
-
-                                    editTextpost.setText("");
-
-
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton2.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
-                            });
-
-                            dialogButton3.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                                    builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                            .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialogInterface, int i) {
-                                                    dialogInterface.cancel();
-                                                }
-                                            });
-                                    AlertDialog dialog = builder.create();
-                                    dialog.show();
-
-                                }
-                            });
-
-                            dialog.show();
-
-
-                        } else {
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
-                            builder.setMessage(message + "\n\n" + checkwd + "\n\n" + checksc).setTitle("AlertDialog").setCancelable(false)
-                                    .setNegativeButton("Exits", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.cancel();
-                                        }
-                                    });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
-
-                            Bundle params = new Bundle();
-                            params.putString("message", message);
-                            new GraphRequest(
-                                    AccessToken.getCurrentAccessToken(),
-                                    "/me/feed",
-                                    params,
-                                    HttpMethod.POST,
-                                    new GraphRequest.Callback() {
-                                        public void onCompleted(GraphResponse response) {
-                                            Toast.makeText(AccountActivity.this, "Post Status Success", Toast.LENGTH_LONG).show();
-                                            GraphRequest request = new GraphRequest(
-                                                    AccessToken.getCurrentAccessToken(),
-                                                    "/me/feed",
-                                                    null,
-                                                    HttpMethod.GET,
-                                                    new GraphRequest.Callback() {
-                                                        public void onCompleted(GraphResponse response) {
-
-                                                            // JSON GETS THE DATA
-                                                            JSONObject jsonData = response.getJSONObject();
-
-                                                            try {
-
-                                                                JSONArray postsData = jsonData.getJSONArray("data");
-                                                                if (postsData != null) {
-
-                                                                    for (int i = 0; i < postsData.length(); i++) {
-                                                                        JSONObject story = postsData.getJSONObject(i);
-
-                                                                        if (story.has("id")) {
-                                                                            String timeMessage = story.getString("id");
-                                                                            String facebook = "https://www.facebook.com/" + timeMessage;
-                                                                            Uri uri = Uri.parse(facebook);
-                                                                            Intent intentfb = new Intent(Intent.ACTION_VIEW, uri);
-                                                                            startActivity(intentfb);
-                                                                        }
-
-                                                                    }
-
-
-                                                                }
-
-                                                            } catch (Exception e) {
-                                                                Log.d("JSON", "error" + e.toString());
                                                             }
 
+                                                        } catch (Exception e) {
+                                                            Log.d("JSON", "error" + e.toString());
                                                         }
+
                                                     }
-                                            );
-                                            Bundle parameters = new Bundle();
-                                            parameters.putString("fields", "id");
-                                            parameters.putString("limit", "1");
-                                            request.setParameters(parameters);
-                                            request.executeAsync();
-                                        }
+                                                }
+                                        );
+                                        Bundle parameters = new Bundle();
+                                        parameters.putString("fields", "id");
+                                        parameters.putString("limit", "1");
+                                        request.setParameters(parameters);
+                                        request.executeAsync();
                                     }
-                            ).executeAsync();
-
-                        }
-
+                                }
+                        ).executeAsync();
 
                     }
+
+
                 }
-
-
-
-
-
             }
+
+
+
+
+
+        }
 
 
 
@@ -8892,9 +8892,9 @@ public class AccountActivity extends AppCompatActivity
 
         } else if (id == R.id.setting) {
 
-                Intent intentsetting = new Intent(AccountActivity.this,SettingActivity.class);
-                intentsetting.putExtra("userProfile",jsondata);
-                startActivity(intentsetting);
+            Intent intentsetting = new Intent(AccountActivity.this,SettingActivity.class);
+            intentsetting.putExtra("userProfile",jsondata);
+            startActivity(intentsetting);
 
 
 
@@ -8939,24 +8939,24 @@ public class AccountActivity extends AppCompatActivity
     }
 
     public void showNotification(View view) {
-       // Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.red);
+        // Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.red);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            Notification notification = new NotificationCompat.Builder(this) // this is context
-                    .setSmallIcon(R.mipmap.negred)
-                    .setContentTitle("โพสต์ทัศนคติทางลบบ่อยครั้ง!!!")
-                    .setContentText("ลองเปลี่ยนคำที่ใช้และพิจารณาก่อนโพสต์")
-                    .setNumber(countneg)
-                    .setAutoCancel(true)
-                    /*.setStyle(new NotificationCompat.BigPictureStyle()
-                            .bigPicture(bitmap)
-                            .bigLargeIcon(null))*/
-                    .setSound(alarmSound)
-                    .setVibrate(new long[] { 1000, 1000, 1000})
-                    .build();
+        Notification notification = new NotificationCompat.Builder(this) // this is context
+                .setSmallIcon(R.mipmap.negred)
+                .setContentTitle("โพสต์ทัศนคติทางลบบ่อยครั้ง!!!")
+                .setContentText("ลองเปลี่ยนคำที่ใช้และพิจารณาก่อนโพสต์")
+                .setNumber(countneg+1)
+                .setAutoCancel(true)
+                /*.setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(bitmap)
+                        .bigLargeIcon(null))*/
+                .setSound(alarmSound)
+                .setVibrate(new long[] { 1000, 1000, 1000})
+                .build();
 
-            NotificationManager notificationManager =
-                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.notify(1000, notification);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1000, notification);
 
         //showNotification(view);
 

@@ -2569,6 +2569,7 @@ public class SummaryActivity extends AppCompatActivity {
                                    nameCount.clear();
                                    numberCount.clear();
 
+
                                    if(countgrappos>0){
                                        numberCount.add(countgrappos);
                                        nameCount.add("ทัศนคติเชิงบวก");
@@ -2576,14 +2577,17 @@ public class SummaryActivity extends AppCompatActivity {
                                    if(countgrapnege>0){
                                        numberCount.add(countgrapnege);
                                        nameCount.add("ทัศนคติเชิงลบ");
+
                                    }
                                    if(countgraphneural>0){
                                        numberCount.add(countgraphneural);
                                        nameCount.add("ทัศนคติเป็นกลาง");
+
                                    }
                                    if(countgraphnot>0){
                                        numberCount.add(countgraphnot);
                                        nameCount.add("ไม่แสดงออกถึงทัศนคติเลย");
+
                                    }
 
 
@@ -2593,12 +2597,27 @@ public class SummaryActivity extends AppCompatActivity {
                                        pieEntries.add(new PieEntry(numberCount.get(i), nameCount.get(i)));
 
                                    }
+
+
                                    PieDataSet pieDataSet = new PieDataSet(pieEntries, " ");
                                    ArrayList<Integer> colors = new ArrayList<>();
-                                   colors.add(Color.rgb(0, 143, 0));
-                                   colors.add(Color.rgb(200, 0, 0));
-                                   colors.add(Color.rgb(255, 192, 0));
-                                   colors.add(Color.rgb(127,127,127));
+
+                                   if(countgrappos>0){
+                                       colors.add(Color.rgb(0, 143, 0));
+                                   }
+                                   if(countgrapnege>0){
+                                       colors.add(Color.rgb(200, 0, 0));
+                                   }
+                                   if(countgraphneural>0){
+                                       colors.add(Color.rgb(255, 192, 0));
+                                   }
+                                   if(countgraphnot>0){
+                                       colors.add(Color.rgb(127,127,127));
+                                   }
+
+
+
+
                                    pieDataSet.setColors(colors);
                                    PieData pieData = new PieData(pieDataSet);
 
@@ -5085,6 +5104,7 @@ public class SummaryActivity extends AppCompatActivity {
                                    nameCount.clear();
                                    numberCount.clear();
 
+
                                    if(countgrappos>0){
                                        numberCount.add(countgrappos);
                                        nameCount.add("ทัศนคติเชิงบวก");
@@ -5092,14 +5112,17 @@ public class SummaryActivity extends AppCompatActivity {
                                    if(countgrapnege>0){
                                        numberCount.add(countgrapnege);
                                        nameCount.add("ทัศนคติเชิงลบ");
+
                                    }
                                    if(countgraphneural>0){
                                        numberCount.add(countgraphneural);
                                        nameCount.add("ทัศนคติเป็นกลาง");
+
                                    }
                                    if(countgraphnot>0){
                                        numberCount.add(countgraphnot);
                                        nameCount.add("ไม่แสดงออกถึงทัศนคติเลย");
+
                                    }
 
 
@@ -5109,12 +5132,27 @@ public class SummaryActivity extends AppCompatActivity {
                                        pieEntries.add(new PieEntry(numberCount.get(i), nameCount.get(i)));
 
                                    }
+
+
                                    PieDataSet pieDataSet = new PieDataSet(pieEntries, " ");
                                    ArrayList<Integer> colors = new ArrayList<>();
-                                   colors.add(Color.rgb(0, 143, 0));
-                                   colors.add(Color.rgb(200, 0, 0));
-                                   colors.add(Color.rgb(255, 192, 0));
-                                   colors.add(Color.rgb(127,127,127));
+
+                                   if(countgrappos>0){
+                                       colors.add(Color.rgb(0, 143, 0));
+                                   }
+                                   if(countgrapnege>0){
+                                       colors.add(Color.rgb(200, 0, 0));
+                                   }
+                                   if(countgraphneural>0){
+                                       colors.add(Color.rgb(255, 192, 0));
+                                   }
+                                   if(countgraphnot>0){
+                                       colors.add(Color.rgb(127,127,127));
+                                   }
+
+
+
+
                                    pieDataSet.setColors(colors);
                                    PieData pieData = new PieData(pieDataSet);
 

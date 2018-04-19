@@ -26,7 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView textname,textemail;
     private JSONObject reponse;
     private CallbackManager callbackManager;
-    private Button btnback;
+
     private DatabaseForFriends databaseForFriends;
 
     @Override
@@ -36,7 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_profile);
-        btnback = (Button)findViewById(R.id.backbtn);
+
         databaseForFriends = new DatabaseForFriends(getApplicationContext());
         databaseForFriends.getWritableDatabase();
 
@@ -55,7 +55,6 @@ public class ProfileActivity extends AppCompatActivity {
         profilePictureView.setProfileId(id);
         textname.setText(name);
 
-        Toast.makeText(ProfileActivity.this,"id = "+id,Toast.LENGTH_LONG).show();
 
 
 //        btnback.setOnClickListener(new View.OnClickListener() {
