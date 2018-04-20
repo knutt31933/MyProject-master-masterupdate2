@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/pagging"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <com.facebook.login.widget.ProfilePictureView
-        android:id="@+id/profile"
+    <ImageView
+        android:id="@+id/profilepagging"
         android:layout_width="64dp"
         android:layout_height="53dp"
-        android:layout_margin="20dp">
+        android:layout_margin="20dp"
+        app:srcCompat="@drawable/profile" />
 
-    </com.facebook.login.widget.ProfilePictureView>
 
     <TextView
         android:id="@+id/textname"

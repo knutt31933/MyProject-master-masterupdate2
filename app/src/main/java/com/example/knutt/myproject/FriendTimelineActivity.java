@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
 import com.facebook.login.widget.ProfilePictureView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,8 +31,10 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
+
 public class FriendTimelineActivity extends AppCompatActivity {
-    private ProfilePictureView profilePictureView;
+
     private TextView textname;
     private ArrayList<String> addMessage = new ArrayList<>();
     private ArrayAdapter<String> arrayAdapter;
@@ -137,7 +141,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
         final Pattern regex = Pattern.compile(pattern);
 
 
-        profilePictureView = (ProfilePictureView) findViewById(R.id.profiletm);
+
         textname = (TextView) findViewById(R.id.textnametm);
 
         listView = (ListView)findViewById(R.id.listviewTM);
@@ -159,7 +163,15 @@ public class FriendTimelineActivity extends AppCompatActivity {
         SharedPreferences sp9 = getSharedPreferences("App save9", Context.MODE_PRIVATE);
         final int checkboxstate9 = sp9.getInt("checked9",0);
 
-        profilePictureView.setProfileId(id);
+        ImageView profilePic = (ImageView) findViewById(R.id.profilefriend);
+
+        Picasso.get()
+                .load("https://graph.facebook.com/v2.2/" + id + "/picture?height=120&type=normal") //extract as User instance method
+                .transform(new CropCircleTransformation())
+                .resize(120, 120)
+                .into(profilePic);
+
+
         textname.setText(name);
 
 

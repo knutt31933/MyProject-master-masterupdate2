@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.login.widget.ProfilePictureView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,6 +29,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+
+
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -78,6 +83,7 @@ private TreeMap<String,String> add = new TreeMap<>();
                 SharedPreferences.Editor editor2 = sharedPref2.edit();
                 editor2.putString("id", id);
                 editor2.commit();
+               // Toast.makeText(FriendDetailActivity.this,name+id,Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(FriendDetailActivity.this,FriendTimelineActivity.class);
                 startActivity(intent);
@@ -131,10 +137,23 @@ class MyAdapter extends ArrayAdapter<String>{
     public View getView(int position,View convertView,ViewGroup parent ){
         LayoutInflater layoutInflater =(LayoutInflater) getApplicationContext().getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View row = layoutInflater.inflate(R.layout.index_paging,parent,false);
-        ProfilePictureView profilePictureView = (ProfilePictureView) row.findViewById(R.id.profile);
+
         TextView textView = (TextView) row.findViewById(R.id.textname);
+
+        ImageView profilePic = (ImageView) row.findViewById(R.id.profilepagging);
+
+        Picasso.get()
+                .load("https://graph.facebook.com/v2.2/" + id.get(position) + "/picture?height=120&type=normal") //extract as User instance method
+                .transform(new CropCircleTransformation())
+                .resize(120, 120)
+                .into(profilePic);
+
+
+
+
+
         textView.setTextColor(Color.WHITE);
-        profilePictureView.setProfileId(id.get(position));
+
         textView.setText(name.get(position));
 
 

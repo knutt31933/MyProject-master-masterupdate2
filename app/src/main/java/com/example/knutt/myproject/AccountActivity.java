@@ -8869,7 +8869,8 @@ public class AccountActivity extends AppCompatActivity
         String jsondata = intent.getStringExtra("userProfile");
         JSONObject reponse;
 
-
+        SharedPreferences sp2 = getSharedPreferences("userid", Context.MODE_PRIVATE);
+        String idProfile = sp2.getString("userid", "");
 
         if (id == R.id.profile) {
 
@@ -8901,16 +8902,14 @@ public class AccountActivity extends AppCompatActivity
 
         }
         else if (id == R.id.facebook){
-            try {
-                reponse = new JSONObject(jsondata);
-                String idfb = reponse.get("id").toString();
-                String facebook = "https://www.facebook.com/"+idfb;
+
+
+
+                String facebook = "https://www.facebook.com/"+idProfile;
                 Uri uri = Uri.parse(facebook);
                 Intent intentfb = new Intent(Intent.ACTION_VIEW,uri);
                 startActivity(intentfb);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
         }
 
         else if (id == R.id.friendlist){

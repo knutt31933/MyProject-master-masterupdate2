@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,12 +15,15 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.widget.ProfilePictureView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 
 public class ProfileActivity extends AppCompatActivity {
     private ProfilePictureView profilePictureView;
@@ -52,7 +56,15 @@ public class ProfileActivity extends AppCompatActivity {
         SharedPreferences sp2 = getSharedPreferences("userid", Context.MODE_PRIVATE);
         String id = sp2.getString("userid", "");
 
-        profilePictureView.setProfileId(id);
+        ImageView profilePic = (ImageView) findViewById(R.id.profileimage);
+
+        Picasso.get()
+                .load("https://graph.facebook.com/v2.2/" + id + "/picture?height=120&type=normal") //extract as User instance method
+                .transform(new CropCircleTransformation())
+                .resize(120, 120)
+                .into(profilePic);
+
+       // profilePictureView.setProfileId(id);
         textname.setText(name);
 
 
