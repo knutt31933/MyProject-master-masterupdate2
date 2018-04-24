@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -2564,6 +2565,9 @@ public class SummaryActivity extends AppCompatActivity {
 
                                    }
 
+                                   TextView textView = (TextView)findViewById(R.id.textV);
+                                   textView.setText("สรุปทัศนคติโดยรวมใน 1 สัปดาห์"+"("+datecheck1+ " ถึง "+datecheck7+")");
+
                                    ArrayList<String> nameCount = new ArrayList<>();
                                    ArrayList<Integer> numberCount = new ArrayList<>();
                                    nameCount.clear();
@@ -5092,6 +5096,9 @@ public class SummaryActivity extends AppCompatActivity {
 
 
                                    }
+
+                                   TextView textView = (TextView)findViewById(R.id.textV);
+                                   textView.setText("สรุปทัศนคติโดยรวมใน 1 สัปดาห์"+"("+datecheck11+ " ถึง "+datecheck77+")");
 
 
                                    //Toast.makeText(TimelineActivity.this,allPostsMessages.size(),Toast.LENGTH_SHORT).show();

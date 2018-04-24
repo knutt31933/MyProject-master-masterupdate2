@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,11 +45,16 @@ import com.facebook.LoggingBehavior;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.ProfilePictureView;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.DataOutputStream;
 import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -56,6 +62,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -115,6 +122,7 @@ public class AccountActivity extends AppCompatActivity
 
     /////check
     private DatabaseRealtime databaseRealtime;
+    private DatabaseForSummary databaseForSummary;
     private databaserealtimeSetting1 databaserealtimeSetting1;
     private ArrayList<String> arrListWordcheck = new ArrayList<>();
     private ArrayList<String> arrListEmocheck = new ArrayList<>();
@@ -186,6 +194,26 @@ public class AccountActivity extends AppCompatActivity
         databaseNotifiWord = new DatabaseNotifiWord(getApplicationContext());
         databaseNotifiWord.getWritableDatabase();
 
+        databaseForSummary = new DatabaseForSummary(getApplicationContext());
+        databaseForSummary.getWritableDatabase();
+
+        SharedPreferences sp2 = getSharedPreferences("userid", Context.MODE_PRIVATE);
+        String id = sp2.getString("userid", "");
+        int countSummary = 0;
+
+
+
+        ArrayList<HashMap<String,String>> getSummary = databaseForSummary.getSummary();
+//
+
+
+
+
+
+
+
+
+
         SharedPreferences spradio = getSharedPreferences("App save radio", Context.MODE_PRIVATE);
         int checkboxRadio = spradio.getInt("checkedRadio",0);
 
@@ -237,6 +265,192 @@ public class AccountActivity extends AppCompatActivity
 
             }
         }
+
+        ///new future
+
+
+
+        if(getSummary.size() == 0){
+            Calendar c = Calendar.getInstance();
+            Calendar c2 = Calendar.getInstance();
+            Calendar c3 = Calendar.getInstance();
+            Calendar c4 = Calendar.getInstance();
+            Calendar c5 = Calendar.getInstance();
+            Calendar c6 = Calendar.getInstance();
+            Calendar c7 = Calendar.getInstance();
+            Calendar c8 = Calendar.getInstance();
+
+            c.add(Calendar.DATE,0);
+            c2.add(Calendar.DATE,+1);
+            c3.add(Calendar.DATE,+2);
+            c4.add(Calendar.DATE,+3);
+            c5.add(Calendar.DATE,+4);
+            c6.add(Calendar.DATE,+5);
+            c7.add(Calendar.DATE,+6);
+            c8.add(Calendar.DATE,+7);
+
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df3 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df4 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df5 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df6 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df7 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df8 = new SimpleDateFormat("yyyy-MM-dd");
+
+            String formattedDate = df.format(c.getTime());
+            String formattedDate2 = df2.format(c2.getTime());
+            String formattedDate3 = df3.format(c3.getTime());
+            String formattedDate4 = df4.format(c4.getTime());
+            String formattedDate5 = df5.format(c5.getTime());
+            String formattedDate6 = df6.format(c6.getTime());
+            String formattedDate7 = df7.format(c7.getTime());
+            String formattedDate8 = df8.format(c8.getTime());
+
+            boolean add = databaseForSummary.insertDataSum(id,formattedDate ,formattedDate2 ,formattedDate3,formattedDate4,formattedDate5,formattedDate6,formattedDate7,formattedDate8);
+        }else {
+            Calendar c = Calendar.getInstance();
+            Calendar c2 = Calendar.getInstance();
+            Calendar c3 = Calendar.getInstance();
+            Calendar c4 = Calendar.getInstance();
+            Calendar c5 = Calendar.getInstance();
+            Calendar c6 = Calendar.getInstance();
+            Calendar c7 = Calendar.getInstance();
+            Calendar c8 = Calendar.getInstance();
+
+            c.add(Calendar.DATE,0);
+            c2.add(Calendar.DATE,+1);
+            c3.add(Calendar.DATE,+2);
+            c4.add(Calendar.DATE,+3);
+            c5.add(Calendar.DATE,+4);
+            c6.add(Calendar.DATE,+5);
+            c7.add(Calendar.DATE,+6);
+            c8.add(Calendar.DATE,+7);
+
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df3 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df4 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df5 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df6 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df7 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df8 = new SimpleDateFormat("yyyy-MM-dd");
+
+            String formattedDate = df.format(c.getTime());
+            String formattedDate2 = df2.format(c2.getTime());
+            String formattedDate3 = df3.format(c3.getTime());
+            String formattedDate4 = df4.format(c4.getTime());
+            String formattedDate5 = df5.format(c5.getTime());
+            String formattedDate6 = df6.format(c6.getTime());
+            String formattedDate7 = df7.format(c7.getTime());
+            String formattedDate8 = df8.format(c8.getTime());
+
+
+            for (int s = 0; s < getSummary.size(); s++) {
+                if(id.equals(getSummary.get(s).get("fbID")) ){
+                    countSummary++;
+                }
+            }
+            if(countSummary == 0){
+                boolean add = databaseForSummary.insertDataSum(id,formattedDate ,formattedDate2 ,formattedDate3,formattedDate4,formattedDate5,formattedDate6,formattedDate7,formattedDate8);
+            }
+        }
+        int checkIDFB = 0;
+        String keyDateIDFB = "";
+        String IDmaster = "";
+
+        for(int p = 0;p<getSummary.size();p++){
+            if(id.equals(getSummary.get(p).get("fbID"))){
+
+                if(dateforfirst.contains(getSummary.get(p).get("Date1"))){
+                    checkIDFB++;
+                }
+
+                if(dateforfirst.contains(getSummary.get(p).get("Date2"))){
+                    checkIDFB++;
+                }
+                if(dateforfirst.contains(getSummary.get(p).get("Date3"))){
+                    checkIDFB++;
+                }
+                if(dateforfirst.contains(getSummary.get(p).get("Date4"))){
+                    checkIDFB++;
+                }
+                if(dateforfirst.contains(getSummary.get(p).get("Date5"))){
+                    checkIDFB++;
+                }
+                if(dateforfirst.contains(getSummary.get(p).get("Date6"))){
+                    checkIDFB++;
+                }
+                if(dateforfirst.contains(getSummary.get(p).get("Date7"))){
+                    checkIDFB++;
+                }
+                if(dateforfirst.contains(getSummary.get(p).get("Date8"))){
+                    checkIDFB++;
+                }
+
+                keyDateIDFB = getSummary.get(p).get("Date8");
+                IDmaster = getSummary.get(p).get("ID");
+
+                SharedPreferences sharedPref = getSharedPreferences("IDFB", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putInt("IDFB", p);
+
+                SharedPreferences sharedPref2 = getSharedPreferences("IDKey", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = sharedPref2.edit();
+                editor2.putString("IDKey", IDmaster);
+
+                editor.commit();
+
+
+            }
+        }
+
+        if(checkIDFB ==0 || dateforfirst.contains(keyDateIDFB)){
+            Calendar c = Calendar.getInstance();
+            Calendar c2 = Calendar.getInstance();
+            Calendar c3 = Calendar.getInstance();
+            Calendar c4 = Calendar.getInstance();
+            Calendar c5 = Calendar.getInstance();
+            Calendar c6 = Calendar.getInstance();
+            Calendar c7 = Calendar.getInstance();
+            Calendar c8 = Calendar.getInstance();
+
+            c.add(Calendar.DATE,0);
+            c2.add(Calendar.DATE,+1);
+            c3.add(Calendar.DATE,+2);
+            c4.add(Calendar.DATE,+3);
+            c5.add(Calendar.DATE,+4);
+            c6.add(Calendar.DATE,+5);
+            c7.add(Calendar.DATE,+6);
+            c8.add(Calendar.DATE,+7);
+
+
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df3 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df4 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df5 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df6 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df7 = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat df8 = new SimpleDateFormat("yyyy-MM-dd");
+
+            String formattedDate = df.format(c.getTime());
+            String formattedDate2 = df2.format(c2.getTime());
+            String formattedDate3 = df3.format(c3.getTime());
+            String formattedDate4 = df4.format(c4.getTime());
+            String formattedDate5 = df5.format(c5.getTime());
+            String formattedDate6 = df6.format(c6.getTime());
+            String formattedDate7 = df7.format(c7.getTime());
+            String formattedDate8 = df8.format(c8.getTime());
+
+            boolean change = databaseForSummary.updateDataSum(IDmaster,formattedDate ,formattedDate2 ,formattedDate3,formattedDate4,formattedDate5,formattedDate6,formattedDate7,formattedDate8);
+
+
+        }
+
+        ///new future
 
 
 
@@ -889,7 +1103,7 @@ public class AccountActivity extends AppCompatActivity
 
                             EditTextCursor = editTextpost.getSelectionStart();
 
-                            editTextpost.getText().insert(EditTextCursor, ":V");
+                            editTextpost.getText().insert(EditTextCursor, ":v");
 
                             EditTextCursor = editTextpost.getSelectionStart();
 
@@ -2579,12 +2793,13 @@ public class AccountActivity extends AppCompatActivity
                         textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
                         textemo.setText("อารมณ์(Emotion) : " + emonegetive);
 
+
                         if(count==-3 && countNotifi > 0){
-                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบนะจ๊ะ");
+                            textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบมาก ควรเปลี่ยนการใช้คำ");
                         }else if(count<-3 && countNotifi > 0){
-                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบอย่างมากนะจ๊ะ");
+                            textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบค่อนข้างมาก ควรเปลี่ยนการใช้คำ");
                         }else if(countNotifi > 0){
-                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบนะจ๊ะ");
+                            textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบ ควรเปลี่ยนการใช้คำ");
                         }
 
                         ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
@@ -3466,11 +3681,11 @@ public class AccountActivity extends AppCompatActivity
                         Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
 
                         if(count==-3 && countNotifi > 0){
-                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบนะจ๊ะ");
+                            textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบมาก ควรเปลี่ยนการใช้คำ");
                         }else if(count<-3 && countNotifi > 0){
-                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบและทัศนคติเป็นลบอย่างมากนะจ๊ะ");
+                            textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบค่อนข้างมาก ควรเปลี่ยนการใช้คำ");
                         }else if(countNotifi > 0){
-                            textnotifi.setText("คำแนะนำจร้าา : สถานะที่โพสต์มีคำหยาบนะจ๊ะ");
+                            textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบ ควรเปลี่ยนการใช้คำ");
                         }
 
                         textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
@@ -3816,13 +4031,7 @@ public class AccountActivity extends AppCompatActivity
 
         Calendar check = Calendar.getInstance();
         check.add(Calendar.DATE,0);
-
-
-
-
         SimpleDateFormat realdatecurrent = new SimpleDateFormat("yyyy-MM-dd");
-
-
         String datecurrent = realdatecurrent.format(check.getTime());
 
 
@@ -3872,16 +4081,34 @@ public class AccountActivity extends AppCompatActivity
         final String pattern = "([0-9-]{10})";
 
         final Pattern regex = Pattern.compile(pattern);
+///new Future
 
 
+        SharedPreferences sp3 = getSharedPreferences("IDFB", Context.MODE_PRIVATE);
+        int idFB = sp3.getInt("IDFB", 0);
+
+        databaseForSummary = new DatabaseForSummary(getApplicationContext());
+        final ArrayList<HashMap<String, String>> getIDFB = databaseForSummary.getSummary();
 
 
+                final String DateCheck1 = getIDFB.get(idFB).get("Date1");
+                final String DateCheck2 = getIDFB.get(idFB).get("Date2");
+                final String DateCheck3 = getIDFB.get(idFB).get("Date3");
+                final String DateCheck4 = getIDFB.get(idFB).get("Date4");
+                final String DateCheck5 = getIDFB.get(idFB).get("Date5");
+                final String DateCheck6 = getIDFB.get(idFB).get("Date6");
+                final String DateCheck7 = getIDFB.get(idFB).get("Date7");
+                final String DateCheck8 = getIDFB.get(idFB).get("Date8");
 
-        if(!(datecurrent.contains(datecheck8))){
+
+        ///new Future
+
+          //datecheck8
+        if (!(datecurrent.contains(DateCheck8))) {
 
             GraphRequest request = new GraphRequest(
                     AccessToken.getCurrentAccessToken(),
-                    "/me/feed",
+                    "/me/feed?limit=500",
                     null,
                     HttpMethod.GET,
                     new GraphRequest.Callback() {
@@ -3905,10 +4132,7 @@ public class AccountActivity extends AppCompatActivity
                                         strword.clear();
                                         emo.clear();
                                         listemo.clear();
-                                        listforword.clear();
-                                        listforemo.clear();
-                                        testword.clear();
-                                        testshortcut.clear();
+
 
                                         int countchexkemo = 0;
                                         int count = 0;
@@ -3918,14 +4142,14 @@ public class AccountActivity extends AppCompatActivity
                                         JSONObject story = postsData.getJSONObject(i);
 
 //
-                                        if(story.has("created_time")){
+                                        if (story.has("created_time")) {
                                             String timeMessage = story.getString("created_time");
                                             //allPostsMessages.add(timeMessage);
                                             Matcher m = regex.matcher(timeMessage);
                                             if (m.find()) {
                                                 //allPostsMessages.add(m.group(0));
 
-                                                if (m.group(0).contains(datecheck1)) {
+                                                if (m.group(0).contains(DateCheck1)) {
                                                     if (story.has("message")) {
 
                                                         String postMessage = story.getString("message");
@@ -4266,7 +4490,7 @@ public class AccountActivity extends AppCompatActivity
 
 
 
-                                                } else if (m.group(0).contains(datecheck2)) {
+                                                } else if (m.group(0).contains(DateCheck2)) {
 
                                                     if (story.has("message")) {
 
@@ -4601,7 +4825,7 @@ public class AccountActivity extends AppCompatActivity
                                                     }
 
 
-                                                } else if (m.group(0).contains(datecheck3)) {
+                                                } else if (m.group(0).contains(DateCheck3)) {
 
                                                     if (story.has("message")) {
 
@@ -4934,7 +5158,7 @@ public class AccountActivity extends AppCompatActivity
                                                         }
                                                     }
 
-                                                } else if (m.group(0).contains(datecheck4)) {
+                                                } else if (m.group(0).contains(DateCheck4)) {
 
                                                     if (story.has("message")) {
 
@@ -5269,7 +5493,7 @@ public class AccountActivity extends AppCompatActivity
                                                     }
 
 
-                                                } else if (m.group(0).contains(datecheck5)) {
+                                                } else if (m.group(0).contains(DateCheck5)) {
 
                                                     if (story.has("message")) {
 
@@ -5603,7 +5827,7 @@ public class AccountActivity extends AppCompatActivity
                                                     }
 
 
-                                                } else if (m.group(0).contains(datecheck6)) {
+                                                } else if (m.group(0).contains(DateCheck6)) {
 
                                                     if (story.has("message")) {
 
@@ -5940,7 +6164,7 @@ public class AccountActivity extends AppCompatActivity
                                                     }
 
 
-                                                } else if (m.group(0).contains(datecheck7)) {
+                                                } else if (m.group(0).contains(DateCheck7)) {
 
                                                     if (story.has("message")) {
 
@@ -6277,25 +6501,29 @@ public class AccountActivity extends AppCompatActivity
 
                                                 }
                                             }
+
                                         }
-
-
 
 
                                     }
 
-
-
-
-
-
-                                    Toast.makeText(AccountActivity.this,"บวก"+String.valueOf(countgrappos)+"ลบ"+String.valueOf(countgrapnege),Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AccountActivity.this,String.valueOf(countgrapnege),Toast.LENGTH_SHORT).show();
                                     countneg = countgrapnege;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 }
-
-
-
 
 
                             } catch (Exception e) {
@@ -6310,8 +6538,7 @@ public class AccountActivity extends AppCompatActivity
             request.setParameters(parameters);
             request.executeAsync();
 
-        }else{
-
+        }else {
 
 
             Calendar c = Calendar.getInstance();
@@ -6323,14 +6550,14 @@ public class AccountActivity extends AppCompatActivity
             Calendar c7 = Calendar.getInstance();
             Calendar c8 = Calendar.getInstance();
 
-            c.add(Calendar.DATE,0);
-            c2.add(Calendar.DATE,+1);
-            c3.add(Calendar.DATE,+2);
-            c4.add(Calendar.DATE,+3);
-            c5.add(Calendar.DATE,+4);
-            c6.add(Calendar.DATE,+5);
-            c7.add(Calendar.DATE,+6);
-            c8.add(Calendar.DATE,+7);
+            c.add(Calendar.DATE, 0);
+            c2.add(Calendar.DATE, +1);
+            c3.add(Calendar.DATE, +2);
+            c4.add(Calendar.DATE, +3);
+            c5.add(Calendar.DATE, +4);
+            c6.add(Calendar.DATE, +5);
+            c7.add(Calendar.DATE, +6);
+            c8.add(Calendar.DATE, +7);
 
 
             df = new SimpleDateFormat("yyyy-MM-dd");
@@ -6351,27 +6578,43 @@ public class AccountActivity extends AppCompatActivity
             formattedDate7 = df7.format(c7.getTime());
             formattedDate8 = df8.format(c8.getTime());
 
-            Date1 = databaseRealtime.updateData("1",formattedDate);
-            Date2 = databaseRealtime.updateData("2",formattedDate2);
-            Date3 = databaseRealtime.updateData("3",formattedDate3);
-            Date4 = databaseRealtime.updateData("4",formattedDate4);
-            Date5 = databaseRealtime.updateData("5",formattedDate5);
-            Date6 = databaseRealtime.updateData("6",formattedDate6);
-            Date7 = databaseRealtime.updateData("7",formattedDate7);
-            Date8 = databaseRealtime.updateData("8",formattedDate8);
+            SharedPreferences sp = getSharedPreferences("IDKey", Context.MODE_PRIVATE);
+            String idkey = sp.getString("IDKey", "");
+            databaseForSummary.updateDataSum(idkey,formattedDate ,formattedDate2 ,formattedDate3,formattedDate4,formattedDate5,formattedDate6,formattedDate7,formattedDate8);
 
-            final String datecheck11 = datetime.get(0).get("Date");
-            final String datecheck22 = datetime.get(1).get("Date");
-            final String datecheck33 = datetime.get(2).get("Date");
-            final String datecheck44 = datetime.get(3).get("Date");
-            final String datecheck55 = datetime.get(4).get("Date");
-            final String datecheck66 = datetime.get(5).get("Date");
-            final String datecheck77 = datetime.get(6).get("Date");
-            final String datecheck88 = datetime.get(7).get("Date");
+            final String DateCheck11 = getIDFB.get(idFB).get("Date1");
+            final String DateCheck22 = getIDFB.get(idFB).get("Date2");
+            final String DateCheck33 = getIDFB.get(idFB).get("Date3");
+            final String DateCheck44 = getIDFB.get(idFB).get("Date4");
+            final String DateCheck55 = getIDFB.get(idFB).get("Date5");
+            final String DateCheck66 = getIDFB.get(idFB).get("Date6");
+            final String DateCheck77 = getIDFB.get(idFB).get("Date7");
+            final String DateCheck88 = getIDFB.get(idFB).get("Date8");
+
+
+
+//            Date1 = databaseRealtime.updateData("1", formattedDate);
+//            Date2 = databaseRealtime.updateData("2", formattedDate2);
+//            Date3 = databaseRealtime.updateData("3", formattedDate3);
+//            Date4 = databaseRealtime.updateData("4", formattedDate4);
+//            Date5 = databaseRealtime.updateData("5", formattedDate5);
+//            Date6 = databaseRealtime.updateData("6", formattedDate6);
+//            Date7 = databaseRealtime.updateData("7", formattedDate7);
+//            Date8 = databaseRealtime.updateData("8", formattedDate8);
+//
+//
+//            final String datecheck11 = datetime.get(0).get("Date");
+//            final String datecheck22 = datetime.get(1).get("Date");
+//            final String datecheck33 = datetime.get(2).get("Date");
+//            final String datecheck44 = datetime.get(3).get("Date");
+//            final String datecheck55 = datetime.get(4).get("Date");
+//            final String datecheck66 = datetime.get(5).get("Date");
+//            final String datecheck77 = datetime.get(6).get("Date");
+//            final String datecheck88 = datetime.get(7).get("Date");
 
             GraphRequest request = new GraphRequest(
                     AccessToken.getCurrentAccessToken(),
-                    "/me/feed",
+                    "/me/feed?limit=500",
                     null,
                     HttpMethod.GET,
                     new GraphRequest.Callback() {
@@ -6394,10 +6637,7 @@ public class AccountActivity extends AppCompatActivity
                                         strword.clear();
                                         emo.clear();
                                         listemo.clear();
-                                        listforword.clear();
-                                        listforemo.clear();
-                                        testword.clear();
-                                        testshortcut.clear();
+
 
                                         int countchexkemo = 0;
                                         int count = 0;
@@ -6406,14 +6646,14 @@ public class AccountActivity extends AppCompatActivity
 
                                         JSONObject story = postsData.getJSONObject(i);
 
-                                        if(story.has("created_time")){
+                                        if (story.has("created_time")) {
                                             String timeMessage = story.getString("created_time");
                                             //allPostsMessages.add(timeMessage);
                                             Matcher m = regex.matcher(timeMessage);
                                             if (m.find()) {
                                                 //allPostsMessages.add(m.group(0));
 
-                                                if (m.group(0).contains(datecheck11)) {
+                                                if (m.group(0).contains(DateCheck11)) {
                                                     if (story.has("message")) {
 
                                                         String postMessage = story.getString("message");
@@ -6747,7 +6987,7 @@ public class AccountActivity extends AppCompatActivity
                                                         }
                                                     }
 
-                                                } else if (m.group(0).contains(datecheck22)) {
+                                                } else if (m.group(0).contains(DateCheck22)) {
 
                                                     if (story.has("message")) {
                                                         String postMessage = story.getString("message");
@@ -7079,7 +7319,7 @@ public class AccountActivity extends AppCompatActivity
                                                     }
 
 
-                                                } else if (m.group(0).contains(datecheck33)) {
+                                                } else if (m.group(0).contains(DateCheck33)) {
 
                                                     if (story.has("message")) {
 
@@ -7414,342 +7654,7 @@ public class AccountActivity extends AppCompatActivity
                                                         }
                                                     }
 
-                                                } else if (m.group(0).contains(datecheck44)) {
-
-                                                    if (story.has("message")) {
-
-                                                        String postMessage = story.getString("message");
-                                                        Matcher m22 = regex2.matcher(postMessage);
-                                                        Matcher m33 = regex3.matcher(postMessage);
-                                                        Matcher m44 = regex4.matcher(postMessage);
-
-                                                        while (m22.find()) {
-                                                            listemo.add(m22.group(0));
-                                                        }
-
-                                                        while (m33.find()) {
-                                                            listemo.add(m33.group(0));
-
-                                                        }
-
-                                                        while (m44.find()) {
-                                                            listemo.add(m44.group(0));
-
-                                                        }
-
-                                                        //check word
-                                                        Locale thaiLocale = new Locale("th");
-
-
-                                                        BreakIterator boundary = BreakIterator.getWordInstance(thaiLocale);
-
-                                                        boundary.setText(postMessage);
-
-
-                                                        int start = boundary.first();
-                                                        for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
-
-                                                            strword.add(postMessage.substring(start, end));
-
-
-                                                        }
-
-                                                        for (String s : listemo) {
-                                                            for (int k = 0; k < emoshortcut.size(); k++) {
-                                                                if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
-                                                                    String rank = emoshortcut.get(k).get("EmoticonRank");
-                                                                    int countrank = Integer.parseInt(rank);
-                                                                    countchexkemo = countchexkemo + countrank;
-                                                                    checkifemo++;
-                                                                }
-                                                            }
-
-                                                        }
-
-                                                        for (int h = 0; h < strword.size(); h++) {
-                                                            int icount = h+1;
-                                                            String str2 = "";
-                                                            String str3 = "";
-
-                                                            if(icount <= strword.size()-1){
-                                                                str2 = strword.get(icount);
-                                                                for(int k = icount;k<=strword.size()-1;k++){
-                                                                    if(str2.contains(" ")){
-                                                                        str2 = strword.get(k);
-                                                                    }else{
-                                                                        break;
-                                                                    }
-                                                                }
-
-
-                                                            }
-
-                                                            String str = strword.get(h);
-
-
-                                                            int counttarget = 0;
-
-                                                            if(str.contains("ๆ")){
-                                                                for(int a = 0;a<attitude.size();a++){
-                                                                    String checkwordbyregular = attitude.get(a).get("AttitudeWord");
-                                                                    Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                                                                    Matcher mcheck = regexcheck.matcher(str);
-                                                                    if(mcheck.find()){
-                                                                        str = mcheck.group(0);
-                                                                        if(str2.contains("ๆ")) {
-
-                                                                            for (int b = 0; b < attitude.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            for (int b = 0; b < attitude2.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            for (int b = 0; b < attitude3.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            if(counttarget != 1){
-                                                                                str3 = str+"ๆ"+str2;
-
-                                                                            }else{
-                                                                                str3 = str+"ๆ";
-                                                                            }
-
-                                                                        }
-
-                                                                    }
-
-                                                                }
-
-                                                                for(int a = 0;a<attitude2.size();a++){
-                                                                    String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
-                                                                    Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                                                                    Matcher mcheck = regexcheck.matcher(str);
-                                                                    if(mcheck.find()){
-                                                                        str = mcheck.group(0);
-                                                                        if(str2.contains("ๆ")) {
-
-                                                                            for (int b = 0; b < attitude.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            for (int b = 0; b < attitude2.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            for (int b = 0; b < attitude3.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            if((counttarget != 1)){
-                                                                                str3 = str+"ๆ"+str2;
-
-                                                                            }else{
-                                                                                str3 = str+"ๆ";
-                                                                            }
-                                                                        }
-
-                                                                    }
-                                                                }
-
-                                                                for(int a = 0;a<attitude3.size();a++){
-                                                                    String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
-                                                                    Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                                                                    Matcher mcheck = regexcheck.matcher(str);
-                                                                    if(mcheck.find()){
-                                                                        str = mcheck.group(0);
-                                                                        if(str2.contains("ๆ")) {
-
-                                                                            for (int b = 0; b < attitude.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            for (int b = 0; b < attitude2.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-                                                                            for (int b = 0; b < attitude3.size(); b++) {
-                                                                                String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
-                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
-                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
-                                                                                if (mcheck2.find()) {
-                                                                                    counttarget++;
-                                                                                }
-                                                                            }
-
-                                                                            if(counttarget != 1){
-                                                                                str3 = str+"ๆ"+str2;
-
-                                                                            }else {
-                                                                                str3 = str + "ๆ";
-                                                                            }
-                                                                        }
-
-
-                                                                    }
-                                                                }
-
-
-
-                                                            }else{
-                                                                if(str2.contains("ๆ")){
-                                                                    str3 = str2;
-
-                                                                }
-
-
-
-                                                            }
-
-
-                                                            // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
-                                                            for (int j = 0; j < attitude.size(); j++) {
-                                                                if (str.equals(attitude.get(j).get("AttitudeWord"))) {
-
-                                                                    String rank = attitude.get(j).get("AttitudeRank");
-                                                                    int countrank = Integer.parseInt(rank);
-
-                                                                    count = count + countrank;
-                                                                    String frequen ="([ๆ]{1})";
-                                                                    Pattern regexfre = Pattern.compile(frequen);
-                                                                    Matcher mfre = regexfre.matcher(str3);
-
-                                                                    while (mfre.find()){
-                                                                        count = count + countrank;
-
-                                                                    }
-                                                                    checkifword++;
-
-
-                                                                }
-                                                            }
-
-
-                                                            for (int j = 0; j < attitude2.size(); j++) {
-                                                                if (str.equals(attitude2.get(j).get("AttitudeWord"))) {
-                                                                    String rank = attitude2.get(j).get("AttitudeRank");
-                                                                    int countrank = Integer.parseInt(rank);
-
-
-                                                                    count = count + countrank;
-                                                                    String frequen ="([ๆ]{1})";
-                                                                    Pattern regexfre = Pattern.compile(frequen);
-                                                                    Matcher mfre = regexfre.matcher(str3);
-
-                                                                    while (mfre.find()){
-                                                                        count = count + countrank;
-
-                                                                    }
-                                                                    checkifword++;
-
-
-                                                                }
-                                                            }
-
-                                                            for (int j = 0; j < attitude3.size(); j++) {
-                                                                if (str.equals(attitude3.get(j).get("AttitudeWord"))) {
-                                                                    String rank = attitude3.get(j).get("AttitudeRank");
-                                                                    int countrank = Integer.parseInt(rank);
-
-
-                                                                    count = count + countrank;
-                                                                    String frequen ="([ๆ]{1})";
-                                                                    Pattern regexfre = Pattern.compile(frequen);
-                                                                    Matcher mfre = regexfre.matcher(str3);
-
-                                                                    while (mfre.find()){
-                                                                        count = count + countrank;
-
-                                                                    }
-                                                                    checkifword++;
-
-
-                                                                }
-                                                            }
-
-
-                                                        }
-
-
-
-                                                    }
-
-                                                    if(story.has("story")){
-                                                        String PostStory = story.getString("story");
-                                                        for(int n = 0;n<storyTimeline.size();n++){
-
-                                                            String checkwordbyregular = storyTimeline.get(n).get("CheckinWord");
-                                                            Pattern regexcheck = Pattern.compile(checkwordbyregular);
-                                                            Matcher mcheck = regexcheck.matcher(PostStory);
-                                                            String rank = storyTimeline.get(n).get("CheckinRank");
-                                                            int countrank = Integer.parseInt(rank);
-
-                                                            if (mcheck.find()){
-                                                                count = count+countrank;
-                                                                checkifword++;
-                                                            }
-
-                                                        }
-
-
-                                                    }
-
-                                                    if (checkifemo > 0 && countchexkemo > 0) {
-                                                        countgrappos++;
-
-                                                    } else if (checkifemo > 0 && countchexkemo == 0) {
-                                                        countgraphneural++;
-
-                                                    } else if (checkifemo > 0 && countchexkemo < 0) {
-                                                        countgrapnege++;
-                                                    } else {
-                                                        if (checkifword > 0 && count > 0) {
-                                                            countgrappos++;
-                                                        } else if (checkifword > 0 && count == 0) {
-                                                            countgraphneural++;
-                                                        } else if (checkifword > 0 && count < 0) {
-                                                            countgrapnege++;
-                                                        } else {
-                                                            countgraphnot++;
-                                                        }
-                                                    }
-
-
-                                                } else if (m.group(0).contains(datecheck55)) {
+                                                } else if (m.group(0).contains(DateCheck44)) {
 
                                                     if (story.has("message")) {
 
@@ -8084,7 +7989,342 @@ public class AccountActivity extends AppCompatActivity
                                                     }
 
 
-                                                } else if (m.group(0).contains(datecheck66)) {
+                                                } else if (m.group(0).contains(DateCheck55)) {
+
+                                                    if (story.has("message")) {
+
+                                                        String postMessage = story.getString("message");
+                                                        Matcher m22 = regex2.matcher(postMessage);
+                                                        Matcher m33 = regex3.matcher(postMessage);
+                                                        Matcher m44 = regex4.matcher(postMessage);
+
+                                                        while (m22.find()) {
+                                                            listemo.add(m22.group(0));
+                                                        }
+
+                                                        while (m33.find()) {
+                                                            listemo.add(m33.group(0));
+
+                                                        }
+
+                                                        while (m44.find()) {
+                                                            listemo.add(m44.group(0));
+
+                                                        }
+
+                                                        //check word
+                                                        Locale thaiLocale = new Locale("th");
+
+
+                                                        BreakIterator boundary = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        boundary.setText(postMessage);
+
+
+                                                        int start = boundary.first();
+                                                        for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
+
+                                                            strword.add(postMessage.substring(start, end));
+
+
+                                                        }
+
+                                                        for (String s : listemo) {
+                                                            for (int k = 0; k < emoshortcut.size(); k++) {
+                                                                if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
+                                                                    String rank = emoshortcut.get(k).get("EmoticonRank");
+                                                                    int countrank = Integer.parseInt(rank);
+                                                                    countchexkemo = countchexkemo + countrank;
+                                                                    checkifemo++;
+                                                                }
+                                                            }
+
+                                                        }
+
+                                                        for (int h = 0; h < strword.size(); h++) {
+                                                            int icount = h+1;
+                                                            String str2 = "";
+                                                            String str3 = "";
+
+                                                            if(icount <= strword.size()-1){
+                                                                str2 = strword.get(icount);
+                                                                for(int k = icount;k<=strword.size()-1;k++){
+                                                                    if(str2.contains(" ")){
+                                                                        str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            String str = strword.get(h);
+
+
+                                                            int counttarget = 0;
+
+                                                            if(str.contains("ๆ")){
+                                                                for(int a = 0;a<attitude.size();a++){
+                                                                    String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                    Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                    Matcher mcheck = regexcheck.matcher(str);
+                                                                    if(mcheck.find()){
+                                                                        str = mcheck.group(0);
+                                                                        if(str2.contains("ๆ")) {
+
+                                                                            for (int b = 0; b < attitude.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            for (int b = 0; b < attitude2.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            for (int b = 0; b < attitude3.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            if(counttarget != 1){
+                                                                                str3 = str+"ๆ"+str2;
+
+                                                                            }else{
+                                                                                str3 = str+"ๆ";
+                                                                            }
+
+                                                                        }
+
+                                                                    }
+
+                                                                }
+
+                                                                for(int a = 0;a<attitude2.size();a++){
+                                                                    String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                    Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                    Matcher mcheck = regexcheck.matcher(str);
+                                                                    if(mcheck.find()){
+                                                                        str = mcheck.group(0);
+                                                                        if(str2.contains("ๆ")) {
+
+                                                                            for (int b = 0; b < attitude.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            for (int b = 0; b < attitude2.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            for (int b = 0; b < attitude3.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            if((counttarget != 1)){
+                                                                                str3 = str+"ๆ"+str2;
+
+                                                                            }else{
+                                                                                str3 = str+"ๆ";
+                                                                            }
+                                                                        }
+
+                                                                    }
+                                                                }
+
+                                                                for(int a = 0;a<attitude3.size();a++){
+                                                                    String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                    Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                    Matcher mcheck = regexcheck.matcher(str);
+                                                                    if(mcheck.find()){
+                                                                        str = mcheck.group(0);
+                                                                        if(str2.contains("ๆ")) {
+
+                                                                            for (int b = 0; b < attitude.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            for (int b = 0; b < attitude2.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+                                                                            for (int b = 0; b < attitude3.size(); b++) {
+                                                                                String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                if (mcheck2.find()) {
+                                                                                    counttarget++;
+                                                                                }
+                                                                            }
+
+                                                                            if(counttarget != 1){
+                                                                                str3 = str+"ๆ"+str2;
+
+                                                                            }else {
+                                                                                str3 = str + "ๆ";
+                                                                            }
+                                                                        }
+
+
+                                                                    }
+                                                                }
+
+
+
+                                                            }else{
+                                                                if(str2.contains("ๆ")){
+                                                                    str3 = str2;
+
+                                                                }
+
+
+
+                                                            }
+
+
+                                                            // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
+                                                            for (int j = 0; j < attitude.size(); j++) {
+                                                                if (str.equals(attitude.get(j).get("AttitudeWord"))) {
+
+                                                                    String rank = attitude.get(j).get("AttitudeRank");
+                                                                    int countrank = Integer.parseInt(rank);
+
+                                                                    count = count + countrank;
+                                                                    String frequen ="([ๆ]{1})";
+                                                                    Pattern regexfre = Pattern.compile(frequen);
+                                                                    Matcher mfre = regexfre.matcher(str3);
+
+                                                                    while (mfre.find()){
+                                                                        count = count + countrank;
+
+                                                                    }
+                                                                    checkifword++;
+
+
+                                                                }
+                                                            }
+
+
+                                                            for (int j = 0; j < attitude2.size(); j++) {
+                                                                if (str.equals(attitude2.get(j).get("AttitudeWord"))) {
+                                                                    String rank = attitude2.get(j).get("AttitudeRank");
+                                                                    int countrank = Integer.parseInt(rank);
+
+
+                                                                    count = count + countrank;
+                                                                    String frequen ="([ๆ]{1})";
+                                                                    Pattern regexfre = Pattern.compile(frequen);
+                                                                    Matcher mfre = regexfre.matcher(str3);
+
+                                                                    while (mfre.find()){
+                                                                        count = count + countrank;
+
+                                                                    }
+                                                                    checkifword++;
+
+
+                                                                }
+                                                            }
+
+                                                            for (int j = 0; j < attitude3.size(); j++) {
+                                                                if (str.equals(attitude3.get(j).get("AttitudeWord"))) {
+                                                                    String rank = attitude3.get(j).get("AttitudeRank");
+                                                                    int countrank = Integer.parseInt(rank);
+
+
+                                                                    count = count + countrank;
+                                                                    String frequen ="([ๆ]{1})";
+                                                                    Pattern regexfre = Pattern.compile(frequen);
+                                                                    Matcher mfre = regexfre.matcher(str3);
+
+                                                                    while (mfre.find()){
+                                                                        count = count + countrank;
+
+                                                                    }
+                                                                    checkifword++;
+
+
+                                                                }
+                                                            }
+
+
+                                                        }
+
+
+
+                                                    }
+
+                                                    if(story.has("story")){
+                                                        String PostStory = story.getString("story");
+                                                        for(int n = 0;n<storyTimeline.size();n++){
+
+                                                            String checkwordbyregular = storyTimeline.get(n).get("CheckinWord");
+                                                            Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                            Matcher mcheck = regexcheck.matcher(PostStory);
+                                                            String rank = storyTimeline.get(n).get("CheckinRank");
+                                                            int countrank = Integer.parseInt(rank);
+
+                                                            if (mcheck.find()){
+                                                                count = count+countrank;
+                                                                checkifword++;
+                                                            }
+
+                                                        }
+
+
+                                                    }
+
+                                                    if (checkifemo > 0 && countchexkemo > 0) {
+                                                        countgrappos++;
+
+                                                    } else if (checkifemo > 0 && countchexkemo == 0) {
+                                                        countgraphneural++;
+
+                                                    } else if (checkifemo > 0 && countchexkemo < 0) {
+                                                        countgrapnege++;
+                                                    } else {
+                                                        if (checkifword > 0 && count > 0) {
+                                                            countgrappos++;
+                                                        } else if (checkifword > 0 && count == 0) {
+                                                            countgraphneural++;
+                                                        } else if (checkifword > 0 && count < 0) {
+                                                            countgrapnege++;
+                                                        } else {
+                                                            countgraphnot++;
+                                                        }
+                                                    }
+
+
+                                                } else if (m.group(0).contains(DateCheck66)) {
 
                                                     if (story.has("message")) {
 
@@ -8419,7 +8659,7 @@ public class AccountActivity extends AppCompatActivity
 
 
 
-                                                } else if (m.group(0).contains(datecheck77)) {
+                                                } else if (m.group(0).contains(DateCheck77)) {
 
                                                     if (story.has("message")) {
 
@@ -8758,34 +8998,20 @@ public class AccountActivity extends AppCompatActivity
                                         }
 
 
-
                                     }
 
+                                  countneg = countgrapnege;
 
 
 
 
-                                    //Toast.makeText(TimelineActivity.this,allPostsMessages.size(),Toast.LENGTH_SHORT).show();
 
-//                                for(int i = 0;i<allPostsMessages.size();i++){
-//
-//                                }
-                                    Toast.makeText(AccountActivity.this,String.valueOf(countgrappos),Toast.LENGTH_SHORT).show();
-                                    SharedPreferences sp = getSharedPreferences("save1", Context.MODE_PRIVATE);
-                                    int save1 = sp.getInt("show1",countgrappos);
-                                    SharedPreferences sp2 = getSharedPreferences("save2", Context.MODE_PRIVATE);
-                                    int save2 = sp2.getInt("show2",countgrapnege);
-                                    SharedPreferences sp3 = getSharedPreferences("save3", Context.MODE_PRIVATE);
-                                    int save3 = sp3.getInt("show3",countgraphneural);
-                                    SharedPreferences sp4 = getSharedPreferences("save4", Context.MODE_PRIVATE);
-                                    int save4 = sp4.getInt("show4",countgraphnot);
+
+
 
 
 
                                 }
-
-
-
 
 
                             } catch (Exception e) {
@@ -8799,9 +9025,6 @@ public class AccountActivity extends AppCompatActivity
             parameters.putString("fields", "created_time,message,story");
             request.setParameters(parameters);
             request.executeAsync();
-
-
-
 
 
         }
@@ -8938,10 +9161,16 @@ public class AccountActivity extends AppCompatActivity
     }
 
     public void showNotification(View view) {
+
+        Context context = AccountActivity.this;
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
+                R.mipmap.ic_launcher);
+
         // Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.red);
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Notification notification = new NotificationCompat.Builder(this) // this is context
                 .setSmallIcon(R.mipmap.negred)
+                .setLargeIcon(bitmap)
                 .setContentTitle("โพสต์ทัศนคติทางลบบ่อยครั้ง!!!")
                 .setContentText("ลองเปลี่ยนคำที่ใช้และพิจารณาก่อนโพสต์")
                 .setNumber(countneg+1)
