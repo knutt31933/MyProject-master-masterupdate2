@@ -50,6 +50,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
     private ArrayList<String> allPostsMessagesNege = new ArrayList<String>();
     private ArrayList<String> allPostsMessagesNeural = new ArrayList<String>();
     private ArrayList<String> allPostsMessagesNot = new ArrayList<String>();
+    private DatabaseForSummary databaseForSummary;
 
     ArrayList<String> strword = new ArrayList<>() ;
     HashSet<String> emo = new HashSet<>();
@@ -174,8 +175,27 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
         textname.setText(name);
 
+        //new
+        SharedPreferences spID = getSharedPreferences("IDFB", Context.MODE_PRIVATE);
+        int idFB = spID.getInt("IDFB", 0);
 
-        if (!(datecurrent.contains(datecheck8))) {
+        databaseForSummary = new DatabaseForSummary(getApplicationContext());
+        final ArrayList<HashMap<String, String>> getIDFB = databaseForSummary.getSummary();
+
+
+        final String DateCheck1 = getIDFB.get(idFB).get("Date1");
+        final String DateCheck2 = getIDFB.get(idFB).get("Date2");
+        final String DateCheck3 = getIDFB.get(idFB).get("Date3");
+        final String DateCheck4 = getIDFB.get(idFB).get("Date4");
+        final String DateCheck5 = getIDFB.get(idFB).get("Date5");
+        final String DateCheck6 = getIDFB.get(idFB).get("Date6");
+        final String DateCheck7 = getIDFB.get(idFB).get("Date7");
+        final String DateCheck8 = getIDFB.get(idFB).get("Date8");
+
+        //new
+
+
+        if (!(datecurrent.contains(DateCheck8))) {
 
 
             GraphRequest request = GraphRequest.newGraphPathRequest(
@@ -226,7 +246,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                             if (m.find()) {
                                                 //allPostsMessages.add(m.group(0));
 
-                                                if (m.group(0).contains(datecheck1)) {
+                                                if (m.group(0).contains(DateCheck1)) {
                                                     if (story.has("message")) {
 
                                                         String postMessage = story.getString("message");
@@ -575,7 +595,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
-                                                } else if (m.group(0).contains(datecheck2)) {
+                                                } else if (m.group(0).contains(DateCheck2)) {
 
                                                     if (story.has("message")) {
 
@@ -923,7 +943,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
-                                                } else if (m.group(0).contains(datecheck3)) {
+                                                } else if (m.group(0).contains(DateCheck3)) {
 
                                                     if (story.has("message")) {
 
@@ -1269,7 +1289,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
 
-                                                } else if (m.group(0).contains(datecheck4)) {
+                                                } else if (m.group(0).contains(DateCheck4)) {
 
                                                     if (story.has("message")) {
 
@@ -1615,7 +1635,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
 
-                                                } else if (m.group(0).contains(datecheck5)) {
+                                                } else if (m.group(0).contains(DateCheck5)) {
 
                                                     if (story.has("message")) {
 
@@ -1961,7 +1981,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
-                                                } else if (m.group(0).contains(datecheck6)) {
+                                                } else if (m.group(0).contains(DateCheck6)) {
 
                                                     if (story.has("message")) {
 
@@ -2314,7 +2334,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
 
 
-                                                } else if (m.group(0).contains(datecheck7)) {
+                                                } else if (m.group(0).contains(DateCheck7)) {
 
                                                     if (story.has("message")) {
 
@@ -2828,23 +2848,36 @@ public class FriendTimelineActivity extends AppCompatActivity {
             formattedDate7 = df7.format(c7.getTime());
             formattedDate8 = df8.format(c8.getTime());
 
-            Date1 = databaseRealtime.updateData("1", formattedDate);
-            Date2 = databaseRealtime.updateData("2", formattedDate2);
-            Date3 = databaseRealtime.updateData("3", formattedDate3);
-            Date4 = databaseRealtime.updateData("4", formattedDate4);
-            Date5 = databaseRealtime.updateData("5", formattedDate5);
-            Date6 = databaseRealtime.updateData("6", formattedDate6);
-            Date7 = databaseRealtime.updateData("7", formattedDate7);
-            Date8 = databaseRealtime.updateData("8", formattedDate8);
+            SharedPreferences idK = getSharedPreferences("IDKey", Context.MODE_PRIVATE);
+            String idkey = idK.getString("IDKey", "");
+            databaseForSummary.updateDataSum(idkey,formattedDate ,formattedDate2 ,formattedDate3,formattedDate4,formattedDate5,formattedDate6,formattedDate7,formattedDate8);
 
-            final String datecheck11 = datetime.get(0).get("Date");
-            final String datecheck22 = datetime.get(1).get("Date");
-            final String datecheck33 = datetime.get(2).get("Date");
-            final String datecheck44 = datetime.get(3).get("Date");
-            final String datecheck55 = datetime.get(4).get("Date");
-            final String datecheck66 = datetime.get(5).get("Date");
-            final String datecheck77 = datetime.get(6).get("Date");
-            final String datecheck88 = datetime.get(7).get("Date");
+            final String DateCheck11 = getIDFB.get(idFB).get("Date1");
+            final String DateCheck22 = getIDFB.get(idFB).get("Date2");
+            final String DateCheck33 = getIDFB.get(idFB).get("Date3");
+            final String DateCheck44 = getIDFB.get(idFB).get("Date4");
+            final String DateCheck55 = getIDFB.get(idFB).get("Date5");
+            final String DateCheck66 = getIDFB.get(idFB).get("Date6");
+            final String DateCheck77 = getIDFB.get(idFB).get("Date7");
+            final String DateCheck88 = getIDFB.get(idFB).get("Date8");
+
+//            Date1 = databaseRealtime.updateData("1", formattedDate);
+//            Date2 = databaseRealtime.updateData("2", formattedDate2);
+//            Date3 = databaseRealtime.updateData("3", formattedDate3);
+//            Date4 = databaseRealtime.updateData("4", formattedDate4);
+//            Date5 = databaseRealtime.updateData("5", formattedDate5);
+//            Date6 = databaseRealtime.updateData("6", formattedDate6);
+//            Date7 = databaseRealtime.updateData("7", formattedDate7);
+//            Date8 = databaseRealtime.updateData("8", formattedDate8);
+//
+//            final String datecheck11 = datetime.get(0).get("Date");
+//            final String datecheck22 = datetime.get(1).get("Date");
+//            final String datecheck33 = datetime.get(2).get("Date");
+//            final String datecheck44 = datetime.get(3).get("Date");
+//            final String datecheck55 = datetime.get(4).get("Date");
+//            final String datecheck66 = datetime.get(5).get("Date");
+//            final String datecheck77 = datetime.get(6).get("Date");
+//            final String datecheck88 = datetime.get(7).get("Date");
 
             GraphRequest request = GraphRequest.newGraphPathRequest(
                     AccessToken.getCurrentAccessToken(),
@@ -2895,7 +2928,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                             if (m.find()) {
                                                 //allPostsMessages.add(m.group(0));
 
-                                                if (m.group(0).contains(datecheck11)) {
+                                                if (m.group(0).contains(DateCheck11)) {
                                                     if (story.has("message")) {
 
                                                         String postMessage = story.getString("message");
@@ -3239,7 +3272,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
-                                                } else if (m.group(0).contains(datecheck22)) {
+                                                } else if (m.group(0).contains(DateCheck22)) {
 
                                                     if (story.has("message")) {
 
@@ -3585,7 +3618,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
 
-                                                } else if (m.group(0).contains(datecheck33)) {
+                                                } else if (m.group(0).contains(DateCheck33)) {
 
                                                     if (story.has("message")) {
 
@@ -3929,7 +3962,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
-                                                } else if (m.group(0).contains(datecheck44)) {
+                                                } else if (m.group(0).contains(DateCheck44)) {
 
                                                     if (story.has("message")) {
 
@@ -4275,7 +4308,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
 
 
 
-                                                } else if (m.group(0).contains(datecheck55)) {
+                                                } else if (m.group(0).contains(DateCheck55)) {
 
                                                     if (story.has("message")) {
 
@@ -4621,7 +4654,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
 
-                                                } else if (m.group(0).contains(datecheck66)) {
+                                                } else if (m.group(0).contains(DateCheck66)) {
 
                                                     if (story.has("message")) {
 
@@ -4965,7 +4998,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                                     allPostsMessages.add(keepCreatetime +KeepStory+keepMessage );
 
 
-                                                } else if (m.group(0).contains(datecheck77)) {
+                                                } else if (m.group(0).contains(DateCheck77)) {
 
                                                     if (story.has("message")) {
 
