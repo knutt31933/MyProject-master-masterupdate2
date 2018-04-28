@@ -200,7 +200,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "1", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingActivity.this, "1", Toast.LENGTH_SHORT).show();
             }else{
 
                 SharedPreferences sharedPref = getSharedPreferences("App save", Context.MODE_PRIVATE);
@@ -217,7 +217,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked2", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "2", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingActivity.this, "2", Toast.LENGTH_SHORT).show();
             }else{
                 SharedPreferences sharedPref = getSharedPreferences("App save2", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -231,7 +231,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked3", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "3", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingActivity.this, "3", Toast.LENGTH_SHORT).show();
             }else{
                 SharedPreferences sharedPref = getSharedPreferences("App save3", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -246,7 +246,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked4", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "4", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SettingActivity.this, "4", Toast.LENGTH_SHORT).show();
             }else{
                 SharedPreferences sharedPref = getSharedPreferences("App save4", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -262,7 +262,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked6", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "6", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingActivity.this, "6", Toast.LENGTH_SHORT).show();
             }else{
                 SharedPreferences sharedPref = getSharedPreferences("App save6", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -279,7 +279,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked7", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "1", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingActivity.this, "1", Toast.LENGTH_SHORT).show();
             }else{
 
                 SharedPreferences sharedPref = getSharedPreferences("App save7", Context.MODE_PRIVATE);
@@ -296,7 +296,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked8", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "2", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(SettingActivity.this, "2", Toast.LENGTH_SHORT).show();
             }else{
                 SharedPreferences sharedPref = getSharedPreferences("App save8", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
@@ -310,7 +310,7 @@ public class SettingActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("checked9", 1);
                 editor.commit();
-                Toast.makeText(SettingActivity.this, "3", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(SettingActivity.this, "3", Toast.LENGTH_SHORT).show();
             }else{
                 SharedPreferences sharedPref = getSharedPreferences("App save9", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();

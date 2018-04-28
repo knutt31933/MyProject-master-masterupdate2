@@ -3754,7 +3754,7 @@ public class FriendTimelineActivity extends AppCompatActivity {
                                     listView.setAdapter(adapter);
                                 }
                                 for(int k = 0;k<allPostsMessages.size();k++){
-                                    Toast.makeText(getApplicationContext(),allPostsMessages.get(k),Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(getApplicationContext(),allPostsMessages.get(k),Toast.LENGTH_SHORT).show();
                                 }
 
 

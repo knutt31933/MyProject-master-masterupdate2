@@ -1550,9 +1550,9 @@ public class AccountActivity extends AppCompatActivity
                 }
 
             }
-            Toast.makeText(AccountActivity.this,String.valueOf(strword.size()),Toast.LENGTH_LONG).show();
+            //Toast.makeText(AccountActivity.this,String.valueOf(strword.size()),Toast.LENGTH_LONG).show();
             for(String s:strword){
-                Toast.makeText(AccountActivity.this,s,Toast.LENGTH_LONG).show();
+                //Toast.makeText(AccountActivity.this,s,Toast.LENGTH_LONG).show();
 
             }
 
@@ -2566,10 +2566,13 @@ public class AccountActivity extends AppCompatActivity
 
                     TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
                     TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
+                    TextView textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
+                    textnotifi.setText("คำแนะนำ : ไม่ควรโพสต์สถานะที่แสดงทัศนคติทางลบ ลองเปลี่ยนการใช้คำ");
                     Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
 
                     textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
                     textemo.setText("อารมณ์(Emotion) : " + emonegetive);
+
                     ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
                     image.setImageResource(R.drawable.red);
 
@@ -2932,12 +2935,15 @@ public class AccountActivity extends AppCompatActivity
                         textemo.setText("อารมณ์(Emotion) : " + emonegetive);
 
 
-                        if(count==-3 && countNotifi > 0){
+                        if(countNotifi==-3 && countNotifi > 0){
                             textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบมาก ควรเปลี่ยนการใช้คำ");
-                        }else if(count<-3 && countNotifi > 0){
+                        }else if(countNotifi<-3 && countNotifi > 0){
                             textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบค่อนข้างมาก ควรเปลี่ยนการใช้คำ");
                         }else if(countNotifi > 0){
                             textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบ ควรเปลี่ยนการใช้คำ");
+                        }else{
+
+                            textnotifi.setText("คำแนะนำ : ไม่ควรโพสต์สถานะที่แสดงทัศนคติทางลบ ลองเปลี่ยนการใช้คำ");
                         }
 
                         ImageView image = (ImageView) dialog.findViewById(R.id.imageviewnegetive);
@@ -3372,6 +3378,8 @@ public class AccountActivity extends AppCompatActivity
                     TextView textatti = (TextView) dialog.findViewById(R.id.textnegetiveatti);
                     TextView textemo = (TextView) dialog.findViewById(R.id.textnegetiveemo);
                     Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
+                    TextView textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
+                    textnotifi.setText("คำแนะนำ : ไม่ควรโพสต์สถานะที่แสดงทัศนคติทางลบ ลองเปลี่ยนการใช้คำ");
 
                     textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
                     textemo.setText("อารมณ์(Emotion) : " + emonegetive);
@@ -3818,12 +3826,15 @@ public class AccountActivity extends AppCompatActivity
                         TextView  textnotifi = (TextView) dialog.findViewById(R.id.textnotifi);
                         Button dialogButton3 = (Button) dialog.findViewById(R.id.btnchecknegetive);
 
-                        if(count==-3 && countNotifi > 0){
+                        if(countNotifi==-3 && countNotifi > 0){
                             textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบมาก ควรเปลี่ยนการใช้คำ");
-                        }else if(count<-3 && countNotifi > 0){
+                        }else if(countNotifi<-3 && countNotifi > 0){
                             textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบค่อนข้างมาก ควรเปลี่ยนการใช้คำ");
                         }else if(countNotifi > 0){
                             textnotifi.setText("คำแนะนำ : สถานะที่โพสต์มีคำหยาบ ควรเปลี่ยนการใช้คำ");
+                        }else{
+
+                            textnotifi.setText("คำแนะนำ : ไม่ควรโพสต์สถานะที่แสดงทัศนคติทางลบ ลองเปลี่ยนการใช้คำ");
                         }
 
                         textatti.setText("ทัศนคติ(Attitude) : เชิงลบ(Negative)");
@@ -6645,7 +6656,7 @@ public class AccountActivity extends AppCompatActivity
 
                                     }
 
-                                    Toast.makeText(AccountActivity.this,String.valueOf(countgrapnege),Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(AccountActivity.this,String.valueOf(countgrapnege),Toast.LENGTH_SHORT).show();
                                     countneg = countgrapnege;
 
 
