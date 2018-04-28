@@ -128,7 +128,7 @@ public class DatabaseCheckin extends SQLiteOpenHelper {
 
         attvalue13.put("CheckinID",13);
         attvalue13.put("CheckinWord","ร้านอาหาร");
-        attvalue13.put("CheckinRank",-1);
+        attvalue13.put("CheckinRank",1);
         attvalue13.put("CheckinEmotion","8");
 
         attvalue14.put("CheckinID",14);

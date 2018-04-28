@@ -344,6 +344,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -388,6 +390,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -430,8 +434,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -442,7 +448,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -683,6 +821,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -727,6 +867,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -769,8 +911,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -781,7 +925,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -1018,6 +1294,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -1062,6 +1340,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -1104,8 +1384,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -1116,7 +1398,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -1351,6 +1765,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -1395,6 +1811,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -1437,8 +1855,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -1449,7 +1869,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -1686,6 +2238,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -1730,6 +2284,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -1772,8 +2328,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -1784,7 +2342,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -2020,6 +2710,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -2064,6 +2756,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -2106,8 +2800,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -2118,7 +2814,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -2357,6 +3185,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -2401,6 +3231,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -2443,8 +3275,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -2455,7 +3289,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -2897,6 +3863,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -2941,6 +3909,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -2983,8 +3953,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -2995,7 +3967,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -3231,6 +4335,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -3275,6 +4381,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -3317,8 +4425,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -3329,7 +4439,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -3564,6 +4806,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -3608,6 +4852,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -3650,8 +4896,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -3662,7 +4910,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -3899,6 +5279,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -3943,6 +5325,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -3985,8 +5369,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -3997,7 +5383,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -4234,6 +5752,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -4278,6 +5798,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -4320,8 +5842,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -4332,7 +5856,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -4569,6 +6225,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -4613,6 +6271,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -4655,8 +6315,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -4667,7 +6329,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 
@@ -4904,6 +6698,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ";
                                                                            }
 
+                                                                       } else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -4948,6 +6744,8 @@ public class SummaryActivity extends AppCompatActivity {
                                                                            }else{
                                                                                str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
                                                                    }
@@ -4990,8 +6788,10 @@ public class SummaryActivity extends AppCompatActivity {
                                                                                str3 = str+"ๆ"+str2;
 
                                                                            }else {
-                                                                               str3 = str + "ๆ";
+                                                                               str3 = str+"ๆ";
                                                                            }
+                                                                       }else{
+                                                                           str3 = str+"ๆ";
                                                                        }
 
 
@@ -5002,7 +6802,139 @@ public class SummaryActivity extends AppCompatActivity {
 
                                                            }else{
                                                                if(str2.contains("ๆ")){
-                                                                   str3 = str2;
+                                                                   //str3 = str2;
+                                                                   for(int a = 0;a<attitude.size();a++){
+                                                                       String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+
+                                                                           }
+
+                                                                       }
+
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude2.size();a++){
+                                                                       String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               if((counttarget != 1)){
+                                                                                   str3 = str2;
+
+                                                                               }else{
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+                                                                       }
+                                                                   }
+
+                                                                   for(int a = 0;a<attitude3.size();a++){
+                                                                       String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                                                                       Pattern regexcheck = Pattern.compile(checkwordbyregular);
+                                                                       Matcher mcheck = regexcheck.matcher(str);
+                                                                       if(mcheck.find()){
+                                                                           str = mcheck.group(0);
+                                                                           if(str2.contains("ๆ")) {
+
+                                                                               for (int b = 0; b < attitude.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude2.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude2.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+                                                                               for (int b = 0; b < attitude3.size(); b++) {
+                                                                                   String checkwordbyregular2 = attitude3.get(b).get("AttitudeWord");
+                                                                                   Pattern regexcheck2 = Pattern.compile(checkwordbyregular2);
+                                                                                   Matcher mcheck2 = regexcheck2.matcher(str2);
+                                                                                   if (mcheck2.find()) {
+                                                                                       counttarget++;
+                                                                                   }
+                                                                               }
+
+                                                                               if(counttarget != 1){
+                                                                                   str3 = str2;
+
+                                                                               }else {
+                                                                                   str3 = "";
+                                                                               }
+                                                                           }
+
+
+                                                                       }
+                                                                   }
 
                                                                }
 

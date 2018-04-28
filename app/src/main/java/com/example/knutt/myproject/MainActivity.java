@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         accessToken = AccessToken.getCurrentAccessToken();
 
+        getSupportActionBar().hide();
 
 
 
@@ -156,5 +157,6 @@ public class MainActivity extends AppCompatActivity {
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
+
 
 }
