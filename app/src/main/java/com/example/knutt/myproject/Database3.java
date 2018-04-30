@@ -334,6 +334,8 @@ public class Database3 extends SQLiteOpenHelper {
         ContentValues attvalue1298 = new ContentValues();
         ContentValues attvalue1299 = new ContentValues();
         ContentValues attvalue1300 = new ContentValues();
+        ContentValues attvalue1301 = new ContentValues();
+        ContentValues attvalue1302 = new ContentValues();
 
 
 
@@ -1837,6 +1839,18 @@ public class Database3 extends SQLiteOpenHelper {
         attvalue1300.put("AttitudeRank",1);
         attvalue1300.put("Emotion","27");
 
+        attvalue1301.put("AttitudeID",1301);
+        attvalue1301.put("AttitudeWord","เย้");
+        attvalue1301.put("AttitudeRank",1);
+        attvalue1301.put("Emotion","7");
+
+        attvalue1302.put("AttitudeID",1302);
+        attvalue1302.put("AttitudeWord","ฮ่า");
+        attvalue1302.put("AttitudeRank",1);
+        attvalue1302.put("Emotion","7");
+
+
+
 
 
         String table_nameatt3 = "Attitudetable3";
@@ -2141,6 +2155,8 @@ public class Database3 extends SQLiteOpenHelper {
         sqLiteDatabase.insert(table_nameatt3,null,attvalue1298);
         sqLiteDatabase.insert(table_nameatt3,null,attvalue1299);
         sqLiteDatabase.insert(table_nameatt3,null,attvalue1300);
+        sqLiteDatabase.insert(table_nameatt3,null,attvalue1301);
+        sqLiteDatabase.insert(table_nameatt3,null,attvalue1302);
 
 
     }
