@@ -299,6 +299,33 @@ public class TimelineActivity extends AppCompatActivity {
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -321,6 +348,24 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -617,6 +662,30 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
@@ -786,6 +855,33 @@ public class TimelineActivity extends AppCompatActivity {
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -808,6 +904,24 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -1104,6 +1218,30 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
@@ -1272,6 +1410,33 @@ public class TimelineActivity extends AppCompatActivity {
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -1294,6 +1459,23 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -1590,6 +1772,30 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
@@ -1756,6 +1962,33 @@ public class TimelineActivity extends AppCompatActivity {
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -1778,6 +2011,24 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -2074,6 +2325,30 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
@@ -2240,6 +2515,33 @@ public class TimelineActivity extends AppCompatActivity {
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -2262,6 +2564,24 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -2558,6 +2878,30 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
@@ -2724,6 +3068,33 @@ public class TimelineActivity extends AppCompatActivity {
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -2746,6 +3117,24 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -3042,6 +3431,30 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();
@@ -3214,6 +3627,32 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                         }
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
 
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
@@ -3237,6 +3676,24 @@ public class TimelineActivity extends AppCompatActivity {
                                                                 for(int k = icount;k<=strword.size()-1;k++){
                                                                     if(str2.contains(" ")){
                                                                         str2 = strword.get(k);
+                                                                    }else{
+                                                                        break;
+                                                                    }
+                                                                }
+
+
+                                                            }
+
+                                                            int icountex = i+2;
+                                                            String extrastr = "";
+
+                                                            if(icountex <= strword.size()-1){
+                                                                extrastr = strword.get(icountex);
+
+                                                                for(int l = icountex;l<=strword.size()-1;l++){
+                                                                    if(extrastr.contains(" ")){
+                                                                        extrastr = strword.get(l);
+
                                                                     }else{
                                                                         break;
                                                                     }
@@ -3534,6 +3991,29 @@ public class TimelineActivity extends AppCompatActivity {
 
 
                                                             }
+
+                                                            /////////+++++++++++++++++++++++
+
+                                                            if(str2.contains("มาก")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆ";
+                                                                }
+
+
+
+                                                            }
+
+                                                            if(str2.contains("มากๆ")){
+                                                                if(extrastr.contains("ๆ")){
+                                                                    str3 = str2+extrastr;
+                                                                }else{
+                                                                    str3 = "ๆๆ";
+                                                                }
+                                                            }
+
+                                                            ////////++++++++++++++++++++++++
 
 
                                                             // Toast.makeText(MainActivity.this,str,Toast.LENGTH_LONG).show();

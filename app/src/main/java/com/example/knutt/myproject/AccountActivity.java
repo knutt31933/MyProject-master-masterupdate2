@@ -1478,6 +1478,7 @@ public class AccountActivity extends AppCompatActivity
             BreakIterator boundary = BreakIterator.getWordInstance(thaiLocale);
 
 
+
 //BreakIterator boundary = DictionaryBasedBreakIterator.getWordInstance(thaiLocale);
 
             boundary.setText(message);
@@ -1487,8 +1488,13 @@ public class AccountActivity extends AppCompatActivity
 
 
 
+
+
+
+
             int start = boundary.first();
             for (int end = boundary.next(); end != BreakIterator.DONE; start = end, end = boundary.next()) {
+
 
                 strword.add(message.substring(start, end));
 
@@ -1496,6 +1502,34 @@ public class AccountActivity extends AppCompatActivity
                 //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
 
             }
+
+            BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+            String connectStr = "";
+
+            for(int m = 0;m<strword.size();m++){
+                if(strword.get(m).equals("มาก")){
+                    connectStr = connectStr+"ๆ";
+                }else{
+                    connectStr = connectStr+strword.get(m);
+                }
+            }
+
+            boundary2.setText(connectStr);
+            int start2 = boundary2.first();
+
+            strword.clear();
+
+            for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                strword.add(connectStr.substring(start2, end));
+
+
+                //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+            }
+
 
 
 
@@ -1571,14 +1605,36 @@ public class AccountActivity extends AppCompatActivity
             //เช็คคำทัศนคติ word
             for (int i = 0; i < strword.size(); i++) {
                 int icount = i+1;
+
                 String str2 = "";
                 String str3 = "";
 
+
                 if(icount <= strword.size()-1){
                     str2 = strword.get(icount);
+
                     for(int h = icount;h<=strword.size()-1;h++){
                         if(str2.contains(" ")){
                             str2 = strword.get(h);
+
+                        }else{
+                            break;
+                        }
+                    }
+
+
+                }
+
+                int icountex = i+2;
+                String extrastr = "";
+
+                if(icountex <= strword.size()-1){
+                    extrastr = strword.get(icountex);
+
+                    for(int h = icountex;h<=strword.size()-1;h++){
+                        if(extrastr.contains(" ")){
+                            extrastr = strword.get(h);
+
                         }else{
                             break;
                         }
@@ -1588,6 +1644,12 @@ public class AccountActivity extends AppCompatActivity
                 }
 
                 String str = strword.get(i);
+//                if(str2.equals("มาก")){
+//                    String strextra = strword.get(extrastr+1);
+//
+//                    str2 = "ๆ";
+//                }
+
 
                 String keepingword = "";
 
@@ -1650,7 +1712,10 @@ public class AccountActivity extends AppCompatActivity
                                     }
                                 }
                                 if(counttarget != 1){
-                                    str3 = str+"ๆ"+str2;
+                                    str3=str+"ๆ"+str2;
+//                                    if(extrastr.contains("ๆ")){
+//                                        str3=str+"ๆ"+str2+extrastr;
+//                                    }
 
                                 }else{
                                     str3 = str+"ๆ";
@@ -1697,7 +1762,10 @@ public class AccountActivity extends AppCompatActivity
                                     }
                                 }
                                 if((counttarget != 1)){
-                                    str3 = str+"ๆ"+str2;
+                                    str3=str+"ๆ"+str2;
+//                                    if(extrastr.contains("ๆ")){
+//                                        str3=str+"ๆ"+str2+extrastr;
+//                                    }
 
                                 }else{
                                     str3 = str+"ๆ";
@@ -1743,7 +1811,12 @@ public class AccountActivity extends AppCompatActivity
                                 }
 
                                 if(counttarget != 1){
-                                    str3 = str+"ๆ"+str2;
+                                   str3 = str+"ๆ"+str2;
+//                                    if(extrastr.contains("ๆ")){
+//                                        str3=str+"ๆ"+str2+extrastr;
+//                                    }
+
+
 
                                 }else {
                                     str3 = str+"ๆ";
@@ -1794,7 +1867,10 @@ public class AccountActivity extends AppCompatActivity
                                         }
                                     }
                                     if(counttarget != 1){
-                                        str3 = str2;
+                                        str3=str+"ๆ"+str2;
+//                                        if(extrastr.contains("ๆ")){
+//                                            str3=str+"ๆ"+str2+extrastr;
+//                                        }
 
                                     }else{
                                         str3 = "";
@@ -1839,7 +1915,10 @@ public class AccountActivity extends AppCompatActivity
                                         }
                                     }
                                     if((counttarget != 1)){
-                                        str3 = str2;
+                                        str3=str+"ๆ"+str2;
+//                                        if(extrastr.contains("ๆ")){
+//                                            str3=str+"ๆ"+str2+extrastr;
+//                                        }
 
                                     }else{
                                         str3 = "";
@@ -1883,7 +1962,11 @@ public class AccountActivity extends AppCompatActivity
                                     }
 
                                     if(counttarget != 1){
-                                        str3 = str2;
+                                        str3=str+"ๆ"+str2;
+//                                        if(extrastr.contains("ๆ")){
+//
+//                                            str3=str+"ๆ"+str2+extrastr;
+//                                        }
 
                                     }else {
                                         str3 = "";
@@ -1899,6 +1982,30 @@ public class AccountActivity extends AppCompatActivity
 
 
                 }
+
+
+                /////////+++++++++++++++++++++++
+
+                if(str2.contains("มาก")){
+                   if(extrastr.contains("ๆ")){
+                       str3 = str2+extrastr+"ๆ";
+                   }else{
+                       str3 = "ๆ";
+                   }
+
+
+
+                }
+
+                if(str2.contains("มากๆ")){
+                    if(extrastr.contains("ๆ")){
+                        str3 = str2+extrastr+"ๆ";
+                    }else{
+                        str3 = "ๆๆ";
+                    }
+                }
+
+                ////////++++++++++++++++++++++++
 
 
 
@@ -1957,9 +2064,48 @@ public class AccountActivity extends AppCompatActivity
                             }
                         }
 
+                        int countextra = 0;
+
+                        for(int a = 0;a<attitude.size();a++){
+                            String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+                            }
+
+
+                        }
+
+                        for(int a = 0;a<attitude2.size();a++){
+                            String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude2.get(a).get("AttitudeRank");
+                               countextra =  Integer.parseInt(rankextra);
+                            }
+                        }
+
+                        for(int a = 0;a<attitude3.size();a++){
+                            String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude3.get(a).get("AttitudeRank");
+                               countextra =  Integer.parseInt(rankextra);
+
+                            }
+                        }
+
                         if(str.equals("ไม่") && !str2.contains("ๆ")){
                             i++;
                         }
+
+                        if(str.equals("ไม่") && countextra == -1){
+                            count = count + 2;
+                            i++;
+                        }
+
+
+
+
+
 
 
 
@@ -2023,9 +2169,52 @@ public class AccountActivity extends AppCompatActivity
 
                             }
                         }
+
+
+
+                        int countextra = 0;
+
+                        for(int a = 0;a<attitude.size();a++){
+                            String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+
+                            }
+
+
+                        }
+
+                        for(int a = 0;a<attitude2.size();a++){
+                            String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude2.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+
+                            }
+                        }
+
+                        for(int a = 0;a<attitude3.size();a++){
+                            String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude3.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+
+
+                            }
+                        }
                         if(str.equals("ไม่") && !str2.contains("ๆ")){
                             i++;
                         }
+                        if(str.equals("ไม่") && countextra == -1){
+                            count = count + 2;
+                            i++;
+                        }
+                        if(str.equals("ไม่") && countextra == 1){
+                            count = count - 2;
+                            i++;
+                        }
+
 
 
 
@@ -2090,8 +2279,41 @@ public class AccountActivity extends AppCompatActivity
 
                             }
                         }
+                        int countextra = 0;
+
+                        for(int a = 0;a<attitude.size();a++){
+                            String checkwordbyregular = attitude.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+                            }
+
+
+                        }
+
+                        for(int a = 0;a<attitude2.size();a++){
+                            String checkwordbyregular = attitude2.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude2.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+                            }
+                        }
+
+                        for(int a = 0;a<attitude3.size();a++){
+                            String checkwordbyregular = attitude3.get(a).get("AttitudeWord");
+                            if(checkwordbyregular.equals(str2)){
+                                String rankextra = attitude3.get(a).get("AttitudeRank");
+                                countextra =  Integer.parseInt(rankextra);
+
+                            }
+                        }
 
                         if(str.equals("ไม่") && !str2.contains("ๆ")){
+                            i++;
+                        }
+
+                        if(str.equals("ไม่") && countextra == -1){
+                            count = count + 2;
                             i++;
                         }
 
@@ -4337,6 +4559,34 @@ public class AccountActivity extends AppCompatActivity
 
 
                                                         }
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
+
 
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
@@ -4679,6 +4929,33 @@ public class AccountActivity extends AppCompatActivity
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -5013,6 +5290,32 @@ public class AccountActivity extends AppCompatActivity
 
 
                                                         }
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
 
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
@@ -5344,6 +5647,33 @@ public class AccountActivity extends AppCompatActivity
 
                                                             strword.add(postMessage.substring(start, end));
 
+
+                                                        }
+
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
 
                                                         }
 
@@ -5681,6 +6011,32 @@ public class AccountActivity extends AppCompatActivity
 
 
                                                         }
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
 
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
@@ -6013,6 +6369,33 @@ public class AccountActivity extends AppCompatActivity
 
                                                             strword.add(postMessage.substring(start, end));
 
+
+                                                        }
+
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
 
                                                         }
 
@@ -6353,6 +6736,33 @@ public class AccountActivity extends AppCompatActivity
 
                                                         }
 
+                                                        BreakIterator boundary2 = BreakIterator.getWordInstance(thaiLocale);
+
+                                                        String connectStr = "";
+
+                                                        for(int l = 0;l<strword.size();l++){
+                                                            if(strword.get(l).equals("มาก")){
+                                                                connectStr = connectStr+"ๆ";
+                                                            }else{
+                                                                connectStr = connectStr+strword.get(l);
+                                                            }
+                                                        }
+
+                                                        boundary2.setText(connectStr);
+                                                        int start2 = boundary2.first();
+
+                                                        strword.clear();
+
+                                                        for (int end = boundary2.next(); end != BreakIterator.DONE; start2 = end, end = boundary2.next()) {
+
+
+                                                            strword.add(connectStr.substring(start2, end));
+
+
+                                                            //Toast.makeText(MainActivity.this,input.substring(start, end) + " ",Toast.LENGTH_SHORT).show();
+
+                                                        }
+
                                                         for (String s : listemo) {
                                                             for (int k = 0; k < emoshortcut.size(); k++) {
                                                                 if (s.equals(emoshortcut.get(k).get("EmoticonShortcut"))) {
@@ -6658,6 +7068,11 @@ public class AccountActivity extends AppCompatActivity
 
                                     //Toast.makeText(AccountActivity.this,String.valueOf(countgrapnege),Toast.LENGTH_SHORT).show();
                                     countneg = countgrapnege;
+
+                                    SharedPreferences sharedPref = getSharedPreferences("countnoti", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPref.edit();
+                                    editor.putInt("countnoti", countneg);
+                                    editor.commit();
 
 
 
@@ -9150,6 +9565,11 @@ public class AccountActivity extends AppCompatActivity
                                     }
 
                                   countneg = countgrapnege;
+
+                                    SharedPreferences sharedPref = getSharedPreferences("countnoti", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPref.edit();
+                                    editor.putInt("countnoti", countneg);
+                                    editor.commit();
 
 
 
